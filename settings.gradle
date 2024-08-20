@@ -1,1 +1,9 @@
+pluginManagement {
+	repositories {
+		maven { url = 'https://maven.parchmentmc.org' }
+		maven { url = "https://files.minecraftforge.net/maven" }
+		gradlePluginPortal()
+	}
+}
+
 rootProject.name = 'gendustry'

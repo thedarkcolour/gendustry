@@ -7,9 +7,15 @@
  * http://bdew.net/minecraft-mod-public-license/
  */
 
-package net.bdew.gendustry.api;
+package com.thedarkcolour.gendustry.blockentity;
 
-import net.minecraft.world.biome.Biome;
+import javax.annotation.Nullable;
+
+import net.minecraft.core.Holder;
+import net.minecraft.world.level.biome.Biome;
+
+import forestry.api.core.HumidityType;
+import forestry.api.core.TemperatureType;
 
 /**
  * Stores current modifiers from all upgrades in an apiary
@@ -75,7 +81,8 @@ public class ApiaryModifiers {
     /**
      * If set - overrides biome as seen by jubilance checks, etc.
      */
-    public Biome biomeOverride = null;
+    @Nullable
+    public Holder<Biome> biomeOverride = null;
 
     /**
      * Energy use modifier, multiplicative
@@ -83,12 +90,12 @@ public class ApiaryModifiers {
     public float energy = 1;
 
     /**
-     * Temperature modifier, additive, same units as {@link Biome#getTemperature()}
+     * Temperature type used for climate checks
      */
-    public float temperature = 0;
+    public TemperatureType temperature = TemperatureType.NORMAL;
 
     /**
-     * Humidity modifier, additive, same units as {@link Biome#getRainfall()}
+     * Humidity type used for climate checks
      */
-    public float humidity = 0;
+    public HumidityType humidity = HumidityType.NORMAL;
 }

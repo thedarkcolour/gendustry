@@ -1,232 +1,118 @@
-buildscript {
-    configurations.all {
-        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-    }
-    repositories {
-        mavenCentral()
-        mavenLocal()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-        maven {
-            name = "gradle plugins"
-            url = "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.9"
-    }
+plugins {
+	id 'net.minecraftforge.gradle' version '6.+'
+	id 'idea'
+	id "maven-publish"
+	id "org.parchmentmc.librarian.forgegradle" version "1.+"
 }
 
-apply plugin: 'scala'
-apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'com.matthewprenger.cursegradle'
+version = "1.0.0"
+group = "com.thedarkcolour.gendustry"
+base.archivesName = "gendustry-$minecraftVersion"
 
-file "build.properties" withReader {
-    def prop = new Properties()
-    prop.load(it)
-    ext.config = new ConfigSlurper().parse prop
-}
-
-if (project.hasProperty('forgeOverride')) {
-    config.forge.version = forgeOverride
-}
-
-if (project.hasProperty('buildnum')) {
-    ext.simpleVersion = "${config.gendustry.version}.${project.buildnum}"
-} else {
-    ext.simpleVersion = "${config.gendustry.version}-DEV"
-}
-
-version = simpleVersion + '-mc' + config.minecraft.version
-ext.myApiVersion = config.gendustry.api.version
-
-group = "net.bdew"
-archivesBaseName = "gendustry"
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    version = "${config.minecraft.version}-${config.forge.version}"
-    mappings = "${config.minecraft.mappings}"
-    makeObfSourceJar = false
-    replace("BDLIB_VER", config.bdlib.version)
-    replace("GENDUSTRY_VER", simpleVersion.toString())
-    replace("GENDUSTRY_APIVER", myApiVersion)
+	mappings channel: 'parchment', version: "$mappingsVersion-$minecraftVersion"
+
+	//copyIdeResources = true
+
+	runs {
+		configureEach {
+			workingDirectory project.file("run")
+
+			property "forge.logging.console.level", "debug"
+			property "fml.earlyprogresswindow", "false"
+
+			// See https://github.com/Vazkii/Patchouli#mixin-troubleshooting
+			property "mixin.env.remapRefMap", "true"
+			property "mixin.env.refMapRemappingFile", "$projectDir/build/createSrgToMcp/output.srg"
+
+			mods {
+				forestry {
+					source sourceSets.main
+				}
+			}
+		}
+
+		client {}
+
+		server {
+			workingDirectory project.file("run/server")
+		}
+
+		data {
+			args "--mod", "forestry", "--all", "--output", file("src/generated/resources/"), "--existing", file("src/main/resources/")
+		}
+	}
 }
 
 repositories {
-    mavenCentral()
-    mavenLocal()
-    maven {
-        name = "bdew"
-        url = "https://jenkins.bdew.net/maven"
-    }
-    maven {
-        name "JEI"
-        url "http://dvs1.progwml6.com/files/maven"
-    }
-    maven {
-        name = "ic2"
-        url = "http://maven.ic2.player.to/"
-    }
-    maven {
-        name "HWYLA"
-        url "http://tehnut.info/maven"
-    }
-    maven {
-        name = "tesla"
-        url = "http://maven.epoxide.xyz"
-    }
-    maven {
-        name = "CoFH Maven"
-        url = "http://maven.covers1624.net"
-    }
-    ivy {
-        name "BuildCraft"
-        artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision].[ext]"
-    }
+	maven {
+		name = "JEI"
+		url = "https://dvs1.progwml6.com/files/maven"
+		content { includeGroup "mezz.jei" }
+	}
+	maven {
+		name = "Patchouli"
+		url = "https://maven.blamejared.com/"
+	}
+	mavenLocal()
+	maven {
+		url "https://cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
 }
 
 dependencies {
-    compile "net.bdew:bdlib:${config.bdlib.version}-mc${config.minecraft.version}:dev"
-//    deobfCompile "com.mod-buildcraft:buildcraft:${config.buildcraft.version}"
-    compile "net.industrial-craft:industrialcraft-2:${config.ic2.version}:api"
-    compile "net.sengir.forestry:forestry_${config.minecraft.version}:${config.forestry.version}:api"
+	minecraft "net.minecraftforge:forge:$minecraftVersion-$forgeVersion"
 
-    deobfCompile "mezz.jei:jei_${config.minecraft.version}:${config.jei.version}"
-    deobfCompile "mcp.mobius.waila:Hwyla:${config.hwyla.version}"
+	compileOnly fg.deobf("mezz.jei:jei-$minecraftVersion-common-api:$jeiVersion")
+	compileOnly fg.deobf("mezz.jei:jei-$minecraftVersion-forge-api:$jeiVersion")
+	runtimeOnly fg.deobf("mezz.jei:jei-$minecraftVersion-forge:$jeiVersion")
 
-    deobfCompile "cofh:RedstoneFlux:${config.rfapi.version}:universal"
-    compile "net.darkhax.tesla:Tesla-${config.tesla.version}"
+	compileOnly fg.deobf("vazkii.patchouli:Patchouli:$patchouliVersion:api")
+	runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:$patchouliVersion")
+
+	compileOnly fg.deobf("com.thedarkcolour.forestry:forestry-$minecraftVersion:$forestryVersion:api") { transitive = false }
+	runtimeOnly fg.deobf("com.thedarkcolour.forestry:forestry-$minecraftVersion:$forestryVersion") { transitive = false }
+
+	runtimeOnly fg.deobf("curse.maven:spit-it-out-857141:4888738")
+	runtimeOnly fg.deobf("curse.maven:cyanide-541676:4126944")
 }
 
-
-import org.apache.tools.ant.filters.ReplaceTokens
-
-sourceSets {
-    main {
-        scala {
-            srcDir 'src'
-        }
-        resources {
-            srcDir 'resources'
-        }
-    }
-}
+def replaceProperties = [
+		"version": project.version,
+		"forgeVersionRange": forgeVersionRange,
+		"jeiVersionRange": jeiVersionRange,
+		"patchouliVersionRange": patchouliVersionRange,
+		"fmlVersionRange": fmlVersionRange,
+]
 
 processResources {
-    inputs.property "tokens", minecraft.replacements
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        filter(ReplaceTokens, tokens: minecraft.replacements)
-    }
+	inputs.properties replaceProperties
+	replaceProperties.put 'project', project
 
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+	filesMatching(['META-INF/mods.toml']) {
+		expand replaceProperties
+	}
 }
-
-task apiJar(type: Jar, dependsOn: 'classes') {
-    from(sourceSets.main.output) {
-        include 'net/bdew/gendustry/api/**'
-    }
-    
-    from(file('api-changelog.md'))
-
-    duplicatesStrategy "exclude"
-
-    extension = 'jar'
-    classifier = 'api'
-}
-
-task sourceJarReal(type: Jar) {
-    classifier "sources"
-}
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    exclude "**/*.psd"
-    classifier "dev"
-    duplicatesStrategy "exclude"
-}
-
 
 jar {
-    exclude "**/*.psd"
+	finalizedBy "reobfJar"
+
+	// Exclude old photoshop files
+	exclude "**/*.psd"
 }
 
-afterEvaluate { project ->
-    // Fudge the inputs of api/source jars so we get the version after replacements
-    tasks.getByPath(":sourceJarReal").from(tasks.getByPath(":sourceMainScala").outputs.files)
-    tasks.getByPath(":apiJar").from(tasks.getByPath(":sourceMainScala").outputs.files, {
-        include 'net/bdew/gendustry/api/**'
-    })
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
-artifacts {
-    archives sourceJar
-    archives deobfJar
-    archives apiJar
-}
-
-apply plugin: 'maven-publish'
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            artifact deobfJar
-            artifact sourceJarReal
-            artifact apiJar
-        }
-    }
-    repositories {
-        maven {
-            url "file://var/www/maven"
-        }
-    }
-}
-
-curseforge {
-    apiKey = project.hasProperty("curseForgeApiKey") ? project.curseForgeApiKey : ""
-    project {
-        id = config.curseforge.id
-
-        releaseType = "alpha"
-        changelog = project.hasProperty("changelog") ? project.changelog : "No changelog available"
-
-        addGameVersion config.minecraft.version
-        addGameVersion "1.12"
-        addGameVersion "1.12.1"
-
-        mainArtifact(jar) {
-            displayName = "Gendustry ${simpleVersion} (MC ${config.minecraft.version})"
-        }
-
-        addArtifact(deobfJar) {
-            displayName = "Gendustry ${simpleVersion} Deobfuscated (MC ${config.minecraft.version})"
-        }
-
-        addArtifact(sourceJarReal) {
-            displayName = "Gendustry ${simpleVersion} Source (MC ${config.minecraft.version})"
-        }
-
-        addArtifact(apiJar) {
-            displayName = "Gendustry ${simpleVersion} API (MC ${config.minecraft.version})"
-        }
-
-        relations {
-            requiredLibrary 'bdlib'
-            requiredLibrary 'forestry'
-            optionalLibrary 'waila'
-            optionalLibrary 'buildcraft'
-            optionalLibrary 'cofhcore'
-            optionalLibrary 'jei'
-            optionalLibrary 'tesla'
-        }
-    }
+idea {
+	module {
+		downloadSources = true
+		downloadJavadoc = true
+	}
 }
