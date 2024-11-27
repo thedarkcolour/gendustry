@@ -1,18 +1,18 @@
 package com.thedarkcolour.gendustry.registry;
 
-import net.minecraft.core.Registry;
-import net.minecraft.world.level.block.Block;
+import com.thedarkcolour.gendustry.Gendustry;
+import com.thedarkcolour.gendustry.block.IndustrialApiaryBlock;
+import forestry.modules.features.FeatureBlock;
+import forestry.modules.features.FeatureProvider;
+import forestry.modules.features.IFeatureRegistry;
+import forestry.modules.features.ModFeatureRegistry;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
-
-import com.thedarkcolour.gendustry.Gendustry;
-import com.thedarkcolour.gendustry.block.IndustrialApiaryBlock;
-
+@FeatureProvider
 public class GBlocks {
-	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(Registry.BLOCK_REGISTRY, Gendustry.ID);
+    private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(Gendustry.MODULE_ID);
 
-	public static final RegistryObject<Block> INDUSTRIAL_APIARY = REGISTRY.register("industrial_apiary", () -> new IndustrialApiaryBlock(BlockBehaviour.Properties.of(Material.METAL).strength(3.0f)));
+    public static final FeatureBlock<IndustrialApiaryBlock, ?> INDUSTRIAL_APIARY = REGISTRY.block(() -> new IndustrialApiaryBlock(BlockBehaviour.Properties.of(Material.METAL).strength(3.0f)), "industrial_apiary");
+    public static final FeatureBlock<MutagenProducer, ?> MUTAGEN_PRODUCER = REGISTRY.block(MutagenProducerBlock::new, "mutagen_producer");
 }
