@@ -1,16 +1,16 @@
 package com.thedarkcolour.gendustry.registry;
 
-import net.minecraft.core.Registry;
-import net.minecraft.world.item.BlockItem;
+import com.thedarkcolour.gendustry.Gendustry;
+import com.thedarkcolour.gendustry.item.PollenKitItem;
+import forestry.modules.features.FeatureItem;
+import forestry.modules.features.IFeatureRegistry;
+import forestry.modules.features.ModFeatureRegistry;
 import net.minecraft.world.item.Item;
 
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
-
-import com.thedarkcolour.gendustry.Gendustry;
-
 public class GItems {
-	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(Registry.ITEM_REGISTRY, Gendustry.ID);
+    private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(Gendustry.MODULE_ID);
 
-	public static final RegistryObject<Item> INDUSTRIAL_APIARY = REGISTRY.register("industrial_apiary", () -> new BlockItem(GBlocks.INDUSTRIAL_APIARY.get(), new Item.Properties()));
+    public static final FeatureItem<Item> POLLEN_KIT = REGISTRY.item(PollenKitItem::new, "pollen_kit");
+    //public static final FeatureItem<Item> INDUSTRIAL_SCOOP = REGISTRY.item(() -> new IndustrialScoopItem(), "industrial_scoop");
+    //public static final FeatureItem<Item> INDUSTRIAL_GRAFTER = REGISTRY.item(() -> new IndustrialGrafterItem(), "industrial_grafter");
 }

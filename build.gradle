@@ -56,11 +56,22 @@ repositories {
 		name = "Patchouli"
 		url = "https://maven.blamejared.com/"
 	}
-	mavenLocal()
 	maven {
 		url "https://cursemaven.com"
 		content {
 			includeGroup "curse.maven"
+		}
+	}
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+		filter {
+			includeGroup "maven.modrinth"
 		}
 	}
 }
@@ -75,19 +86,23 @@ dependencies {
 	compileOnly fg.deobf("vazkii.patchouli:Patchouli:$patchouliVersion:api")
 	runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:$patchouliVersion")
 
-	compileOnly fg.deobf("com.thedarkcolour.forestry:forestry-$minecraftVersion:$forestryVersion:api") { transitive = false }
-	runtimeOnly fg.deobf("com.thedarkcolour.forestry:forestry-$minecraftVersion:$forestryVersion") { transitive = false }
+    implementation 'thedarkcolour:kotlinforforge:4.10.0'
+
+	//compileOnly ("maven.modrinth:forestry-community-edition:1.0.10:api")
+	implementation fg.deobf("maven.modrinth:forestry-community-edition:1.0.10")
+	//compileOnly fg.deobf("com.thedarkcolour.forestry:forestry-$minecraftVersion:$forestryVersion:api") { transitive = false }
+	//runtimeOnly fg.deobf("com.thedarkcolour.forestry:forestry-$minecraftVersion:$forestryVersion") { transitive = false }
 
 	runtimeOnly fg.deobf("curse.maven:spit-it-out-857141:4888738")
 	runtimeOnly fg.deobf("curse.maven:cyanide-541676:4126944")
 }
 
 def replaceProperties = [
-		"version": project.version,
-		"forgeVersionRange": forgeVersionRange,
-		"jeiVersionRange": jeiVersionRange,
+		"version"              : project.version,
+		"forgeVersionRange"    : forgeVersionRange,
+		"jeiVersionRange"      : jeiVersionRange,
 		"patchouliVersionRange": patchouliVersionRange,
-		"fmlVersionRange": fmlVersionRange,
+		"fmlVersionRange"      : fmlVersionRange,
 ]
 
 processResources {
