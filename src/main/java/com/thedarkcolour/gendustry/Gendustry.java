@@ -23,11 +23,4 @@ public class Gendustry implements IForestryModule {
 	public ResourceLocation getId() {
 		return MODULE_ID;
 	}
-
-	@Override
-	public void registerEvents(IEventBus modBus) {
-		GBlockEntities.REGISTRY.register(modBus);
-		GBlocks.REGISTRY.register(modBus);
-		GItems.REGISTRY.register(modBus);
-	}
 }
