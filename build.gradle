@@ -3,6 +3,7 @@ plugins {
 	id 'idea'
 	id "maven-publish"
 	id "org.parchmentmc.librarian.forgegradle" version "1.+"
+	id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.9"
 }
 
 version = "1.0.0"
@@ -13,8 +14,6 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
 	mappings channel: 'parchment', version: "$mappingsVersion-$minecraftVersion"
-
-	//copyIdeResources = true
 
 	runs {
 		configureEach {
@@ -92,20 +91,26 @@ dependencies {
 	runtimeOnly fg.deobf("curse.maven:cyanide-541676:4126944")
 }
 
-def replaceProperties = [
-		"version"              : project.version,
-		"forgeVersionRange"    : forgeVersionRange,
-		"jeiVersionRange"      : jeiVersionRange,
-		"patchouliVersionRange": patchouliVersionRange,
-		"fmlVersionRange"      : fmlVersionRange,
-]
-
-processResources {
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
+	var replaceProperties = [
+			"version"              : project.version,
+			"forgeVersionRange"    : forgeVersionRange,
+			"jeiVersionRange"      : jeiVersionRange,
+			"patchouliVersionRange": patchouliVersionRange,
+			"fmlVersionRange"      : fmlVersionRange,
+			"forestryVersionRange" : forestryVersionRange,
+	]
 	inputs.properties replaceProperties
-	replaceProperties.put 'project', project
+	expand replaceProperties
 
-	filesMatching(['META-INF/mods.toml']) {
-		expand replaceProperties
+	from "src/main/templates"
+	into "build/generated/sources/modMetadata"
+}
+sourceSets.main.resources.srcDir generateModMetadata
+
+idea.project.settings {
+	taskTriggers {
+		afterSync generateModMetadata
 	}
 }
 

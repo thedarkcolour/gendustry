@@ -1,26 +1,33 @@
 package com.thedarkcolour.gendustry.blockentity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+
+import com.mojang.authlib.GameProfile;
 
 import net.minecraftforge.items.ItemStackHandler;
 
 import forestry.api.IForestryApi;
+import forestry.api.apiculture.IBeeHousing;
 import forestry.api.apiculture.IBeeHousingInventory;
 import forestry.api.apiculture.IBeeListener;
 import forestry.api.apiculture.IBeeModifier;
 import forestry.api.apiculture.IBeekeepingLogic;
-import forestry.api.apiculture.genetics.IBeeSpeciesType;
+import forestry.api.core.HumidityType;
 import forestry.api.core.IErrorLogic;
-import forestry.api.genetics.ForestrySpeciesTypes;
+import forestry.api.core.TemperatureType;
 import forestry.api.util.TickHelper;
 
 import com.thedarkcolour.gendustry.registry.GBlockEntities;
+import org.jetbrains.annotations.Nullable;
 
-public class IndustrialApiaryBlockEntity extends BlockEntity implements IBeeModifier, IBeeListener, IBeeHousingInventory {
+public class IndustrialApiaryBlockEntity extends BlockEntity implements IBeeModifier, IBeeListener, IBeeHousingInventory, IBeeHousing {
 	public static final int QUEEN = 0;
 	public static final int DRONE = 1;
 	public static final int UPGRADE_SLOT_START = 2;
@@ -78,5 +85,82 @@ public class IndustrialApiaryBlockEntity extends BlockEntity implements IBeeModi
 	@Override
 	public boolean addProduct(ItemStack product, boolean all) {
 		return false;
+	}
+
+	@Override
+	public Iterable<IBeeModifier> getBeeModifiers() {
+		return null;
+	}
+
+	@Override
+	public Iterable<IBeeListener> getBeeListeners() {
+		return null;
+	}
+
+	@Override
+	public IBeeHousingInventory getBeeInventory() {
+		return null;
+	}
+
+	@Override
+	public IBeekeepingLogic getBeekeepingLogic() {
+		return null;
+	}
+
+	@Override
+	public int getBlockLightValue() {
+		return 0;
+	}
+
+	@Override
+	public boolean canBlockSeeTheSky() {
+		return false;
+	}
+
+	@Override
+	public boolean isRaining() {
+		return false;
+	}
+
+	@Nullable
+	@Override
+	public GameProfile getOwner() {
+		return null;
+	}
+
+	@Override
+	public Vec3 getBeeFXCoordinates() {
+		return null;
+	}
+
+	@Override
+	public Holder<Biome> getBiome() {
+		return null;
+	}
+
+	@Override
+	public TemperatureType temperature() {
+		return null;
+	}
+
+	@Override
+	public HumidityType humidity() {
+		return null;
+	}
+
+	@Override
+	public IErrorLogic getErrorLogic() {
+		return null;
+	}
+
+	@Override
+	public BlockPos getCoordinates() {
+		return null;
+	}
+
+	@Nullable
+	@Override
+	public Level getWorldObj() {
+		return null;
 	}
 }
