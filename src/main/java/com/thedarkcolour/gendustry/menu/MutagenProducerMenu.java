@@ -23,10 +23,10 @@ public class MutagenProducerMenu extends ContainerLiquidTanks<MutagenProducerBlo
 		super(windowId, GMenus.MUTAGEN_PRODUCER.menuType(), playerInv, tile, 8, 84);
 
 		// Input slot
-		addSlot(new SlotFiltered(this.tile, MutagenProducerInventory.SLOT_INPUT, 17, 21));
+		addSlot(new SlotFiltered(this.tile, MutagenProducerInventory.SLOT_INPUT, 14, 41));
 		// Can slot
-		addSlot(new SlotLiquidIn(this.tile, MutagenProducerInventory.SLOT_CAN_INPUT, 147, 24));
+		addSlot(new SlotLiquidIn(this.tile, MutagenProducerInventory.SLOT_CAN_INPUT, 147, 25));
 		// Output slot
-		addSlot(new SlotOutput(this.tile, MutagenProducerInventory.SLOT_CAN_OUTPUT, 147, 60));
+		addSlot(new SlotOutput(this.tile, MutagenProducerInventory.SLOT_CAN_OUTPUT, 147, 61));
 	}
 }

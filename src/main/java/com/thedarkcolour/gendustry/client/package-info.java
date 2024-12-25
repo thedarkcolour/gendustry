@@ -1,0 +1,4 @@
+@net.minecraft.MethodsReturnNonnullByDefault
+@net.minecraft.FieldsAreNonnullByDefault
+@javax.annotation.ParametersAreNonnullByDefault
+package com.thedarkcolour.gendustry.client;

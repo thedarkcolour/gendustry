@@ -24,18 +24,20 @@ public class MutagenProducerScreen extends GuiForestryTitled<MutagenProducerMenu
 		super(Gendustry.loc(Constants.TEXTURE_PATH_GUI + "/mutagen_producer.png"), menu, playerInv, title);
 
 		this.tile = menu.getTile();
-		this.widgetManager.add(new TankWidget(this.widgetManager, 80, 14, 0));
+		this.widgetManager.add(new TankWidget(this.widgetManager, 122, 19, 0));
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics graphics, float partialTicks, int mouseX, int mouseY) {
-		super.renderBg(graphics, partialTicks, mouseX, mouseY);
+	protected void drawWidgets(GuiGraphics graphics) {
+		super.drawWidgets(graphics);
+		int progress = this.tile.getProgressScaled(55);
+		graphics.blit(this.textureFile, 48, 40, 176, 60, progress, 18);
 	}
 
 	@Override
 	protected void addLedgers() {
-		addErrorLedger(tile);
-		addPowerLedger(tile.getEnergyManager());
+		addErrorLedger(this.tile);
+		addPowerLedger(this.tile.getEnergyManager());
 		addHintLedger(HINTS_KEY);
 	}
 
