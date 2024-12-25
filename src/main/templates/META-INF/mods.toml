@@ -2,13 +2,13 @@ modLoader="javafml"
 loaderVersion="${fmlVersionRange}"
 issueTrackerURL="https://github.com/thedarkcolour/Gendustry/issues"
 
-license="Minecraft Mod Public License 1.0.1"
+license="GNU GPLv3"
 
 [[mods]]
 	modId="gendustry"
 	version="${version}"
 	displayName="Gendustry"
-	credits="bdew for original mod"
+	credits="bdew for original mod and ideas"
 	authors="thedarkcolour"
 	description='''
 	Machines for manipulation of Forestry genetics.
