@@ -1,0 +1,13 @@
+{
+  "block.gendustry.fluid_mutagen": "Fluid Mutagen",
+  "block.gendustry.industrial_apiary": "Industrial Apiary",
+  "block.gendustry.mutagen_producer": "Mutagen Producer",
+  "fluid_type.gendustry.mutagen": "Mutagen",
+  "for.hints.mutagen_ingredients.desc": "Mutagen can be made from redstone, glowstone, and even uranium!",
+  "for.hints.mutagen_ingredients.tag": "What makes mutagen?",
+  "for.hints.mutagen_usage.desc": "Produce mutagen to use in other Gendustry machines.",
+  "for.hints.mutagen_usage.tag": "What's mutagen for?",
+  "item.gendustry.blank_gene_sample": "Blank Gene Sample",
+  "item.gendustry.gene_sample": "Gene Sample",
+  "item.gendustry.pollen_kit": "Pollen Kit"
+}

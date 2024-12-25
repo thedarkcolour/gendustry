@@ -2,19 +2,20 @@ package com.thedarkcolour.gendustry.registry;
 
 import java.util.Set;
 
-import com.thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
-import net.minecraft.core.Registry;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import forestry.modules.features.FeatureProvider;
+import forestry.modules.features.FeatureTileType;
+import forestry.modules.features.IFeatureRegistry;
+import forestry.modules.features.ModFeatureRegistry;
 
 import com.thedarkcolour.gendustry.Gendustry;
+import com.thedarkcolour.gendustry.block.GendustryMachineType;
 import com.thedarkcolour.gendustry.blockentity.IndustrialApiaryBlockEntity;
+import com.thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
 
+@FeatureProvider
 public class GBlockEntities {
-	public static final DeferredRegister<BlockEntityType<?>> REGISTRY = DeferredRegister.create(Registry.BLOCK_ENTITY_TYPE_REGISTRY, Gendustry.ID);
+	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(Gendustry.MODULE_ID);
 
-	public static final RegistryObject<BlockEntityType<IndustrialApiaryBlockEntity>> INDUSTRIAL_APIARY = REGISTRY.register("industrial_apiary", () -> new BlockEntityType<>(IndustrialApiaryBlockEntity::new, Set.of(GBlocks.INDUSTRIAL_APIARY.block()), null));
-    public static final RegistryObject<BlockEntityType<MutagenProducerBlockEntity>> MUTAGEN_PRODUCER = REGISTRY.register("mutagen_producer", () -> new BlockEntityType<>(MutagenProducerBlockEntity::new, Set.of(GBlocks.MUTAGEN_PRODUCER.block()), null));
+	public static final FeatureTileType<IndustrialApiaryBlockEntity> INDUSTRIAL_APIARY = REGISTRY.tile(IndustrialApiaryBlockEntity::new, "industrial_apiary", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.INDUSTRIAL_APIARY).block()));
+	public static final FeatureTileType<MutagenProducerBlockEntity> MUTAGEN_PRODUCER = REGISTRY.tile(MutagenProducerBlockEntity::new, "mutagen_producer", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.MUTAGEN_PRODUCER).block()));
 }

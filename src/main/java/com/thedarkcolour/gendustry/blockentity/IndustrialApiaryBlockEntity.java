@@ -2,10 +2,12 @@ package com.thedarkcolour.gendustry.blockentity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
@@ -23,11 +25,12 @@ import forestry.api.core.HumidityType;
 import forestry.api.core.IErrorLogic;
 import forestry.api.core.TemperatureType;
 import forestry.api.util.TickHelper;
+import forestry.core.tiles.TileForestry;
 
 import com.thedarkcolour.gendustry.registry.GBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
-public class IndustrialApiaryBlockEntity extends BlockEntity implements IBeeModifier, IBeeListener, IBeeHousingInventory, IBeeHousing {
+public class IndustrialApiaryBlockEntity extends TileForestry implements IBeeModifier, IBeeListener, IBeeHousingInventory, IBeeHousing {
 	public static final int QUEEN = 0;
 	public static final int DRONE = 1;
 	public static final int UPGRADE_SLOT_START = 2;
@@ -40,10 +43,10 @@ public class IndustrialApiaryBlockEntity extends BlockEntity implements IBeeModi
 	private final TickHelper tickHelper;
 	private final ItemStackHandler storage = new ItemStackHandler(15);
 
-	private ApiaryModifiers modifiers = new ApiaryModifiers();
+	private final ApiaryModifiers modifiers = new ApiaryModifiers();
 
 	public IndustrialApiaryBlockEntity(BlockPos pos, BlockState state) {
-		super(GBlockEntities.INDUSTRIAL_APIARY.get(), pos, state);
+		super(GBlockEntities.INDUSTRIAL_APIARY.tileType(), pos, state);
 
 		this.tickHelper = new TickHelper(pos.hashCode());
 	}
@@ -148,19 +151,9 @@ public class IndustrialApiaryBlockEntity extends BlockEntity implements IBeeModi
 		return null;
 	}
 
-	@Override
-	public IErrorLogic getErrorLogic() {
-		return null;
-	}
-
-	@Override
-	public BlockPos getCoordinates() {
-		return null;
-	}
-
 	@Nullable
 	@Override
-	public Level getWorldObj() {
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
 		return null;
 	}
 }

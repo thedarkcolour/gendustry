@@ -5,10 +5,12 @@ import com.thedarkcolour.gendustry.item.GeneSampleItem;
 import com.thedarkcolour.gendustry.item.PollenKitItem;
 import forestry.core.items.ItemForestry;
 import forestry.modules.features.FeatureItem;
+import forestry.modules.features.FeatureProvider;
 import forestry.modules.features.IFeatureRegistry;
 import forestry.modules.features.ModFeatureRegistry;
 import net.minecraft.world.item.Item;
 
+@FeatureProvider
 public class GItems {
     private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(Gendustry.MODULE_ID);
 

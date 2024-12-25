@@ -1,0 +1,7 @@
+{
+  "type": "gendustry:mutagen",
+  "amount": 800,
+  "ingredient": {
+    "item": "minecraft:glowstone"
+  }
+}
