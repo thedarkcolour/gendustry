@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "gendustry:block/mutagen_producer_bottom",
+    "side": "gendustry:block/mutagen_producer_side",
+    "top": "gendustry:block/mutagen_producer_top"
+  }
+}

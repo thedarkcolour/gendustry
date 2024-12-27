@@ -16,5 +16,7 @@ public class Data {
 
 		helper.createEnglish(true, English::addTranslations);
 		helper.createRecipes(Recipes::addRecipes);
+		helper.createBlockModels(BlockModels::addBlockModels);
+		helper.createItemModels(true, true, false, null);
 	}
 }

@@ -6,6 +6,6 @@ import com.thedarkcolour.gendustry.registry.GItems;
 
 public class GeneSampleItem extends Item {
 	public GeneSampleItem() {
-		super(new Item.Properties().stacksTo(1).craftRemainder(GItems.BLANK_GENE_SAMPLE.item()));
+		super(new Item.Properties().stacksTo(1).craftRemainder(GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE)));
 	}
 }

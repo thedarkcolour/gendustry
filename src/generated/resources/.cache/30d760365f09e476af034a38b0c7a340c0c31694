@@ -1,0 +1,19 @@
+// 1.20.1	2024-12-26T13:08:40.5453563	ModKit Item Models for mod 'gendustry'
+81fadb1b3458c8256823a3c6a015d47d702b0a48 assets/gendustry/models/item/blank_gene_sample.json
+45d4d54ee94a13976eb128782de8611d958bf791 assets/gendustry/models/item/bucket_liquid_dna.json
+01ae261d5edf90db1f21eed3cf5fbfd6d9362899 assets/gendustry/models/item/bucket_mutagen.json
+1c6d7595c18db975688fccbc173716685c27d30e assets/gendustry/models/item/bucket_protein.json
+d51684e185463d02b89bedae439a0b26ddd8e9a9 assets/gendustry/models/item/climate_control_module.json
+a003a13a38d68118a7c67c9bc60e96583f2c7f29 assets/gendustry/models/item/dna_extractor.json
+53f28033ac2f62f9473b1e6f4ded5eba212a0e57 assets/gendustry/models/item/environmental_processor.json
+e315bb3bf4734999d6d641afdd2a145ec10d7bc8 assets/gendustry/models/item/genetics_processor.json
+4e9a58d0ce5113743cc45836c08f5532801a79e0 assets/gendustry/models/item/genetic_template.json
+b3d7e29d9d5093ad98e1fcd96d0648cd52b8e0a8 assets/gendustry/models/item/genetic_waste.json
+695e8fcff245fd61ff95e159a2847d8aadb41dca assets/gendustry/models/item/gene_sample.json
+a970bce06e5467d37050f6181e64487b46c445cd assets/gendustry/models/item/industrial_apiary.json
+28d2f565884fe409294a4fa05cb9ad76d7535865 assets/gendustry/models/item/labware.json
+9e423ec6499f40c9ed8a29d4f720bf8837410350 assets/gendustry/models/item/mutagen_producer.json
+1e7b34287e4a66fa5c7b74d4f4098b200b1d6f79 assets/gendustry/models/item/pollen_kit.json
+88ec666a218667dc0152a01d8cc393e110930f36 assets/gendustry/models/item/power_module.json
+ad902950641ec76c7135b4881e64ce76827008e2 assets/gendustry/models/item/protein_liquefier.json
+74e3be8512282ee8dbd0cac541f2e86caf03b1ee assets/gendustry/models/item/upgrade_frame.json

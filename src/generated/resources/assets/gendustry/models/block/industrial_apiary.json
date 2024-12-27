@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "gendustry:block/industrial_apiary_bottom",
+    "side": "gendustry:block/industrial_apiary_side",
+    "top": "gendustry:block/industrial_apiary_top"
+  }
+}

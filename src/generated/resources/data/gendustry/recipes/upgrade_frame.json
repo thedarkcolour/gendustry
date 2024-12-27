@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:nuggets/gold"
+    },
+    "I": {
+      "tag": "forge:ingots/tin"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "R R",
+    "IGI"
+  ],
+  "result": {
+    "count": 16,
+    "item": "gendustry:upgrade_frame"
+  },
+  "show_notification": true
+}

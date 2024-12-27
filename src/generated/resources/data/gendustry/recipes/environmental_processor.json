@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "forge:gems/diamond"
+    },
+    "P": {
+      "tag": "forge:ingots/gold"
+    },
+    "Q": {
+      "tag": "forge:gems/lapis"
+    }
+  },
+  "pattern": [
+    "DQD",
+    "QPQ",
+    "DQD"
+  ],
+  "result": {
+    "item": "gendustry:environmental_processor"
+  },
+  "show_notification": true
+}

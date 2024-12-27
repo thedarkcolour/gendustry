@@ -11,7 +11,9 @@ import forestry.api.modules.ForestryModule;
 import forestry.api.modules.IForestryModule;
 
 import com.thedarkcolour.gendustry.client.ClientHandler;
+import com.thedarkcolour.gendustry.recipe.cache.DnaRecipeCache;
 import com.thedarkcolour.gendustry.recipe.cache.MutagenRecipeCache;
+import com.thedarkcolour.gendustry.recipe.cache.ProteinRecipeCache;
 import com.thedarkcolour.gendustry.recipe.cache.RecipeCacheRegistry;
 
 @Mod(Gendustry.ID)
@@ -22,7 +24,11 @@ public class Gendustry implements IForestryModule {
 
 	public Gendustry() {
 		// Recipe caching
-		new RecipeCacheRegistry(registrar -> registrar.accept(MutagenRecipeCache.INSTANCE));
+		new RecipeCacheRegistry(registrar -> {
+			registrar.accept(MutagenRecipeCache.INSTANCE);
+			registrar.accept(DnaRecipeCache.INSTANCE);
+			registrar.accept(ProteinRecipeCache.INSTANCE);
+		});
 	}
 
 	@Override

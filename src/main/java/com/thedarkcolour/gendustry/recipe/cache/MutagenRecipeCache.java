@@ -20,9 +20,9 @@ public enum MutagenRecipeCache implements IRecipeCache {
 	INSTANCE;
 
 	// Does not depend on NBT
-	private IdentityHashMap<Item, MutagenRecipe> simple;
+	private IdentityHashMap<Item, MutagenRecipe> simple = new IdentityHashMap<>();
 	// Depends on NBT
-	private List<MutagenRecipe> complex;
+	private List<MutagenRecipe> complex = List.of();
 
 	@Nullable
 	public MutagenRecipe getRecipe(ItemStack stack) {

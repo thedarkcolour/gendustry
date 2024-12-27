@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "gendustry:block/protein_liquefier_bottom",
+    "side": "gendustry:block/protein_liquefier_side",
+    "top": "gendustry:block/protein_liquefier_top"
+  }
+}

@@ -2,7 +2,6 @@ package com.thedarkcolour.gendustry.recipe;
 
 import com.google.gson.JsonObject;
 
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -11,38 +10,24 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
-import forestry.api.recipes.IForestryRecipe;
-
 import com.thedarkcolour.gendustry.registry.GRecipeTypes;
 import org.jetbrains.annotations.Nullable;
 
-public class MutagenRecipe implements IForestryRecipe {
-	private final ResourceLocation id;
+public class MutagenRecipe extends ProcessorRecipe {
 	private final Ingredient ingredient;
-	private final int amount;
 
 	public MutagenRecipe(ResourceLocation id, Ingredient ingredient, int amount) {
-		this.id = id;
+		super(id, amount);
 		this.ingredient = ingredient;
-		this.amount = amount;
 	}
 
 	public Ingredient getIngredient() {
 		return this.ingredient;
 	}
 
-	public int getAmount() {
-		return this.amount;
-	}
-
 	@Override
-	public ItemStack getResultItem(RegistryAccess registryAccess) {
-		return ItemStack.EMPTY;
-	}
-
-	@Override
-	public ResourceLocation getId() {
-		return this.id;
+	public boolean isIngredient(ItemStack stack) {
+		return this.ingredient.test(stack);
 	}
 
 	@Override

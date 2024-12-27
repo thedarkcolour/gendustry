@@ -1,0 +1,7 @@
+{
+  "type": "gendustry:protein",
+  "amount": 500,
+  "ingredient": {
+    "item": "minecraft:porkchop"
+  }
+}

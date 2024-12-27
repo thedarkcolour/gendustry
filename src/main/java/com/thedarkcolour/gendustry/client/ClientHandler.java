@@ -8,7 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import forestry.api.client.IClientModuleHandler;
 
-import com.thedarkcolour.gendustry.client.screen.MutagenProducerScreen;
+import com.thedarkcolour.gendustry.client.screen.ProcessorScreen;
 import com.thedarkcolour.gendustry.registry.GMenus;
 
 public class ClientHandler implements IClientModuleHandler {
@@ -19,7 +19,7 @@ public class ClientHandler implements IClientModuleHandler {
 
 	private static void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			MenuScreens.register(GMenus.MUTAGEN_PRODUCER.menuType(), MutagenProducerScreen::new);
+			MenuScreens.register(GMenus.PROCESSOR.menuType(), ProcessorScreen::new);
 		});
 	}
 }

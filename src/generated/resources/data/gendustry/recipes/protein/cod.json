@@ -1,0 +1,7 @@
+{
+  "type": "gendustry:protein",
+  "amount": 250,
+  "ingredient": {
+    "item": "minecraft:cod"
+  }
+}
