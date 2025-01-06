@@ -1,5 +1,6 @@
 package thedarkcolour.gendustry.blockentity;
 
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 
 import net.minecraftforge.fluids.FluidStack;
@@ -33,6 +34,11 @@ public class ProcessorInventory<T extends ProcessorBlockEntity<T, ?>> extends In
 			case SLOT_CAN_INPUT -> FluidHelper.isFillableEmptyContainer(stack);
 			default -> false;
 		};
+	}
+
+	@Override
+	public boolean canTakeItemThroughFace(int slotIndex, ItemStack stack, Direction side) {
+		return slotIndex == SLOT_CAN_OUTPUT;
 	}
 
 	public void fillContainers(FluidStack fluidStack, TankManager tankManager) {

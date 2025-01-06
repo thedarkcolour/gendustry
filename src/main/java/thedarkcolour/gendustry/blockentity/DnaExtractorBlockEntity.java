@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class DnaExtractorBlockEntity extends ProcessorBlockEntity<DnaExtractorBlockEntity, DnaRecipe> {
 	private static final int ENERGY_PER_WORK_CYCLE = 80000;
-	private static final int TICKS_PER_WORK_CYCLE = 200;
+	private static final int TICKS_PER_WORK_CYCLE = 50;
 
 	public static final String HINTS_KEY = "gendustry.dna_extractor";
 
@@ -32,10 +32,6 @@ public class DnaExtractorBlockEntity extends ProcessorBlockEntity<DnaExtractorBl
 	@Nullable
 	@Override
 	public DnaRecipe getRecipe(ItemStack input) {
-		// For some reason empty stacks don't invalidate their capabilities. Thanks Forge
-		if (input.isEmpty()) {
-			return null;
-		}
 		IIndividualHandlerItem handler = IIndividualHandlerItem.get(input);
 		return handler == null ? null : DnaRecipeCache.INSTANCE.getRecipe(handler.getStage());
 	}

@@ -8,4 +8,7 @@ public class TranslationKeys {
 	public static final String HINT_DNA_INGREDIENTS = "dna_ingredients";
 	public static final String HINT_PROTEIN_USAGE = "protein_usage";
 	public static final String HINT_PROTEIN_INGREDIENTS = "protein_ingredients";
+	public static final String HINT_SAMPLE_USAGE = "sample_usage";
+	public static final String HINT_SAMPLE_REUSE = "sample_reuse";
+	public static final String HINT_SAMPLE_SELECTION = "sample_selection";
 }

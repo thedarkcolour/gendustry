@@ -13,10 +13,9 @@ import thedarkcolour.modkit.data.MKBlockModelProvider;
 
 class BlockModels {
 	static void addBlockModels(MKBlockModelProvider models) {
-		machine(models, GBlocks.MACHINE.get(GendustryMachineType.MUTAGEN_PRODUCER));
-		machine(models, GBlocks.MACHINE.get(GendustryMachineType.DNA_EXTRACTOR));
-		machine(models, GBlocks.MACHINE.get(GendustryMachineType.PROTEIN_LIQUEFIER));
-		machine(models, GBlocks.MACHINE.get(GendustryMachineType.INDUSTRIAL_APIARY));
+		for (GendustryMachineType type : GendustryMachineType.values()) {
+			machine(models, GBlocks.MACHINE.get(type));
+		}
 	}
 
 	private static void machine(MKBlockModelProvider models, FeatureBlock<?, ?> block) {

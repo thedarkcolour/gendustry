@@ -1,5 +1,6 @@
 package thedarkcolour.gendustry.data;
 
+
 import java.util.function.Consumer;
 
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -113,13 +114,19 @@ class Recipes {
 			recipe.pattern("IRI");
 			recipe.pattern(" I ");
 		});
-		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.GENETIC_TEMPLATE), recipe -> {
+		recipes.shapedCrafting(RecipeCategory.MISC, GItems.GENETIC_TEMPLATE, recipe -> {
 			recipe.define('I', ForestryTags.Items.INGOTS_TIN);
 			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
 			recipe.define('D', Tags.Items.GEMS_DIAMOND);
 			recipe.pattern("RIR");
 			recipe.pattern("IDI");
 			recipe.pattern("RIR");
+		});
+
+		// Furnace recipes
+		recipes.renameRecipes(oldId -> oldId.withSuffix("_wipe_dna"), finishedRecipe -> {
+			recipes.smelting(GItems.GENE_SAMPLE, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE), 0f);
+			recipes.smelting(GItems.GENETIC_TEMPLATE, GItems.GENETIC_TEMPLATE, 0f);
 		});
 	}
 

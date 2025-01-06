@@ -7,8 +7,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
-public class GeneTemplateItem extends Item {
-    public GeneTemplateItem() {
+public class GeneticTemplateItem extends Item {
+    public GeneticTemplateItem() {
         super(new Properties().stacksTo(1));
     }
 

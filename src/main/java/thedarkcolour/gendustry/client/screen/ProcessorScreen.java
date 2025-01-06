@@ -22,15 +22,10 @@ public class ProcessorScreen extends GuiForestryTitled<ProcessorMenu> {
 	private final ProcessorBlockEntity<?, ?> tile;
 
 	public ProcessorScreen(ProcessorMenu menu, Inventory playerInv, Component title) {
-		super(Gendustry.loc(Constants.TEXTURE_PATH_GUI + "/mutagen_producer.png"), menu, playerInv, title);
+		super(Gendustry.loc(Constants.TEXTURE_PATH_GUI + "/processor.png"), menu, playerInv, title);
 
 		this.tile = menu.getTile();
 		this.widgetManager.add(new TankWidget(this.widgetManager, 122, 19, 0));
-	}
-
-	@Override
-	protected void renderBg(GuiGraphics graphics, float partialTicks, int mouseX, int mouseY) {
-		super.renderBg(graphics, partialTicks, mouseX, mouseY);
 	}
 
 	@Override

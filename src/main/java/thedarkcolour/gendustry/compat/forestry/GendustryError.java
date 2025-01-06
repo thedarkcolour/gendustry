@@ -7,7 +7,8 @@ import forestry.api.core.IError;
 import thedarkcolour.gendustry.Gendustry;
 
 public enum GendustryError implements IError {
-	NO_LABWARE("no_labware");
+	NO_LABWARE("no_labware"),
+	NO_SAMPLES("no_samples");
 
 	private final ResourceLocation id;
 	private final ResourceLocation sprite;

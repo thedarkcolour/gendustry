@@ -4,6 +4,8 @@ import java.util.function.Consumer;
 
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraftforge.eventbus.api.IEventBus;
+
 import net.minecraftforge.fml.common.Mod;
 
 import forestry.api.client.IClientModuleHandler;
@@ -22,7 +24,8 @@ public class Gendustry implements IForestryModule {
 	public static final String ID = "gendustry";
 	public static final ResourceLocation MODULE_ID = loc("core");
 
-	public Gendustry() {
+	@Override
+	public void registerEvents(IEventBus modBus) {
 		// Recipe caching
 		new RecipeCacheRegistry(registrar -> {
 			registrar.accept(MutagenRecipeCache.INSTANCE);
