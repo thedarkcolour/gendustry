@@ -13,6 +13,7 @@ public enum GendustryResourceType implements IItemSubtype {
 	GENETICS_PROCESSOR,
 	ENVIRONMENTAL_PROCESSOR,
 	BLANK_GENE_SAMPLE,
+	BLANK_GENETIC_TEMPLATE,
 	// This used to be called "bee receptacle" but isn't really accurate since other organisms can be manipulated
 	RECEPTACLE;
 

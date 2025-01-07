@@ -26,10 +26,14 @@ import thedarkcolour.gendustry.recipe.DnaFinishedRecipe;
 import thedarkcolour.gendustry.recipe.MutagenFinishedRecipe;
 import thedarkcolour.gendustry.recipe.ProteinFinishedRecipe;
 import thedarkcolour.gendustry.registry.GItems;
+import thedarkcolour.gendustry.registry.GRecipeTypes;
 import thedarkcolour.modkit.data.MKRecipeProvider;
 
 class Recipes {
 	static void addRecipes(Consumer<FinishedRecipe> writer, MKRecipeProvider recipes) {
+		// Genetic Template
+		recipes.special("combine_genetic_template", GRecipeTypes.GENETIC_TEMPLATE_SERIALIZER);
+
 		// Mutagen recipes
 		mutagen(writer, Items.REDSTONE, 100);
 		mutagen(writer, Items.GLOWSTONE_DUST, 200);
@@ -114,7 +118,7 @@ class Recipes {
 			recipe.pattern("IRI");
 			recipe.pattern(" I ");
 		});
-		recipes.shapedCrafting(RecipeCategory.MISC, GItems.GENETIC_TEMPLATE, recipe -> {
+		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENETIC_TEMPLATE), recipe -> {
 			recipe.define('I', ForestryTags.Items.INGOTS_TIN);
 			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
 			recipe.define('D', Tags.Items.GEMS_DIAMOND);
@@ -125,8 +129,8 @@ class Recipes {
 
 		// Furnace recipes
 		recipes.renameRecipes(oldId -> oldId.withSuffix("_wipe_dna"), finishedRecipe -> {
-			recipes.smelting(GItems.GENE_SAMPLE, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE), 0f);
-			recipes.smelting(GItems.GENETIC_TEMPLATE, GItems.GENETIC_TEMPLATE, 0f);
+			recipes.smelting(GItems.GENE_SAMPLE, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE), 0.1f);
+			recipes.smelting(GItems.GENETIC_TEMPLATE, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENETIC_TEMPLATE), 0.1f);
 		});
 	}
 

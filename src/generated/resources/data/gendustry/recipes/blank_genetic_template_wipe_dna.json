@@ -2,9 +2,9 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.0,
+  "experience": 0.1,
   "ingredient": {
     "item": "gendustry:genetic_template"
   },
-  "result": "gendustry:genetic_template"
+  "result": "gendustry:blank_genetic_template"
 }

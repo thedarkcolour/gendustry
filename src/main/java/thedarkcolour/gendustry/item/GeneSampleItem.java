@@ -16,55 +16,61 @@ import forestry.api.IForestryApi;
 import forestry.api.genetics.ISpeciesType;
 import forestry.api.genetics.alleles.IAllele;
 import forestry.api.genetics.alleles.IChromosome;
-import forestry.api.genetics.capability.IIndividualHandlerItem;
 import forestry.core.render.ColourProperties;
 
 import org.jetbrains.annotations.Nullable;
 import thedarkcolour.gendustry.registry.GItems;
 
-public class GeneSampleItem extends Item {
+public class GeneSampleItem extends SpeciesTypeItem {
+	public static final String NBT_CHROMOSOME = "chromosome";
+	public static final String NBT_ALLELE = "allele";
+
 	public GeneSampleItem() {
-		super(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).craftRemainder(GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE)));
-	}
-
-	@Override
-	public Component getName(ItemStack stack) {
-		if (stack.hasTag() && stack.getTag().contains("speciesType")) {
-			String speciesTypeId = stack.getTag().getString("speciesType");
-			ISpeciesType<?, ?> speciesType = IForestryApi.INSTANCE.getGeneticManager().getSpeciesTypeSafe(new ResourceLocation(speciesTypeId));
-
-			if (speciesType != null) {
-				return Component.translatable(getOrCreateDescriptionId(), speciesType.getDisplayName());
-			}
-		}
-		return Component.translatable(getOrCreateDescriptionId(), "?");
+		super(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON));
 	}
 
 	public static ItemStack createStack(ISpeciesType<?, ?> speciesType, IChromosome<?> chromosome, IAllele allele) {
 		ItemStack stack = new ItemStack(GItems.GENE_SAMPLE);
 		CompoundTag nbt = stack.getOrCreateTag();
-		nbt.putString("speciesType", speciesType.id().toString());
-		nbt.putString("chromosome", chromosome.id().toString());
-		nbt.putString("allele", allele.alleleId().toString());
+		nbt.putString(NBT_SPECIES_TYPE, speciesType.id().toString());
+		nbt.putString(NBT_CHROMOSOME, chromosome.id().toString());
+		nbt.putString(NBT_ALLELE, allele.alleleId().toString());
 		return stack;
+	}
+
+	@Nullable
+	public static IChromosome<?> getChromosome(ItemStack stack) {
+		if (stack.hasTag()) {
+			ResourceLocation location = ResourceLocation.tryParse(stack.getTag().getString(NBT_CHROMOSOME));
+
+			if (location != null) {
+				return IForestryApi.INSTANCE.getAlleleManager().getChromosome(location);
+			}
+		}
+
+		return null;
+	}
+
+	@Nullable
+	public static IAllele getAllele(ItemStack stack) {
+		if (stack.hasTag()) {
+			ResourceLocation location = ResourceLocation.tryParse(stack.getTag().getString(NBT_ALLELE));
+
+			if (location != null) {
+				return IForestryApi.INSTANCE.getAlleleManager().getAllele(location);
+			}
+		}
+
+		return null;
 	}
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag pIsAdvanced) {
-		if (!stack.hasTag()) {
-			return;
-		}
-		CompoundTag nbt = stack.getTag();
-		if (!nbt.contains("chromosome") || !nbt.contains("allele")) {
-			return;
-		}
-		ResourceLocation chromosomeId = new ResourceLocation(nbt.getString("chromosome"));
-		IChromosome<?> chromosome = IForestryApi.INSTANCE.getAlleleManager().getChromosome(chromosomeId);
+		IChromosome<?> chromosome = getChromosome(stack);
 		if (chromosome == null) {
 			return;
 		}
-		ResourceLocation alleleId = new ResourceLocation(nbt.getString("allele"));
-		IAllele allele = IForestryApi.INSTANCE.getAlleleManager().getAllele(alleleId);
+		IAllele allele = getAllele(stack);
 		if (allele == null) {
 			return;
 		}

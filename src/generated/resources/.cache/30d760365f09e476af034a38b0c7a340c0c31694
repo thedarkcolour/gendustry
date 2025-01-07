@@ -1,4 +1,5 @@
-// 1.20.1	2025-01-05T20:37:00.4710111	ModKit Item Models for mod 'gendustry'
+// 1.20.1	2025-01-06T19:19:26.4380303	ModKit Item Models for mod 'gendustry'
+85c5c132193d7c96c76dc9398966eaaf1a17ecb7 assets/gendustry/models/item/blank_genetic_template.json
 81fadb1b3458c8256823a3c6a015d47d702b0a48 assets/gendustry/models/item/blank_gene_sample.json
 45d4d54ee94a13976eb128782de8611d958bf791 assets/gendustry/models/item/bucket_liquid_dna.json
 01ae261d5edf90db1f21eed3cf5fbfd6d9362899 assets/gendustry/models/item/bucket_mutagen.json

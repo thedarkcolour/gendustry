@@ -4,14 +4,18 @@ import forestry.api.core.IError;
 
 import thedarkcolour.gendustry.block.GendustryMachineType;
 import thedarkcolour.gendustry.compat.forestry.GendustryError;
+import thedarkcolour.gendustry.item.GendustryResourceType;
 import thedarkcolour.gendustry.registry.GBlocks;
-import thedarkcolour.gendustry.registry.GCreativeTabs;
 import thedarkcolour.gendustry.registry.GFluids;
 import thedarkcolour.gendustry.registry.GItems;
 import thedarkcolour.modkit.data.MKEnglishProvider;
 
 class English {
 	static void addTranslations(MKEnglishProvider lang) {
+		lang.add(TranslationKeys.TEMPLATE_MISSING_ALLELE, "MISSING");
+		lang.add(TranslationKeys.TEMPLATE_ALLELE_ENTRY, "  %1$s - %2$s");
+		lang.add(TranslationKeys.TEMPLATE_ALLELE_COUNT, "Alleles (%1$s/%2$s)");
+
 		addHint(lang, TranslationKeys.HINT_MUTAGEN_USAGE, "What's Mutagen for?", "Produce Mutagen to use in other Gendustry machines.");
 		addHint(lang, TranslationKeys.HINT_MUTAGEN_INGREDIENTS, "What makes Mutagen?", "Mutagen can be made from redstone, glowstone, and even uranium!");
 		addHint(lang, TranslationKeys.HINT_DNA_USAGE, "How to use Liquid DNA?", "Use Liquid DNA in the Replicator to construct new organisms!");
@@ -25,12 +29,16 @@ class English {
 		lang.add(GBlocks.MACHINE.get(GendustryMachineType.DNA_EXTRACTOR).block(), "DNA Extractor");
 		lang.add(GFluids.LIQUID_DNA.fluid().getFluidType(), "Liquid DNA");
 		lang.add(GItems.GENE_SAMPLE.get(), "Gene Sample (%s)");
+		lang.add(GItems.GENETIC_TEMPLATE.get(), "Genetic Template (%s)");
 
 		addError(lang, GendustryError.NO_LABWARE, "No Labware", "This machine requires Labware to operate.");
 		addError(lang, GendustryError.NO_SAMPLES, "No Samples", "This machine requires Blank Gene Samples to operate.");
 
 		lang.add("itemGroup.gendustry", "Gendustry");
 		lang.add("itemGroup.gene_samples", "Gene Samples");
+
+		// ItemForestry allows adding tooltips like this
+		lang.add(GItems.RESOURCE.get(GendustryResourceType.BLANK_GENETIC_TEMPLATE).item().getDescriptionId() + ".tooltip", "Combine with Gene Samples in a Crafting Table");
 	}
 
 	private static void addHint(MKEnglishProvider lang, String hint, String title, String description) {
