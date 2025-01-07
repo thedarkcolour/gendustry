@@ -52,9 +52,11 @@ public class SamplerBlockEntity extends TilePowered {
 
 	@Override
 	protected boolean workCycle() {
+		// Check for room in result slot
 		if (!this.inventory.getItem(SamplerInventory.SLOT_OUTPUT).isEmpty()) {
 			return false;
 		}
+		// Consume inputs
 		ItemStack organism = this.inventory.removeItem(SamplerInventory.SLOT_INPUT, 1);
 		this.inventory.removeItem(SamplerInventory.SLOT_LABWARE, 1);
 		this.inventory.removeItem(SamplerInventory.SLOT_BLANK_SAMPLE, 1);

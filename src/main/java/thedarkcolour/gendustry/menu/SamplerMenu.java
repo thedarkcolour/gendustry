@@ -5,6 +5,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 import forestry.core.gui.ContainerTile;
 import forestry.core.gui.slots.SlotFiltered;
+import forestry.core.gui.slots.SlotOutput;
 import forestry.core.tiles.TileUtil;
 
 import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
@@ -22,7 +23,7 @@ public class SamplerMenu extends ContainerTile<SamplerBlockEntity> {
 		// Labware slot
 		addSlot(new SlotFiltered(this.tile, SamplerInventory.SLOT_LABWARE, 89, 28));
 		// Output slot
-		addSlot(new SlotFiltered(this.tile, SamplerInventory.SLOT_OUTPUT, 128, 49));
+		addSlot(new SlotOutput(this.tile, SamplerInventory.SLOT_OUTPUT, 128, 49));
 	}
 
 	public static SamplerMenu fromNetwork(int windowId, Inventory playerInv, FriendlyByteBuf extraData) {

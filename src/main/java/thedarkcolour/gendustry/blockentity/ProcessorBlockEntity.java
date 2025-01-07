@@ -3,8 +3,6 @@ package thedarkcolour.gendustry.blockentity;
 import java.util.Set;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -17,22 +15,20 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import forestry.api.core.IError;
 import forestry.core.fluids.FilteredTank;
-import forestry.core.fluids.ITankManager;
+import forestry.core.fluids.FluidHelper;
 import forestry.core.fluids.TankManager;
-import forestry.core.tiles.ILiquidTankTile;
-import forestry.core.tiles.TilePowered;
 import forestry.modules.features.FeatureTileType;
 
+import org.jetbrains.annotations.Nullable;
 import thedarkcolour.gendustry.compat.forestry.GendustryError;
 import thedarkcolour.gendustry.item.GendustryResourceType;
 import thedarkcolour.gendustry.menu.ProcessorMenu;
 import thedarkcolour.gendustry.recipe.ProcessorRecipe;
 import thedarkcolour.gendustry.registry.GFluids;
 import thedarkcolour.gendustry.registry.GItems;
-import org.jetbrains.annotations.Nullable;
 
 // Common logic shared between Mutagen Producer, Protein Liquefier, DNA Extractor
-public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>, R extends ProcessorRecipe> extends TilePowered implements ILiquidTankTile {
+public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>, R extends ProcessorRecipe> extends PoweredTankBlockEntity {
 	private static final float CONSUME_LABWARE_CHANCE = 0.1f;
 
 	protected final TankManager tankManager;
@@ -58,49 +54,13 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag nbt) {
-		super.saveAdditional(nbt);
-		this.tankManager.write(nbt);
-	}
-
-	@Override
-	public void load(CompoundTag nbt) {
-		super.load(nbt);
-		this.tankManager.read(nbt);
-	}
-
-	@Override
-	public void writeData(FriendlyByteBuf data) {
-		super.writeData(data);
-		this.tankManager.writeData(data);
-	}
-
-	@Override
-	public void readData(FriendlyByteBuf data) {
-		super.readData(data);
-		this.tankManager.readData(data);
-	}
-
-	@Override
-	public void writeGuiData(FriendlyByteBuf data) {
-		super.writeGuiData(data);
-		this.tankManager.writeData(data);
-	}
-
-	@Override
-	public void readGuiData(FriendlyByteBuf data) {
-		super.readGuiData(data);
-		this.tankManager.readData(data);
-	}
-
-	@Override
 	public void serverTick(Level level, BlockPos pos, BlockState state) {
 		super.serverTick(level, pos, state);
 
 		if (updateOnInterval(20)) {
 			FluidStack fluid = this.outputTank.getFluid();
 			if (!fluid.isEmpty()) {
-				this.inventory.fillContainers(fluid, tankManager);
+				FluidHelper.fillContainers(this.tankManager, this.inventory, ProcessorInventory.SLOT_CAN_INPUT, ProcessorInventory.SLOT_CAN_OUTPUT, fluid.getFluid(), true);
 			}
 		}
 	}
@@ -164,11 +124,6 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 
 		// Return true upon completion of work
 		return true;
-	}
-
-	@Override
-	public ITankManager getTankManager() {
-		return this.tankManager;
 	}
 
 	@Override

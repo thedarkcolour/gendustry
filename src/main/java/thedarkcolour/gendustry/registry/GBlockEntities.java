@@ -12,6 +12,7 @@ import thedarkcolour.gendustry.block.GendustryMachineType;
 import thedarkcolour.gendustry.blockentity.DnaExtractorBlockEntity;
 import thedarkcolour.gendustry.blockentity.IndustrialApiaryBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
+import thedarkcolour.gendustry.blockentity.MutatronBlockEntity;
 import thedarkcolour.gendustry.blockentity.ProteinLiquefierBlockEntity;
 import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
 
@@ -24,4 +25,5 @@ public class GBlockEntities {
 	public static final FeatureTileType<DnaExtractorBlockEntity> DNA_EXTRACTOR = REGISTRY.tile(DnaExtractorBlockEntity::new, "dna_extractor", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.DNA_EXTRACTOR).block()));
 	public static final FeatureTileType<ProteinLiquefierBlockEntity> PROTEIN_LIQUEFIER = REGISTRY.tile(ProteinLiquefierBlockEntity::new, "protein_liquefier", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.PROTEIN_LIQUEFIER).block()));
 	public static final FeatureTileType<SamplerBlockEntity> SAMPLER = REGISTRY.tile(SamplerBlockEntity::new, "sampler", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.SAMPLER).block()));
+	public static final FeatureTileType<MutatronBlockEntity> MUTATRON = REGISTRY.tile(MutatronBlockEntity::new, "mutatron", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.MUTATRON).block()));
 }

@@ -6,6 +6,7 @@ import forestry.modules.features.IFeatureRegistry;
 import forestry.modules.features.ModFeatureRegistry;
 
 import thedarkcolour.gendustry.Gendustry;
+import thedarkcolour.gendustry.menu.MutatronMenu;
 import thedarkcolour.gendustry.menu.ProcessorMenu;
 import thedarkcolour.gendustry.menu.SamplerMenu;
 
@@ -15,4 +16,5 @@ public class GMenus {
 
 	public static final FeatureMenuType<ProcessorMenu> PROCESSOR = REGISTRY.menuType(ProcessorMenu::fromNetwork, "processor");
 	public static final FeatureMenuType<SamplerMenu> SAMPLER = REGISTRY.menuType(SamplerMenu::fromNetwork, "sampler");
+	public static final FeatureMenuType<MutatronMenu> MUTATRON = REGISTRY.menuType(MutatronMenu::fromNetwork, "mutatron");
 }

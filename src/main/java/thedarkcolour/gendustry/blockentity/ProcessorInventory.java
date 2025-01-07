@@ -40,8 +40,4 @@ public class ProcessorInventory<T extends ProcessorBlockEntity<T, ?>> extends In
 	public boolean canTakeItemThroughFace(int slotIndex, ItemStack stack, Direction side) {
 		return slotIndex == SLOT_CAN_OUTPUT;
 	}
-
-	public void fillContainers(FluidStack fluidStack, TankManager tankManager) {
-		FluidHelper.fillContainers(tankManager, this, SLOT_CAN_INPUT, SLOT_CAN_OUTPUT, fluidStack.getFluid(), true);
-	}
 }

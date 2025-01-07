@@ -1,5 +1,7 @@
 package thedarkcolour.gendustry.compat.forestry;
 
+import java.util.Locale;
+
 import net.minecraft.resources.ResourceLocation;
 
 import forestry.api.core.IError;
@@ -7,21 +9,26 @@ import forestry.api.core.IError;
 import thedarkcolour.gendustry.Gendustry;
 
 public enum GendustryError implements IError {
-	NO_LABWARE("no_labware"),
-	NO_SAMPLES("no_samples");
+	NO_LABWARE,
+	NO_SAMPLES,
+	INCOMPATIBLE_SPECIES,
+	NO_MUTATIONS,
+	NO_MATES,
+	NO_MUTAGEN,
+	;
 
 	private final ResourceLocation id;
 	private final ResourceLocation sprite;
 	private final String descriptionKey;
 	private final String helpKey;
 
-	GendustryError(String id) {
-		this.id = Gendustry.loc(id);
-		this.sprite = Gendustry.loc("errors/" + id);
-		String idDotted = Gendustry.ID + '.' + this.id.getPath();
+	GendustryError() {
+		String name = name().toLowerCase(Locale.ENGLISH);
+		this.id = Gendustry.loc(name);
+		this.sprite = Gendustry.loc("errors/" + name);
+		String idDotted = Gendustry.ID + '.' + name;
 		this.descriptionKey = "errors." + idDotted + ".desc";
 		this.helpKey = "errors." + idDotted + ".help";
-
 	}
 
 	@Override

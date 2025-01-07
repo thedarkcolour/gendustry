@@ -8,6 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import forestry.api.client.IClientModuleHandler;
 
+import thedarkcolour.gendustry.client.screen.MutatronScreen;
 import thedarkcolour.gendustry.client.screen.ProcessorScreen;
 import thedarkcolour.gendustry.client.screen.SamplerScreen;
 import thedarkcolour.gendustry.registry.GMenus;
@@ -22,6 +23,7 @@ public class ClientHandler implements IClientModuleHandler {
 		event.enqueueWork(() -> {
 			MenuScreens.register(GMenus.PROCESSOR.menuType(), ProcessorScreen::new);
 			MenuScreens.register(GMenus.SAMPLER.menuType(), SamplerScreen::new);
+			MenuScreens.register(GMenus.MUTATRON.menuType(), MutatronScreen::new);
 		});
 	}
 }

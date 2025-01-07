@@ -33,6 +33,10 @@ class English {
 
 		addError(lang, GendustryError.NO_LABWARE, "No Labware", "This machine requires Labware to operate.");
 		addError(lang, GendustryError.NO_SAMPLES, "No Samples", "This machine requires Blank Gene Samples to operate.");
+		addError(lang, GendustryError.INCOMPATIBLE_SPECIES, "Incompatible species", "Individuals may only be mated with individuals of the same species type.");
+		addError(lang, GendustryError.NO_MUTATIONS, "No Mutations", "There are no mutations between these two species. Please choose different species.");
+		addError(lang, GendustryError.NO_MATES, "No Mates", "Two compatible mates are required for a mutation to occur.");
+		addError(lang, GendustryError.NO_MUTAGEN, "No Mutagen", "Mutagen is required to trigger a mutation.");
 
 		lang.add("itemGroup.gendustry", "Gendustry");
 		lang.add("itemGroup.gene_samples", "Gene Samples");

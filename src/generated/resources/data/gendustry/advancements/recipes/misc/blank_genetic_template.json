@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gendustry:genetic_template"
-            ]
+            "tag": "forge:ingots/tin"
           }
         ]
       },
@@ -31,5 +29,5 @@
       "gendustry:blank_genetic_template"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }
