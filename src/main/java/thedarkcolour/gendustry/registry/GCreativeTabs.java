@@ -37,6 +37,9 @@ public class GCreativeTabs {
 	private static void addGendustryItems(CreativeModeTab.ItemDisplayParameters params, CreativeModeTab.Output items) {
 		GBlocks.MACHINE.getBlocks().forEach(items::accept);
 		items.accept(GItems.POLLEN_KIT);
+		items.accept(GFluids.MUTAGEN.getBucket());
+		items.accept(GFluids.LIQUID_DNA.getBucket());
+		items.accept(GFluids.PROTEIN.getBucket());
 		GItems.RESOURCE.getItems().forEach(items::accept);
 	}
 
