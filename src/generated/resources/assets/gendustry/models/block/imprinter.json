@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "gendustry:block/imprinter_bottom",
+    "side": "gendustry:block/imprinter_side",
+    "top": "gendustry:block/imprinter_top"
+  }
+}

@@ -15,6 +15,7 @@ public enum GendustryError implements IError {
 	NO_MUTATIONS,
 	NO_MATES,
 	NO_MUTAGEN,
+	NO_TEMPLATE,
 	;
 
 	private final ResourceLocation id;

@@ -70,6 +70,12 @@ public class GeneticTemplateItem extends SpeciesTypeItem {
 		return alleles;
 	}
 
+	public static boolean isComplete(ItemStack stack) {
+		ISpeciesType<?, ?> speciesType = getSpeciesType(stack);
+		Map<IChromosome<?>, IAllele> alleles = getAlleles(stack);
+		return speciesType != null && speciesType.getKaryotype().size() == alleles.size();
+	}
+
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
 		ISpeciesType<?, ?> speciesType = getSpeciesType(stack);

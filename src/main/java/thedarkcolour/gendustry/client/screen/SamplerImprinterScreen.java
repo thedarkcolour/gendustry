@@ -8,21 +8,26 @@ import net.minecraft.world.entity.player.Inventory;
 
 import forestry.core.config.Constants;
 import forestry.core.gui.GuiForestryTitled;
+import forestry.core.tiles.TilePowered;
 
 import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
 import thedarkcolour.gendustry.data.TranslationKeys;
-import thedarkcolour.gendustry.menu.SamplerMenu;
+import thedarkcolour.gendustry.menu.SamplerImprinterMenu;
 
-public class SamplerScreen extends GuiForestryTitled<SamplerMenu> {
-	public static final String HINTS_KEY = "gendustry.sampler";
+// Reused by both sampler and imprinter
+public class SamplerImprinterScreen extends GuiForestryTitled<SamplerImprinterMenu<? extends TilePowered>> {
+	public static final String SAMPLER_HINTS_KEY = "gendustry.sampler";
+	public static final String IMPRINTER_HINTS_KEY = "gendustry.imprinter";
 
-	private final SamplerBlockEntity tile;
+	private final TilePowered tile;
+	private final String hintsKey;
 
-	public SamplerScreen(SamplerMenu menu, Inventory inv, Component title) {
+	public SamplerImprinterScreen(SamplerImprinterMenu<?> menu, Inventory inv, Component title) {
 		super(Gendustry.loc(Constants.TEXTURE_PATH_GUI + "/sampler.png"), menu, inv, title);
 
 		this.tile = menu.getTile();
+		this.hintsKey = this.tile instanceof SamplerBlockEntity ? SAMPLER_HINTS_KEY : IMPRINTER_HINTS_KEY;
 	}
 
 	@Override
@@ -36,14 +41,17 @@ public class SamplerScreen extends GuiForestryTitled<SamplerMenu> {
 	protected void addLedgers() {
 		addErrorLedger(this.tile);
 		addPowerLedger(this.tile.getEnergyManager());
-		addHintLedger(HINTS_KEY);
+		addHintLedger(this.hintsKey);
 	}
 
 	static {
-		HINTS.putAll(HINTS_KEY, List.of(
+		HINTS.putAll(SAMPLER_HINTS_KEY, List.of(
 				TranslationKeys.HINT_SAMPLE_USAGE,
 				TranslationKeys.HINT_SAMPLE_REUSE,
 				TranslationKeys.HINT_SAMPLE_SELECTION
+		));
+		HINTS.putAll(IMPRINTER_HINTS_KEY, List.of(
+				TranslationKeys.HINT_TEMPLATE_USAGE
 		));
 	}
 }

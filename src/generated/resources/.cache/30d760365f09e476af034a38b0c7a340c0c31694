@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-06T23:25:39.700385	ModKit Item Models for mod 'gendustry'
+// 1.20.1	2025-01-07T15:32:16.7529312	ModKit Item Models for mod 'gendustry'
 85c5c132193d7c96c76dc9398966eaaf1a17ecb7 assets/gendustry/models/item/blank_genetic_template.json
 81fadb1b3458c8256823a3c6a015d47d702b0a48 assets/gendustry/models/item/blank_gene_sample.json
 45d4d54ee94a13976eb128782de8611d958bf791 assets/gendustry/models/item/bucket_liquid_dna.json
@@ -11,6 +11,7 @@ e315bb3bf4734999d6d641afdd2a145ec10d7bc8 assets/gendustry/models/item/genetics_p
 4e9a58d0ce5113743cc45836c08f5532801a79e0 assets/gendustry/models/item/genetic_template.json
 b3d7e29d9d5093ad98e1fcd96d0648cd52b8e0a8 assets/gendustry/models/item/genetic_waste.json
 695e8fcff245fd61ff95e159a2847d8aadb41dca assets/gendustry/models/item/gene_sample.json
+7f80e3ab3ffda0b5d5e6c99fb12f3f14af717673 assets/gendustry/models/item/imprinter.json
 a970bce06e5467d37050f6181e64487b46c445cd assets/gendustry/models/item/industrial_apiary.json
 28d2f565884fe409294a4fa05cb9ad76d7535865 assets/gendustry/models/item/labware.json
 9e423ec6499f40c9ed8a29d4f720bf8837410350 assets/gendustry/models/item/mutagen_producer.json

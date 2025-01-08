@@ -22,7 +22,7 @@ import forestry.core.tiles.TilePowered;
 import org.jetbrains.annotations.Nullable;
 import thedarkcolour.gendustry.compat.forestry.GendustryError;
 import thedarkcolour.gendustry.item.GeneSampleItem;
-import thedarkcolour.gendustry.menu.SamplerMenu;
+import thedarkcolour.gendustry.menu.SamplerImprinterMenu;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
 public class SamplerBlockEntity extends TilePowered {
@@ -76,6 +76,6 @@ public class SamplerBlockEntity extends TilePowered {
 	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int windowId, Inventory playerInv, Player player) {
-		return new SamplerMenu(windowId, playerInv, this);
+		return SamplerImprinterMenu.sampler(windowId, playerInv, this);
 	}
 }
