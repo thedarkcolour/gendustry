@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-10T22:16:13.9750644	ModKit Item Models for mod 'gendustry'
+// 1.20.1	2025-01-11T13:18:23.7541292	ModKit Item Models for mod 'gendustry'
 53189ae85fbd2fb12a228c9a566f2b20b646773c assets/gendustry/models/item/advanced_mutatron.json
 85c5c132193d7c96c76dc9398966eaaf1a17ecb7 assets/gendustry/models/item/blank_genetic_template.json
 81fadb1b3458c8256823a3c6a015d47d702b0a48 assets/gendustry/models/item/blank_gene_sample.json
@@ -10,6 +10,7 @@ a003a13a38d68118a7c67c9bc60e96583f2c7f29 assets/gendustry/models/item/dna_extrac
 53f28033ac2f62f9473b1e6f4ded5eba212a0e57 assets/gendustry/models/item/environmental_processor.json
 e315bb3bf4734999d6d641afdd2a145ec10d7bc8 assets/gendustry/models/item/genetics_processor.json
 4e9a58d0ce5113743cc45836c08f5532801a79e0 assets/gendustry/models/item/genetic_template.json
+ba47231339daab7c6a5530b2f83cfc697a544bbc assets/gendustry/models/item/genetic_transposer.json
 b3d7e29d9d5093ad98e1fcd96d0648cd52b8e0a8 assets/gendustry/models/item/genetic_waste.json
 695e8fcff245fd61ff95e159a2847d8aadb41dca assets/gendustry/models/item/gene_sample.json
 7f80e3ab3ffda0b5d5e6c99fb12f3f14af717673 assets/gendustry/models/item/imprinter.json

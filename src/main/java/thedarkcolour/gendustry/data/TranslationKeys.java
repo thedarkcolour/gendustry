@@ -16,4 +16,5 @@ public class TranslationKeys {
 	public static final String HINT_SAMPLE_REUSE = "sample_reuse";
 	public static final String HINT_SAMPLE_SELECTION = "sample_selection";
 	public static final String HINT_TEMPLATE_USAGE = "template_usage";
+	public static final String HINT_TRANSPOSER_USAGE = "transposer_usage";
 }

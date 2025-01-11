@@ -26,7 +26,7 @@ public class GeneSampleItem extends SpeciesTypeItem {
 	public static final String NBT_ALLELE = "allele";
 
 	public GeneSampleItem() {
-		super(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON));
+		super(new Item.Properties().rarity(Rarity.UNCOMMON));
 	}
 
 	public static ItemStack createStack(ISpeciesType<?, ?> speciesType, IChromosome<?> chromosome, IAllele allele) {

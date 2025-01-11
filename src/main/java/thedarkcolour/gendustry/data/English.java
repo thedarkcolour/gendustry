@@ -30,6 +30,7 @@ class English {
 		addHint(lang, TranslationKeys.HINT_SAMPLE_REUSE, "Don't throw away samples!", "Unwanted gene samples can be wiped blank by heating them in a furnace.");
 		addHint(lang, TranslationKeys.HINT_SAMPLE_SELECTION, "How to choose a gene?", "The Sampler picks a random allele from the specimen's genome and saves it to a gene sample.");
 		addHint(lang, TranslationKeys.HINT_TEMPLATE_USAGE, "How to use the Imprinter?", "The Imprinter replaces the genome of an individual with the alleles stored in a Genetic Template. Ignoble stock may not survive.");
+		addHint(lang, TranslationKeys.HINT_TRANSPOSER_USAGE, "How to use the Genetic Transposer?", "The Genetic Transposer creates copies of Gene Samples and Genetic Templates.");
 
 		// Item translation overrides
 		lang.add(GBlocks.MACHINE.get(GendustryMachineType.DNA_EXTRACTOR).block(), "DNA Extractor");
@@ -44,8 +45,10 @@ class English {
 		addError(lang, GendustryError.NO_MUTATIONS, "No Mutations", "There are no mutations between these two species. Please choose different species.");
 		addError(lang, GendustryError.NO_MATES, "No Mates", "Two compatible mates are required for a mutation to occur.");
 		addError(lang, GendustryError.NO_MUTAGEN, "No Mutagen", "Mutagen is required to trigger a mutation.");
-		addError(lang, GendustryError.NO_TEMPLATE, "Missing template", "The Imprinter requires a complete Genetic Template to operate.");
+		addError(lang, GendustryError.NO_TEMPLATE, "Missing template", "A complete Genetic Template is required to operate.");
 		addError(lang, GendustryError.NO_SELECTION, "Select a mutation", "You must choose a mutation for the Advanced Mutatron.");
+		addError(lang, GendustryError.NO_BLANK, "Missing blank template/sample", "The Genetic Transposer needs Blank Gene Samples or Blank Genetic Templates to copy to.");
+		addError(lang, GendustryError.NO_SOURCE, "Missing source template/sample", "The Genetic Transposer is missing a filled Gene Sample or Genetic Template.");
 
 		// Creative tabs
 		lang.add("itemGroup.gendustry", "Gendustry");

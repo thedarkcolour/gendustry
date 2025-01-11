@@ -19,15 +19,16 @@ import forestry.api.genetics.alleles.IChromosome;
 import forestry.api.genetics.capability.IIndividualHandlerItem;
 import forestry.core.tiles.TilePowered;
 
-import org.jetbrains.annotations.Nullable;
 import thedarkcolour.gendustry.compat.forestry.GendustryError;
 import thedarkcolour.gendustry.item.GeneSampleItem;
-import thedarkcolour.gendustry.menu.SamplerImprinterMenu;
+import thedarkcolour.gendustry.menu.ThreeInputMenu;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
-public class SamplerBlockEntity extends TilePowered {
+public class SamplerBlockEntity extends TilePowered implements IHintKey {
 	private static final int ENERGY_PER_WORK_CYCLE = 20000;
 	private static final int TICKS_PER_WORK_CYCLE = 20;
+
+	public static final String HINTS_KEY = "gendustry.sampler";
 
 	private final SamplerInventory inventory;
 
@@ -73,9 +74,13 @@ public class SamplerBlockEntity extends TilePowered {
 		});
 	}
 
-	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int windowId, Inventory playerInv, Player player) {
-		return SamplerImprinterMenu.sampler(windowId, playerInv, this);
+		return ThreeInputMenu.sampler(windowId, playerInv, this);
+	}
+
+	@Override
+	public String getHintKey() {
+		return HINTS_KEY;
 	}
 }

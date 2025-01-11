@@ -25,6 +25,7 @@ public class ClientHandler implements IClientModuleHandler {
 			MenuScreens.register(GMenus.PROCESSOR.menuType(), ProcessorScreen::new);
 			MenuScreens.register(GMenus.SAMPLER.menuType(), ThreeInputScreen::new);
 			MenuScreens.register(GMenus.IMPRINTER.menuType(), ThreeInputScreen::new);
+			MenuScreens.register(GMenus.GENETIC_TRANSPOSER.menuType(), ThreeInputScreen::new);
 			MenuScreens.register(GMenus.MUTATRON.menuType(), MutatronScreen::new);
 			MenuScreens.register(GMenus.ADVANCED_MUTATRON.menuType(), AdvancedMutatronScreen::new);
 		});

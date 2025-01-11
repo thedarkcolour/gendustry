@@ -11,6 +11,7 @@ import forestry.modules.features.FeatureTileType;
 
 import thedarkcolour.gendustry.blockentity.AdvancedMutatronBlockEntity;
 import thedarkcolour.gendustry.blockentity.DnaExtractorBlockEntity;
+import thedarkcolour.gendustry.blockentity.GeneticTransposerBlockEntity;
 import thedarkcolour.gendustry.blockentity.ImprinterBlockEntity;
 import thedarkcolour.gendustry.blockentity.IndustrialApiaryBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
@@ -27,7 +28,8 @@ public enum GendustryMachineType implements IBlockType {
 	SAMPLER(GBlockEntities.SAMPLER, SamplerBlockEntity::serverTick),
 	MUTATRON(GBlockEntities.MUTATRON, MutatronBlockEntity::serverTick),
 	ADVANCED_MUTATRON(GBlockEntities.ADVANCED_MUTATRON, AdvancedMutatronBlockEntity::serverTick),
-	IMPRINTER(GBlockEntities.IMPRINTER, ImprinterBlockEntity::serverTick);
+	IMPRINTER(GBlockEntities.IMPRINTER, ImprinterBlockEntity::serverTick),
+	GENETIC_TRANSPOSER(GBlockEntities.GENETIC_TRANSPOSER, GeneticTransposerBlockEntity::serverTick);
 
 	private final IMachineProperties<?> properties;
 

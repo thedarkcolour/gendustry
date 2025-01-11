@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "gendustry:block/genetic_transposer_bottom",
+    "side": "gendustry:block/genetic_transposer_side",
+    "top": "gendustry:block/genetic_transposer_top"
+  }
+}

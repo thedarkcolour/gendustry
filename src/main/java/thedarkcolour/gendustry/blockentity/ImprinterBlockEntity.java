@@ -18,13 +18,14 @@ import forestry.api.genetics.alleles.IChromosome;
 import forestry.api.genetics.capability.IIndividualHandlerItem;
 import forestry.core.tiles.TilePowered;
 
-import org.jetbrains.annotations.Nullable;
 import thedarkcolour.gendustry.compat.forestry.GendustryError;
 import thedarkcolour.gendustry.item.GeneticTemplateItem;
-import thedarkcolour.gendustry.menu.SamplerImprinterMenu;
+import thedarkcolour.gendustry.menu.ThreeInputMenu;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
-public class ImprinterBlockEntity extends TilePowered {
+public class ImprinterBlockEntity extends TilePowered implements IHintKey {
+	public static final String HINTS_KEY = "gendustry.imprinter";
+
 	private final ImprinterInventory inventory;
 
 	public ImprinterBlockEntity(BlockPos pos, BlockState state) {
@@ -71,9 +72,13 @@ public class ImprinterBlockEntity extends TilePowered {
 		});
 	}
 
-	@Nullable
 	@Override
 	public AbstractContainerMenu createMenu(int windowId, Inventory playerInv, Player player) {
-		return SamplerImprinterMenu.imprinter(windowId, playerInv, this);
+		return ThreeInputMenu.imprinter(windowId, playerInv, this);
+	}
+
+	@Override
+	public String getHintKey() {
+		return HINTS_KEY;
 	}
 }

@@ -11,23 +11,23 @@ import forestry.core.gui.GuiForestryTitled;
 import forestry.core.tiles.TilePowered;
 
 import thedarkcolour.gendustry.Gendustry;
+import thedarkcolour.gendustry.blockentity.GeneticTransposerBlockEntity;
+import thedarkcolour.gendustry.blockentity.IHintKey;
+import thedarkcolour.gendustry.blockentity.ImprinterBlockEntity;
 import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
 import thedarkcolour.gendustry.data.TranslationKeys;
-import thedarkcolour.gendustry.menu.SamplerImprinterMenu;
+import thedarkcolour.gendustry.menu.ThreeInputMenu;
 
 // Reused by both sampler and imprinter
-public class SamplerImprinterScreen extends GuiForestryTitled<SamplerImprinterMenu<? extends TilePowered>> {
-	public static final String SAMPLER_HINTS_KEY = "gendustry.sampler";
-	public static final String IMPRINTER_HINTS_KEY = "gendustry.imprinter";
-
+public class ThreeInputScreen extends GuiForestryTitled<ThreeInputMenu<? extends IHintKey>> {
 	private final TilePowered tile;
 	private final String hintsKey;
 
-	public SamplerImprinterScreen(SamplerImprinterMenu<?> menu, Inventory inv, Component title) {
+	public ThreeInputScreen(ThreeInputMenu<? extends IHintKey> menu, Inventory inv, Component title) {
 		super(Gendustry.loc(Constants.TEXTURE_PATH_GUI + "/sampler.png"), menu, inv, title);
 
 		this.tile = menu.getTile();
-		this.hintsKey = this.tile instanceof SamplerBlockEntity ? SAMPLER_HINTS_KEY : IMPRINTER_HINTS_KEY;
+		this.hintsKey = menu.getTile().getHintKey();
 	}
 
 	@Override
@@ -45,13 +45,16 @@ public class SamplerImprinterScreen extends GuiForestryTitled<SamplerImprinterMe
 	}
 
 	static {
-		HINTS.putAll(SAMPLER_HINTS_KEY, List.of(
+		HINTS.putAll(SamplerBlockEntity.HINTS_KEY, List.of(
 				TranslationKeys.HINT_SAMPLE_USAGE,
 				TranslationKeys.HINT_SAMPLE_REUSE,
 				TranslationKeys.HINT_SAMPLE_SELECTION
 		));
-		HINTS.putAll(IMPRINTER_HINTS_KEY, List.of(
+		HINTS.putAll(ImprinterBlockEntity.HINTS_KEY, List.of(
 				TranslationKeys.HINT_TEMPLATE_USAGE
+		));
+		HINTS.putAll(GeneticTransposerBlockEntity.HINTS_KEY, List.of(
+				TranslationKeys.HINT_TRANSPOSER_USAGE
 		));
 	}
 }
