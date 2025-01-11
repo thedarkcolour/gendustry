@@ -31,7 +31,6 @@ import thedarkcolour.gendustry.registry.GItems;
 public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>, R extends ProcessorRecipe> extends PoweredTankBlockEntity {
 	private static final float CONSUME_LABWARE_CHANCE = 0.1f;
 
-	protected final TankManager tankManager;
 	protected final FilteredTank outputTank;
 	protected final ProcessorInventory<T> inventory;
 	public final boolean usesLabware;
@@ -45,7 +44,7 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 		super(type.tileType(), pos, state, 10000, 1000000);
 
 		this.outputTank = new FilteredTank(10000).setFilters(Set.of(result.fluid()));
-		this.tankManager = new TankManager(this, this.outputTank);
+		this.tankManager.add(this.outputTank);
 		this.inventory = new ProcessorInventory<>((T) this, usesLabware);
 		this.usesLabware = usesLabware;
 		this.resultFluid = result;

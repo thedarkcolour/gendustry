@@ -1,4 +1,5 @@
 {
+  "block.gendustry.advanced_mutatron": "Advanced Mutatron",
   "block.gendustry.dna_extractor": "DNA Extractor",
   "block.gendustry.fluid_liquid_dna": "Fluid Liquid Dna",
   "block.gendustry.fluid_mutagen": "Fluid Mutagen",
@@ -21,6 +22,8 @@
   "errors.gendustry.no_mutations.help": "There are no mutations between these two species. Please choose different species.",
   "errors.gendustry.no_samples.desc": "No Samples",
   "errors.gendustry.no_samples.help": "This machine requires Blank Gene Samples to operate.",
+  "errors.gendustry.no_selection.desc": "Select a mutation",
+  "errors.gendustry.no_selection.help": "You must choose a mutation for the Advanced Mutatron.",
   "errors.gendustry.no_template.desc": "Missing template",
   "errors.gendustry.no_template.help": "The Imprinter requires a complete Genetic Template to operate.",
   "fluid_type.gendustry.liquid_dna": "Liquid DNA",

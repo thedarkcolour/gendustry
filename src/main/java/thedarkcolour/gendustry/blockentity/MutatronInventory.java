@@ -12,14 +12,14 @@ import thedarkcolour.gendustry.item.GendustryResourceType;
 import thedarkcolour.gendustry.registry.GFluids;
 import thedarkcolour.gendustry.registry.GItems;
 
-public class MutatronInventory extends InventoryAdapterTile<MutatronBlockEntity> {
+public class MutatronInventory extends InventoryAdapterTile<AbstractMutatronBlockEntity> {
 	public static final int SLOT_PRIMARY = 0;
 	public static final int SLOT_SECONDARY = 1;
 	public static final int SLOT_LABWARE = 2;
 	public static final int SLOT_CAN_INPUT = 3;
 	public static final int SLOT_RESULT = 4;
 
-	public MutatronInventory(MutatronBlockEntity tile) {
+	public MutatronInventory(AbstractMutatronBlockEntity tile) {
 		super(tile, 5, "items");
 	}
 

@@ -9,6 +9,7 @@ import forestry.core.tiles.IForestryTicker;
 import forestry.core.tiles.TileForestry;
 import forestry.modules.features.FeatureTileType;
 
+import thedarkcolour.gendustry.blockentity.AdvancedMutatronBlockEntity;
 import thedarkcolour.gendustry.blockentity.DnaExtractorBlockEntity;
 import thedarkcolour.gendustry.blockentity.ImprinterBlockEntity;
 import thedarkcolour.gendustry.blockentity.IndustrialApiaryBlockEntity;
@@ -25,6 +26,7 @@ public enum GendustryMachineType implements IBlockType {
 	PROTEIN_LIQUEFIER(GBlockEntities.PROTEIN_LIQUEFIER, ProteinLiquefierBlockEntity::serverTick),
 	SAMPLER(GBlockEntities.SAMPLER, SamplerBlockEntity::serverTick),
 	MUTATRON(GBlockEntities.MUTATRON, MutatronBlockEntity::serverTick),
+	ADVANCED_MUTATRON(GBlockEntities.ADVANCED_MUTATRON, AdvancedMutatronBlockEntity::serverTick),
 	IMPRINTER(GBlockEntities.IMPRINTER, ImprinterBlockEntity::serverTick);
 
 	private final IMachineProperties<?> properties;

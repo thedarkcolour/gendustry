@@ -45,6 +45,7 @@ class English {
 		addError(lang, GendustryError.NO_MATES, "No Mates", "Two compatible mates are required for a mutation to occur.");
 		addError(lang, GendustryError.NO_MUTAGEN, "No Mutagen", "Mutagen is required to trigger a mutation.");
 		addError(lang, GendustryError.NO_TEMPLATE, "Missing template", "The Imprinter requires a complete Genetic Template to operate.");
+		addError(lang, GendustryError.NO_SELECTION, "Select a mutation", "You must choose a mutation for the Advanced Mutatron.");
 
 		// Creative tabs
 		lang.add("itemGroup.gendustry", "Gendustry");
