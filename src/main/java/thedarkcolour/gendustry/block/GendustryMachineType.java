@@ -17,6 +17,7 @@ import thedarkcolour.gendustry.blockentity.IndustrialApiaryBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutatronBlockEntity;
 import thedarkcolour.gendustry.blockentity.ProteinLiquefierBlockEntity;
+import thedarkcolour.gendustry.blockentity.ReplicatorBlockEntity;
 import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
@@ -29,7 +30,8 @@ public enum GendustryMachineType implements IBlockType {
 	MUTATRON(GBlockEntities.MUTATRON, MutatronBlockEntity::serverTick),
 	ADVANCED_MUTATRON(GBlockEntities.ADVANCED_MUTATRON, AdvancedMutatronBlockEntity::serverTick),
 	IMPRINTER(GBlockEntities.IMPRINTER, ImprinterBlockEntity::serverTick),
-	GENETIC_TRANSPOSER(GBlockEntities.GENETIC_TRANSPOSER, GeneticTransposerBlockEntity::serverTick);
+	GENETIC_TRANSPOSER(GBlockEntities.GENETIC_TRANSPOSER, GeneticTransposerBlockEntity::serverTick),
+	REPLICATOR(GBlockEntities.REPLICATOR, ReplicatorBlockEntity::serverTick);
 
 	private final IMachineProperties<?> properties;
 

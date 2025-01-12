@@ -1,5 +1,7 @@
 package thedarkcolour.gendustry.client.screen;
 
+import java.util.List;
+
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -9,6 +11,7 @@ import forestry.core.gui.GuiForestryTitled;
 import forestry.core.gui.widgets.TankWidget;
 
 import thedarkcolour.gendustry.blockentity.AbstractMutatronBlockEntity;
+import thedarkcolour.gendustry.data.TranslationKeys;
 import thedarkcolour.gendustry.menu.AbstractMutatronMenu;
 
 public class AbstractMutatronScreen<M extends AbstractMutatronMenu<?>> extends GuiForestryTitled<M> {
@@ -33,6 +36,13 @@ public class AbstractMutatronScreen<M extends AbstractMutatronMenu<?>> extends G
 	protected void addLedgers() {
 		addErrorLedger(this.tile);
 		addPowerLedger(this.tile.getEnergyManager());
-		// todo hints
+		addHintLedger(AbstractMutatronBlockEntity.HINTS_KEY);
+	}
+
+	static {
+		HINTS.putAll(AbstractMutatronBlockEntity.HINTS_KEY, List.of(
+				TranslationKeys.HINT_MUTATRON_USAGE,
+				TranslationKeys.HINT_ADVANCED_MUTATRON_USAGE
+		));
 	}
 }

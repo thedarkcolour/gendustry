@@ -11,6 +11,7 @@ import forestry.api.client.IClientModuleHandler;
 import thedarkcolour.gendustry.client.screen.AdvancedMutatronScreen;
 import thedarkcolour.gendustry.client.screen.MutatronScreen;
 import thedarkcolour.gendustry.client.screen.ProcessorScreen;
+import thedarkcolour.gendustry.client.screen.ReplicatorScreen;
 import thedarkcolour.gendustry.client.screen.ThreeInputScreen;
 import thedarkcolour.gendustry.registry.GMenus;
 
@@ -28,6 +29,7 @@ public class ClientHandler implements IClientModuleHandler {
 			MenuScreens.register(GMenus.GENETIC_TRANSPOSER.menuType(), ThreeInputScreen::new);
 			MenuScreens.register(GMenus.MUTATRON.menuType(), MutatronScreen::new);
 			MenuScreens.register(GMenus.ADVANCED_MUTATRON.menuType(), AdvancedMutatronScreen::new);
+			MenuScreens.register(GMenus.REPLICATOR.menuType(), ReplicatorScreen::new);
 		});
 	}
 }

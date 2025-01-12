@@ -13,14 +13,14 @@ import forestry.core.tiles.TilePowered;
 import forestry.core.tiles.TileUtil;
 
 import thedarkcolour.gendustry.blockentity.GeneticTransposerBlockEntity;
-import thedarkcolour.gendustry.blockentity.IHintKey;
+import thedarkcolour.gendustry.blockentity.IHintTile;
 import thedarkcolour.gendustry.blockentity.ImprinterBlockEntity;
 import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
 import thedarkcolour.gendustry.blockentity.SamplerInventory;
 import thedarkcolour.gendustry.registry.GMenus;
 
 // Reused by Sampler, Imprinter, and Genetic Transposer
-public class ThreeInputMenu<T extends TilePowered & Container & IFilterSlotDelegate & IHintKey> extends ContainerTile<T> {
+public class ThreeInputMenu<T extends TilePowered & Container & IFilterSlotDelegate & IHintTile> extends ContainerTile<T> {
 	public ThreeInputMenu(int windowId, Inventory playerInventory, T tile, MenuType<?> menuType) {
 		super(windowId, menuType, playerInventory, tile, 8, 84);
 

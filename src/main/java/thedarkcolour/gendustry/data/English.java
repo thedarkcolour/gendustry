@@ -29,8 +29,11 @@ class English {
 		addHint(lang, TranslationKeys.HINT_SAMPLE_USAGE, "What are samples for?", "Gene samples can be crafted with a Genetic Template to create a complete genome for use in the Imprinter.");
 		addHint(lang, TranslationKeys.HINT_SAMPLE_REUSE, "Don't throw away samples!", "Unwanted gene samples can be wiped blank by heating them in a furnace.");
 		addHint(lang, TranslationKeys.HINT_SAMPLE_SELECTION, "How to choose a gene?", "The Sampler picks a random allele from the specimen's genome and saves it to a gene sample.");
-		addHint(lang, TranslationKeys.HINT_TEMPLATE_USAGE, "How to use the Imprinter?", "The Imprinter replaces the genome of an individual with the alleles stored in a Genetic Template. Ignoble stock may not survive.");
+		addHint(lang, TranslationKeys.HINT_IMPRINTER_USAGE, "How to use the Imprinter?", "The Imprinter replaces the genome of an individual with the alleles stored in a Genetic Template. Ignoble stock may not survive.");
 		addHint(lang, TranslationKeys.HINT_TRANSPOSER_USAGE, "How to use the Genetic Transposer?", "The Genetic Transposer creates copies of Gene Samples and Genetic Templates.");
+		addHint(lang, TranslationKeys.HINT_REPLICATOR_USAGE, "How to use the Replicator?", "The Replicator produces a new organism from a Genetic Template using Liquid DNA and Protein.");
+		addHint(lang, TranslationKeys.HINT_MUTATRON_USAGE, "What is the Mutatron?", "The Mutatron triggers a mutation between two parent organisms, yielding offspring of a new species.");
+		addHint(lang, TranslationKeys.HINT_ADVANCED_MUTATRON_USAGE, "How to use the Replicator?", "To choose the desired mutation between the two parents, use the Advanced Mutatron.");
 
 		// Item translation overrides
 		lang.add(GBlocks.MACHINE.get(GendustryMachineType.DNA_EXTRACTOR).block(), "DNA Extractor");
@@ -49,6 +52,8 @@ class English {
 		addError(lang, GendustryError.NO_SELECTION, "Select a mutation", "You must choose a mutation for the Advanced Mutatron.");
 		addError(lang, GendustryError.NO_BLANK, "Missing blank template/sample", "The Genetic Transposer needs Blank Gene Samples or Blank Genetic Templates to copy to.");
 		addError(lang, GendustryError.NO_SOURCE, "Missing source template/sample", "The Genetic Transposer is missing a filled Gene Sample or Genetic Template.");
+		addError(lang, GendustryError.NO_DNA, "Missing Liquid DNA", "This machine requires Liquid DNA to operate.");
+		addError(lang, GendustryError.NO_PROTEIN, "Missing Protein", "This machine requires Protein to operate.");
 
 		// Creative tabs
 		lang.add("itemGroup.gendustry", "Gendustry");

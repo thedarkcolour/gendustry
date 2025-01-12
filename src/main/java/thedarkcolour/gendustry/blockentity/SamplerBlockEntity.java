@@ -24,7 +24,7 @@ import thedarkcolour.gendustry.item.GeneSampleItem;
 import thedarkcolour.gendustry.menu.ThreeInputMenu;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
-public class SamplerBlockEntity extends TilePowered implements IHintKey {
+public class SamplerBlockEntity extends TilePowered implements IHintTile {
 	private static final int ENERGY_PER_WORK_CYCLE = 20000;
 	private static final int TICKS_PER_WORK_CYCLE = 20;
 
@@ -80,7 +80,7 @@ public class SamplerBlockEntity extends TilePowered implements IHintKey {
 	}
 
 	@Override
-	public String getHintKey() {
+	public String getHintsKey() {
 		return HINTS_KEY;
 	}
 }

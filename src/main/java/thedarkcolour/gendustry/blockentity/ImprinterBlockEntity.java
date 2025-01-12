@@ -23,7 +23,7 @@ import thedarkcolour.gendustry.item.GeneticTemplateItem;
 import thedarkcolour.gendustry.menu.ThreeInputMenu;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
-public class ImprinterBlockEntity extends TilePowered implements IHintKey {
+public class ImprinterBlockEntity extends TilePowered implements IHintTile {
 	public static final String HINTS_KEY = "gendustry.imprinter";
 
 	private final ImprinterInventory inventory;
@@ -78,7 +78,7 @@ public class ImprinterBlockEntity extends TilePowered implements IHintKey {
 	}
 
 	@Override
-	public String getHintKey() {
+	public String getHintsKey() {
 		return HINTS_KEY;
 	}
 }

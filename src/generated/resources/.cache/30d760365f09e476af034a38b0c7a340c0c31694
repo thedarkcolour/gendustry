@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-11T13:18:23.7541292	ModKit Item Models for mod 'gendustry'
+// 1.20.1	2025-01-11T16:08:01.555298	ModKit Item Models for mod 'gendustry'
 53189ae85fbd2fb12a228c9a566f2b20b646773c assets/gendustry/models/item/advanced_mutatron.json
 85c5c132193d7c96c76dc9398966eaaf1a17ecb7 assets/gendustry/models/item/blank_genetic_template.json
 81fadb1b3458c8256823a3c6a015d47d702b0a48 assets/gendustry/models/item/blank_gene_sample.json
@@ -22,5 +22,6 @@ a970bce06e5467d37050f6181e64487b46c445cd assets/gendustry/models/item/industrial
 88ec666a218667dc0152a01d8cc393e110930f36 assets/gendustry/models/item/power_module.json
 ad902950641ec76c7135b4881e64ce76827008e2 assets/gendustry/models/item/protein_liquefier.json
 05eb907f18850e5833108dca472bca2f92cbea05 assets/gendustry/models/item/receptacle.json
+4ed7ac22b24c1979e8cadfbe677ced188a823c49 assets/gendustry/models/item/replicator.json
 0fbefe0fe4635495ac9b20c12b1ea9a7e2d493d5 assets/gendustry/models/item/sampler.json
 74e3be8512282ee8dbd0cac541f2e86caf03b1ee assets/gendustry/models/item/upgrade_frame.json

@@ -17,6 +17,7 @@ import thedarkcolour.gendustry.blockentity.IndustrialApiaryBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutatronBlockEntity;
 import thedarkcolour.gendustry.blockentity.ProteinLiquefierBlockEntity;
+import thedarkcolour.gendustry.blockentity.ReplicatorBlockEntity;
 import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
 
 @FeatureProvider
@@ -32,4 +33,5 @@ public class GBlockEntities {
 	public static final FeatureTileType<AdvancedMutatronBlockEntity> ADVANCED_MUTATRON = REGISTRY.tile(AdvancedMutatronBlockEntity::new, "advanced_mutatron", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.ADVANCED_MUTATRON).block()));
 	public static final FeatureTileType<ImprinterBlockEntity> IMPRINTER = REGISTRY.tile(ImprinterBlockEntity::new, "imprinter", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.IMPRINTER).block()));
 	public static final FeatureTileType<GeneticTransposerBlockEntity> GENETIC_TRANSPOSER = REGISTRY.tile(GeneticTransposerBlockEntity::new, "genetic_transposer", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.GENETIC_TRANSPOSER).block()));
+	public static final FeatureTileType<ReplicatorBlockEntity> REPLICATOR = REGISTRY.tile(ReplicatorBlockEntity::new, "replicator", () -> Set.of(GBlocks.MACHINE.get(GendustryMachineType.REPLICATOR).block()));
 }

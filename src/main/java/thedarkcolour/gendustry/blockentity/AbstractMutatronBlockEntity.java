@@ -44,6 +44,8 @@ public abstract class AbstractMutatronBlockEntity extends PoweredTankBlockEntity
 	private static final int ENERGY_PER_WORK_CYCLE = 100000;
 	private static final int TICKS_PER_WORK_CYCLE = 40;
 
+	public static final String HINTS_KEY = "gendustry.mutatron";
+
 	private final FilteredTank mutagenTank;
 	protected final MutatronInventory inventory;
 	public final boolean isAdvanced;
@@ -73,7 +75,7 @@ public abstract class AbstractMutatronBlockEntity extends PoweredTankBlockEntity
 		super.serverTick(level, pos, state);
 
 		if (updateOnInterval(20)) {
-			FluidHelper.drainContainers(tankManager, this, MutatronInventory.SLOT_CAN_INPUT);
+			FluidHelper.drainContainers(this.tankManager, this, MutatronInventory.SLOT_CAN_INPUT);
 		}
 	}
 

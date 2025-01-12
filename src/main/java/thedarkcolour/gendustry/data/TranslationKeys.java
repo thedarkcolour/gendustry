@@ -15,6 +15,9 @@ public class TranslationKeys {
 	public static final String HINT_SAMPLE_USAGE = "sample_usage";
 	public static final String HINT_SAMPLE_REUSE = "sample_reuse";
 	public static final String HINT_SAMPLE_SELECTION = "sample_selection";
-	public static final String HINT_TEMPLATE_USAGE = "template_usage";
+	public static final String HINT_IMPRINTER_USAGE = "imprinter_usage";
 	public static final String HINT_TRANSPOSER_USAGE = "transposer_usage";
+	public static final String HINT_REPLICATOR_USAGE = "replicator_usage";
+	public static final String HINT_MUTATRON_USAGE = "mutatron_usage";
+	public static final String HINT_ADVANCED_MUTATRON_USAGE = "advanced_mutatron";
 }

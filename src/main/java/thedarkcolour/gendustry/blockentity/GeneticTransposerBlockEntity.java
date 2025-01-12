@@ -16,7 +16,7 @@ import thedarkcolour.gendustry.compat.forestry.GendustryError;
 import thedarkcolour.gendustry.menu.ThreeInputMenu;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
-public class GeneticTransposerBlockEntity extends TilePowered implements IHintKey {
+public class GeneticTransposerBlockEntity extends TilePowered implements IHintTile {
 	private static final float CONSUME_LABWARE_CHANCE = 0.2f;
 
 	public static final String HINTS_KEY = "gendustry.genetic_transposer";
@@ -74,7 +74,7 @@ public class GeneticTransposerBlockEntity extends TilePowered implements IHintKe
 	}
 
 	@Override
-	public String getHintKey() {
+	public String getHintsKey() {
 		return HINTS_KEY;
 	}
 }

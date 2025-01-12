@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-11T13:18:23.7521306	ModKit Block Models for mod 'gendustry'
+// 1.20.1	2025-01-11T16:08:01.5532961	ModKit Block Models for mod 'gendustry'
 f07e54f31c2a9ea4278dbabf08250508635467a0 assets/gendustry/blockstates/advanced_mutatron.json
 7363cf644275db82cee619d93e3c098069c684bd assets/gendustry/blockstates/dna_extractor.json
 a5cf56900badee709dd35b89b16054214abc5153 assets/gendustry/blockstates/genetic_transposer.json
@@ -7,6 +7,7 @@ a5cf56900badee709dd35b89b16054214abc5153 assets/gendustry/blockstates/genetic_tr
 fb8985206e8a8caf311d90ebe982c8525a2ce73a assets/gendustry/blockstates/mutagen_producer.json
 d405fb87c8b793df7e9a35d9157bca1d8d60abb0 assets/gendustry/blockstates/mutatron.json
 ad79b9837789a76234f256a68ad9ab10d48c5594 assets/gendustry/blockstates/protein_liquefier.json
+59c115b74224094851c42bf3ef0e0330bee1aaf7 assets/gendustry/blockstates/replicator.json
 4246e920fd1a4da30a92c6ff0845ede8ce435c8b assets/gendustry/blockstates/sampler.json
 a29a223b18c160cab5b0855638676fac214339bc assets/gendustry/models/block/advanced_mutatron.json
 7ca15b0f8fb1642c3b9ca327ffc8042e0711627b assets/gendustry/models/block/dna_extractor.json
@@ -16,4 +17,5 @@ a29a223b18c160cab5b0855638676fac214339bc assets/gendustry/models/block/advanced_
 6b9a816c03f3698c5312cf34afef307ceb683b24 assets/gendustry/models/block/mutagen_producer.json
 aca8b87cc3151ed55f4c0ba5ed93b74c078eff18 assets/gendustry/models/block/mutatron.json
 d6e4613d767957396400738eef0f9615a84acfe9 assets/gendustry/models/block/protein_liquefier.json
+a7ae2d75fa1019c3f0493fa08d850040b52453b8 assets/gendustry/models/block/replicator.json
 8e5612201287582ed0aff9c2d9e2cf5609d115aa assets/gendustry/models/block/sampler.json
