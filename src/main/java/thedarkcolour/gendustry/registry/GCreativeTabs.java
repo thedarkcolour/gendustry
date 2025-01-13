@@ -41,6 +41,7 @@ public class GCreativeTabs {
 		items.accept(GFluids.LIQUID_DNA.getBucket());
 		items.accept(GFluids.PROTEIN.getBucket());
 		GItems.RESOURCE.getItems().forEach(items::accept);
+		GItems.UPGRADE.getItems().forEach(items::accept);
 	}
 
 	private static void addGeneSamples(CreativeModeTab.ItemDisplayParameters params, CreativeModeTab.Output items) {

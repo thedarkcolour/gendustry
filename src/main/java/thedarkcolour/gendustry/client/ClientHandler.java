@@ -9,10 +9,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import forestry.api.client.IClientModuleHandler;
 
 import thedarkcolour.gendustry.client.screen.AdvancedMutatronScreen;
+import thedarkcolour.gendustry.client.screen.IndustrialApiaryScreen;
 import thedarkcolour.gendustry.client.screen.MutatronScreen;
 import thedarkcolour.gendustry.client.screen.ProcessorScreen;
 import thedarkcolour.gendustry.client.screen.ReplicatorScreen;
 import thedarkcolour.gendustry.client.screen.ThreeInputScreen;
+import thedarkcolour.gendustry.menu.IndustrialApiaryMenu;
 import thedarkcolour.gendustry.registry.GMenus;
 
 public class ClientHandler implements IClientModuleHandler {
@@ -30,6 +32,7 @@ public class ClientHandler implements IClientModuleHandler {
 			MenuScreens.register(GMenus.MUTATRON.menuType(), MutatronScreen::new);
 			MenuScreens.register(GMenus.ADVANCED_MUTATRON.menuType(), AdvancedMutatronScreen::new);
 			MenuScreens.register(GMenus.REPLICATOR.menuType(), ReplicatorScreen::new);
+			MenuScreens.register(GMenus.INDUSTRIAL_APIARY.menuType(), IndustrialApiaryScreen::new);
 		});
 	}
 }

@@ -7,7 +7,9 @@ import forestry.modules.features.ModFeatureRegistry;
 
 import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.gendustry.blockentity.IHintTile;
+import thedarkcolour.gendustry.blockentity.IndustrialApiaryInventory;
 import thedarkcolour.gendustry.menu.AdvancedMutatronMenu;
+import thedarkcolour.gendustry.menu.IndustrialApiaryMenu;
 import thedarkcolour.gendustry.menu.MutatronMenu;
 import thedarkcolour.gendustry.menu.ProcessorMenu;
 import thedarkcolour.gendustry.menu.ReplicatorMenu;
@@ -24,4 +26,5 @@ public class GMenus {
 	public static final FeatureMenuType<MutatronMenu> MUTATRON = REGISTRY.menuType(MutatronMenu::fromNetwork, "mutatron");
 	public static final FeatureMenuType<AdvancedMutatronMenu> ADVANCED_MUTATRON = REGISTRY.menuType(AdvancedMutatronMenu::fromNetwork, "advanced_mutatron");
 	public static final FeatureMenuType<ReplicatorMenu> REPLICATOR = REGISTRY.menuType(ReplicatorMenu::fromNetwork, "replicator");
+	public static final FeatureMenuType<IndustrialApiaryMenu> INDUSTRIAL_APIARY = REGISTRY.menuType(IndustrialApiaryMenu::fromNetwork, "industrial_apiary");
 }

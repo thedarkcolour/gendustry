@@ -5,7 +5,9 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/tin"
+            "items": [
+              "gendustry:blank_gene_sample"
+            ]
           }
         ]
       },

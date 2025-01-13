@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:dusts/redstone"
+            "tag": "forge:storage_blocks/redstone"
           }
         ]
       },

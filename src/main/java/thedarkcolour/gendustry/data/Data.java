@@ -1,5 +1,7 @@
 package thedarkcolour.gendustry.data;
 
+import net.minecraft.core.registries.Registries;
+
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -18,5 +20,6 @@ public class Data {
 		helper.createRecipes(Recipes::addRecipes);
 		helper.createBlockModels(BlockModels::addBlockModels);
 		helper.createItemModels(true, true, false, null);
+		helper.createTags(Registries.ITEM, Tags::addTags);
 	}
 }

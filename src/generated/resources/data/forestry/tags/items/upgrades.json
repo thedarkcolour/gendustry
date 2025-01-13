@@ -1,0 +1,20 @@
+{
+  "values": [
+    "gendustry:automation_upgrade",
+    "gendustry:heater_upgrade",
+    "gendustry:cooler_upgrade",
+    "gendustry:humidifier_upgrade",
+    "gendustry:dryer_upgrade",
+    "gendustry:pollination_upgrade",
+    "gendustry:scrubber_upgrade",
+    "gendustry:nether_upgrade",
+    "gendustry:lifespan_upgrade",
+    "gendustry:lighting_upgrade",
+    "gendustry:productivity_upgrade",
+    "gendustry:weatherproof_upgrade",
+    "gendustry:sieve_upgrade",
+    "gendustry:sky_upgrade",
+    "gendustry:stabilizer_upgrade",
+    "gendustry:territory_upgrade"
+  ]
+}

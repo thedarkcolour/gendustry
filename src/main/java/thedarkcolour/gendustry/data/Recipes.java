@@ -19,9 +19,11 @@ import forestry.api.arboriculture.genetics.TreeLifeStage;
 import forestry.api.genetics.ForestrySpeciesTypes;
 import forestry.api.genetics.ILifeStage;
 import forestry.api.lepidopterology.genetics.ButterflyLifeStage;
+import forestry.core.features.CoreItems;
 
 import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.gendustry.item.GendustryResourceType;
+import thedarkcolour.gendustry.item.GendustryUpgradeType;
 import thedarkcolour.gendustry.recipe.DnaFinishedRecipe;
 import thedarkcolour.gendustry.recipe.MutagenFinishedRecipe;
 import thedarkcolour.gendustry.recipe.ProteinFinishedRecipe;
@@ -63,14 +65,14 @@ class Recipes {
 		dna(writer, ForestrySpeciesTypes.BUTTERFLY, ButterflyLifeStage.COCOON, 1000);
 
 		// Crafting recipes
-		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.LABWARE), 16, recipe -> {
+		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.LABWARE), 2, recipe -> {
 			recipe.define('G', Tags.Items.GLASS_PANES);
 			recipe.define('D', Tags.Items.GEMS_DIAMOND);
 			recipe.pattern("G G");
 			recipe.pattern("G G");
 			recipe.pattern(" D ");
 		});
-		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.UPGRADE_FRAME), 16, recipe -> {
+		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.UPGRADE_FRAME), 2, recipe -> {
 			recipe.define('I', ForestryTags.Items.INGOTS_TIN);
 			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
 			recipe.define('G', Tags.Items.NUGGETS_GOLD);
@@ -87,7 +89,7 @@ class Recipes {
 			recipe.pattern("BRB");
 		});
 		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.POWER_MODULE), recipe -> {
-			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
+			recipe.define('R', Tags.Items.STORAGE_BLOCKS_REDSTONE);
 			recipe.define('G', ForestryTags.Items.GEARS_BRONZE);
 			recipe.define('I', Tags.Items.INGOTS_GOLD);
 			recipe.define('P', Items.PISTON);
@@ -119,13 +121,16 @@ class Recipes {
 			recipe.pattern(" I ");
 		});
 		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENETIC_TEMPLATE), recipe -> {
-			recipe.define('I', ForestryTags.Items.INGOTS_TIN);
+			recipe.define('I', GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE));
 			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
 			recipe.define('D', Tags.Items.GEMS_DIAMOND);
 			recipe.pattern("RIR");
 			recipe.pattern("IDI");
 			recipe.pattern("RIR");
 		});
+		/*recipes.shapedCrafting(RecipeCategory.MISC, GItems.UPGRADE.item(GendustryUpgradeType.AUTOMATION), recipe -> {
+			recipe.define('G', ForestryTags.Items.GEARS_BRONZE);
+		});*/
 
 		// Furnace recipes
 		recipes.renameRecipes(oldId -> oldId.withSuffix("_wipe_dna"), finishedRecipe -> {

@@ -22,7 +22,7 @@ import thedarkcolour.gendustry.blockentity.SamplerBlockEntity;
 import thedarkcolour.gendustry.registry.GBlockEntities;
 
 public enum GendustryMachineType implements IBlockType {
-	INDUSTRIAL_APIARY(GBlockEntities.INDUSTRIAL_APIARY, IndustrialApiaryBlockEntity::serverTick),
+	INDUSTRIAL_APIARY(GBlockEntities.INDUSTRIAL_APIARY, IndustrialApiaryBlockEntity::serverTick, IndustrialApiaryBlockEntity::clientTick),
 	MUTAGEN_PRODUCER(GBlockEntities.MUTAGEN_PRODUCER, MutagenProducerBlockEntity::serverTick),
 	DNA_EXTRACTOR(GBlockEntities.DNA_EXTRACTOR, DnaExtractorBlockEntity::serverTick),
 	PROTEIN_LIQUEFIER(GBlockEntities.PROTEIN_LIQUEFIER, ProteinLiquefierBlockEntity::serverTick),
@@ -40,6 +40,15 @@ public enum GendustryMachineType implements IBlockType {
 
 		this.properties = new MachineProperties.Builder<>(teClass, name)
 				.setServerTicker(serverTicker)
+				.create();
+	}
+
+	<T extends TileForestry> GendustryMachineType(FeatureTileType<T> teClass, IForestryTicker<T> serverTicker, IForestryTicker<T> clientTicker) {
+		String name = name().toLowerCase(Locale.ENGLISH);
+
+		this.properties = new MachineProperties.Builder<>(teClass, name)
+				.setServerTicker(serverTicker)
+				.setClientTicker(clientTicker)
 				.create();
 	}
 

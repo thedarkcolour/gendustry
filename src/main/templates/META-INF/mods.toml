@@ -8,7 +8,7 @@ license="GNU GPLv3"
 	modId="gendustry"
 	version="${version}"
 	displayName="Gendustry"
-	credits="bdew for original mod and ideas"
+	credits="bdew for original mod and ideas, Spearkiller"
 	authors="thedarkcolour"
 	description='''
 	Machines for manipulation of Forestry genetics.
