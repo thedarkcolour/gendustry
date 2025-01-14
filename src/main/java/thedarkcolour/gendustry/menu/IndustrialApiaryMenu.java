@@ -5,6 +5,8 @@ import java.util.Objects;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 
+import forestry.api.core.HumidityType;
+import forestry.api.core.TemperatureType;
 import forestry.core.gui.ContainerTile;
 import forestry.core.gui.slots.SlotFiltered;
 import forestry.core.gui.slots.SlotOutput;
@@ -17,6 +19,8 @@ import thedarkcolour.gendustry.registry.GMenus;
 
 public class IndustrialApiaryMenu extends ContainerTile<IndustrialApiaryBlockEntity> {
 	private int previousBeePercent = -1;
+	private TemperatureType previousTemperature;
+	private HumidityType previousHumidity;
 
 	public IndustrialApiaryMenu(int windowId, Inventory playerInv, IndustrialApiaryBlockEntity tile) {
 		super(windowId, GMenus.INDUSTRIAL_APIARY.menuType(), playerInv, tile, 8, 84);
@@ -48,8 +52,13 @@ public class IndustrialApiaryMenu extends ContainerTile<IndustrialApiaryBlockEnt
 		super.broadcastChanges();
 
 		int beeProgressPercent = this.tile.getBeekeepingLogic().getBeeProgressPercent();
-		if (this.previousBeePercent != beeProgressPercent) {
+		TemperatureType temperature = this.tile.temperature();
+		HumidityType humidity = this.tile.humidity();
+
+		if (this.previousBeePercent != beeProgressPercent || this.previousTemperature != temperature || this.previousHumidity != humidity) {
 			this.previousBeePercent = beeProgressPercent;
+			this.previousTemperature = temperature;
+			this.previousHumidity = humidity;
 
 			PacketGuiStream packet = new PacketGuiStream(this.tile);
 			sendPacketToListeners(packet);

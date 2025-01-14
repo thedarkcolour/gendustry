@@ -7,6 +7,7 @@ import forestry.api.core.IItemSubtype;
 public enum GendustryResourceType implements IItemSubtype {
 	LABWARE,
 	UPGRADE_FRAME,
+	ELITE_UPGRADE_FRAME,
 	CLIMATE_CONTROL_MODULE,
 	POWER_MODULE,
 	GENETICS_PROCESSOR,

@@ -4,7 +4,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
-import forestry.api.ForestryConstants;
+import thedarkcolour.gendustry.Gendustry;
 
 public class GendustryTags {
 	public static class Items {
@@ -12,6 +12,6 @@ public class GendustryTags {
 	}
 
 	private static TagKey<Item> itemTag(String name) {
-		return ItemTags.create(ForestryConstants.forestry(name));
+		return ItemTags.create(Gendustry.loc(name));
 	}
 }

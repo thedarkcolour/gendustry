@@ -6,7 +6,9 @@ import forestry.api.core.IError;
 
 import thedarkcolour.gendustry.block.GendustryMachineType;
 import thedarkcolour.gendustry.compat.forestry.GendustryError;
+import thedarkcolour.gendustry.item.EliteGendustryUpgradeType;
 import thedarkcolour.gendustry.item.GendustryResourceType;
+import thedarkcolour.gendustry.item.GendustryUpgradeType;
 import thedarkcolour.gendustry.registry.GBlocks;
 import thedarkcolour.gendustry.registry.GFluids;
 import thedarkcolour.gendustry.registry.GItems;
@@ -18,6 +20,8 @@ class English {
 		lang.add(TranslationKeys.TEMPLATE_MISSING_ALLELE, "MISSING");
 		lang.add(TranslationKeys.TEMPLATE_ALLELE_ENTRY, "  %1$s - %2$s");
 		lang.add(TranslationKeys.TEMPLATE_ALLELE_COUNT, "Alleles (%1$s/%2$s)");
+		lang.add(TranslationKeys.UPGRADE_ENERGY_COST, "Energy Cost: %s RF");
+		lang.add(TranslationKeys.UPGRADE_STACK_LIMIT, "Max Count: %s");
 
 		// Machine hints
 		addHint(lang, TranslationKeys.HINT_MUTAGEN_USAGE, "What's Mutagen for?", "Produce Mutagen to use in other Gendustry machines.");
@@ -34,6 +38,8 @@ class English {
 		addHint(lang, TranslationKeys.HINT_REPLICATOR_USAGE, "How to use the Replicator?", "The Replicator produces a new organism from a Genetic Template using Liquid DNA and Protein.");
 		addHint(lang, TranslationKeys.HINT_MUTATRON_USAGE, "What is the Mutatron?", "The Mutatron triggers a mutation between two parent organisms, yielding offspring of a new species.");
 		addHint(lang, TranslationKeys.HINT_ADVANCED_MUTATRON_USAGE, "How to use the Replicator?", "To choose the desired mutation between the two parents, use the Advanced Mutatron.");
+		addHint(lang, TranslationKeys.HINT_INDUSTRIAL_APIARY_USAGE, "How to use the Industrial Apiary?", "The left slots are for a Princess and Drone. The four middle slots are for upgrades. The nine right slots are outputs.");
+		addHint(lang, TranslationKeys.HINT_INDUSTRIAL_APIARY_UPGRADES, "Why no frames?", "The Industrial Apiary does not need frames. Instead, it uses upgrades that affect climate, productivity, lifespan, and more!");
 
 		// Item translation overrides
 		lang.add(GBlocks.MACHINE.get(GendustryMachineType.DNA_EXTRACTOR).block(), "DNA Extractor");
@@ -62,6 +68,30 @@ class English {
 		// Item tooltips
 		addTooltip(lang, GItems.RESOURCE.get(GendustryResourceType.BLANK_GENETIC_TEMPLATE), "Combine with Gene Samples in a Crafting Table");
 		addTooltip(lang, GItems.RESOURCE.get(GendustryResourceType.BLANK_GENE_SAMPLE), "Use in the Sampler to obtain Gene Samples");
+
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.AUTOMATION), "Automatically recycles princesses and drones from deceased queens.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.HEATER), "Raises the temperature of the apiary by 1 step.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.COOLER), "Lowers the temperature of the apiary by 1 step.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.HUMIDIFIER), "Raises the humidity of the apiary by 1 step.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.DRYER), "Lowers the humidity of the apiary by 1 step.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.POLLINATION), "Increases bee pollination by 25%.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.SCRUBBER), "Disables bee pollination.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.NETHER), "Sets the apiary's climate to Hellish temperature and Arid humidity.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.LIFESPAN), "Decreases lifespan by 20%.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.LIGHTING), "Allows bees to work without needing to sleep.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.PRODUCTIVITY), "Increases bee productivity by 25%.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.WEATHERPROOF), "Allows bees to work during the rain.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.SIEVE), "Automatically recycles princesses and drones from deceased queens.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.SKY), "Simulates a view of the sky for bees that aren't cave dwelling.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.STABILIZER), "Prevents Ignoble Stock bees from dying.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.TERRITORY), "Increases territory by 25%.");
+
+		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.MUTATION), "Increases bee mutation chances by 25%.");
+		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.ACTIVITY_SIMULATOR), "A combination of the Sky, Weatherproof, and Lighting upgrades.");
+		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.PRODUCTIVITY), "Increases bee productivity by 25% and speeds up work cycle by 15 ticks.");
+		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.TERRITORY), "Increases bee territory by 25%, but has a higher limit.");
+		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.YOUTH), "Increases lifespan by 20%.");
+		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.FERTILITY), "Increases fertility count by 1.");
 	}
 
 	private static void addHint(MKEnglishProvider lang, String hint, String title, String description) {

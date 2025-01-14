@@ -1,4 +1,5 @@
-// 1.20.1	2025-01-13T00:49:34.488941	ModKit Item Models for mod 'gendustry'
+// 1.20.1	2025-01-14T00:17:54.8400859	ModKit Item Models for mod 'gendustry'
+419930a4240936d7d46ff8a7ec6666a30186b950 assets/gendustry/models/item/activity_simulator_elite_upgrade.json
 53189ae85fbd2fb12a228c9a566f2b20b646773c assets/gendustry/models/item/advanced_mutatron.json
 7f529ca2d98fed6e1e53cb127ef919aeb00abe64 assets/gendustry/models/item/automation_upgrade.json
 85c5c132193d7c96c76dc9398966eaaf1a17ecb7 assets/gendustry/models/item/blank_genetic_template.json
@@ -8,9 +9,12 @@
 1c6d7595c18db975688fccbc173716685c27d30e assets/gendustry/models/item/bucket_protein.json
 d51684e185463d02b89bedae439a0b26ddd8e9a9 assets/gendustry/models/item/climate_control_module.json
 775581785b41bcf946dc005267a7445ecd35fbfd assets/gendustry/models/item/cooler_upgrade.json
+e434aa6c34e8ed854e34c7707d5adc46f0e91745 assets/gendustry/models/item/debug_wand.json
 a003a13a38d68118a7c67c9bc60e96583f2c7f29 assets/gendustry/models/item/dna_extractor.json
 059f154b29ef9cbe20f36788f027c6fd3be4f0bd assets/gendustry/models/item/dryer_upgrade.json
+7e4af79545cf8c1834c36fddc815ef9f92ce3868 assets/gendustry/models/item/elite_upgrade_frame.json
 53f28033ac2f62f9473b1e6f4ded5eba212a0e57 assets/gendustry/models/item/environmental_processor.json
+36342c3a8bdaaf9af1e061a0eeac89fe65809c11 assets/gendustry/models/item/fertility_elite_upgrade.json
 e315bb3bf4734999d6d641afdd2a145ec10d7bc8 assets/gendustry/models/item/genetics_processor.json
 4e9a58d0ce5113743cc45836c08f5532801a79e0 assets/gendustry/models/item/genetic_template.json
 ba47231339daab7c6a5530b2f83cfc697a544bbc assets/gendustry/models/item/genetic_transposer.json
@@ -23,11 +27,13 @@ a970bce06e5467d37050f6181e64487b46c445cd assets/gendustry/models/item/industrial
 c788af76b31332a2e3ae6f6767c5baa829bacae9 assets/gendustry/models/item/lifespan_upgrade.json
 7900f8802fa77a72f386c50f40eece37ce3abc58 assets/gendustry/models/item/lighting_upgrade.json
 9e423ec6499f40c9ed8a29d4f720bf8837410350 assets/gendustry/models/item/mutagen_producer.json
+279a5471f9d3c732bc4220867644dd58b56c740d assets/gendustry/models/item/mutation_elite_upgrade.json
 45d7aec0a046cdf568e63e5f8575c6ce711da274 assets/gendustry/models/item/mutatron.json
 5e019525afa437433122e4c27cca8e847367095c assets/gendustry/models/item/nether_upgrade.json
 1e7b34287e4a66fa5c7b74d4f4098b200b1d6f79 assets/gendustry/models/item/pollen_kit.json
 eacbc7e323c27f0dcd1e6fecb0c32358624d5c21 assets/gendustry/models/item/pollination_upgrade.json
 88ec666a218667dc0152a01d8cc393e110930f36 assets/gendustry/models/item/power_module.json
+f43e77c9fe7734167198c98b8434b3ae82f0c955 assets/gendustry/models/item/productivity_elite_upgrade.json
 0e25936f78a051ca68fc0cba57ef2934689c25f0 assets/gendustry/models/item/productivity_upgrade.json
 ad902950641ec76c7135b4881e64ce76827008e2 assets/gendustry/models/item/protein_liquefier.json
 05eb907f18850e5833108dca472bca2f92cbea05 assets/gendustry/models/item/receptacle.json
@@ -37,6 +43,8 @@ eaf7d3724e1666844ff0859b9cd15775a4926bcf assets/gendustry/models/item/scrubber_u
 a99b5dbe05c0e108509476abd31e53942e5381f1 assets/gendustry/models/item/sieve_upgrade.json
 f082bb4845ad1e2f760066ab940a5ec8c0d7a054 assets/gendustry/models/item/sky_upgrade.json
 e4225021a62bafa3142f94468284326fb756e4f2 assets/gendustry/models/item/stabilizer_upgrade.json
+5a5ce7ecfa62c7223e8d70a1992550929a65be64 assets/gendustry/models/item/territory_elite_upgrade.json
 bb731b506815cf714fb0d2d8e03fd317b067a38d assets/gendustry/models/item/territory_upgrade.json
 74e3be8512282ee8dbd0cac541f2e86caf03b1ee assets/gendustry/models/item/upgrade_frame.json
 5bc28955bdab0416c779f7f2da36de75509f2ebd assets/gendustry/models/item/weatherproof_upgrade.json
+4538825b7ba8f71dc39baad00794791ca44034e3 assets/gendustry/models/item/youth_elite_upgrade.json

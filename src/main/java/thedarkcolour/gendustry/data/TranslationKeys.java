@@ -5,6 +5,9 @@ public class TranslationKeys {
 	public static final String TEMPLATE_ALLELE_ENTRY = "item.gendustry.genetic_template.allele_entry";
 	public static final String TEMPLATE_ALLELE_COUNT = "item.gendustry.genetic_template.allele_count";
 
+	public static final String UPGRADE_ENERGY_COST = "item.gendustry.upgrade.energy_cost";
+	public static final String UPGRADE_STACK_LIMIT = "item.gendustry.upgrade.max_count";
+
 	// These are not the actual translation keys for the hints.
 	public static final String HINT_MUTAGEN_USAGE = "mutagen_usage";
 	public static final String HINT_MUTAGEN_INGREDIENTS = "mutagen_ingredients";
@@ -20,4 +23,6 @@ public class TranslationKeys {
 	public static final String HINT_REPLICATOR_USAGE = "replicator_usage";
 	public static final String HINT_MUTATRON_USAGE = "mutatron_usage";
 	public static final String HINT_ADVANCED_MUTATRON_USAGE = "advanced_mutatron";
+	public static final String HINT_INDUSTRIAL_APIARY_USAGE = "industrial_apiary";
+	public static final String HINT_INDUSTRIAL_APIARY_UPGRADES = "industrial_apiary_upgrades";
 }

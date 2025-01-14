@@ -1,16 +1,18 @@
 package thedarkcolour.gendustry.blockentity;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Vec3i;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,6 +23,7 @@ import com.mojang.authlib.GameProfile;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 import forestry.api.IForestryApi;
 import forestry.api.apiculture.IBeeHousing;
@@ -28,14 +31,15 @@ import forestry.api.apiculture.IBeeHousingInventory;
 import forestry.api.apiculture.IBeeListener;
 import forestry.api.apiculture.IBeeModifier;
 import forestry.api.apiculture.IBeekeepingLogic;
-import forestry.api.apiculture.genetics.IBeeSpecies;
+import forestry.api.apiculture.genetics.BeeLifeStage;
+import forestry.api.apiculture.genetics.IBee;
+import forestry.api.climate.ClimateState;
 import forestry.api.climate.IClimateProvider;
 import forestry.api.core.ForestryError;
 import forestry.api.core.HumidityType;
 import forestry.api.core.IErrorLogic;
 import forestry.api.core.TemperatureType;
-import forestry.api.genetics.IGenome;
-import forestry.api.genetics.IMutation;
+import forestry.api.genetics.capability.IIndividualHandlerItem;
 import forestry.api.genetics.pollen.IPollen;
 import forestry.apiculture.gui.IGuiBeeHousingDelegate;
 import forestry.core.network.IStreamableGui;
@@ -67,14 +71,15 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 	protected IClimateProvider climate;
 
 	// State
-	private final BeeModifier modifier;
+	private final IndustrialApiaryBeeModifier modifier;
 	private int breedingProgressPercent;
 	private int energyConsumption;
+	private boolean recycleQueen;
 
 	public IndustrialApiaryBlockEntity(BlockPos pos, BlockState state) {
 		super(GBlockEntities.INDUSTRIAL_APIARY.tileType(), pos, state);
 
-		this.energyStorage = new ForestryEnergyStorage(100000, 500000);
+		this.energyStorage = new ForestryEnergyStorage(100000, 1000000);
 		this.energyCap = LazyOptional.of(() -> this.energyStorage);
 		this.inventory = new IndustrialApiaryInventory(this);
 		setInternalInventory(this.inventory);
@@ -82,7 +87,7 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 		this.beeLogic = IForestryApi.INSTANCE.getHiveManager().createBeekeepingLogic(this);
 		this.climate = IForestryApi.INSTANCE.getClimateManager().createDummyClimateProvider();
 
-		this.modifier = new BeeModifier();
+		this.modifier = new IndustrialApiaryBeeModifier();
 		// Base consumption is 200, plus whatever the upgrades
 		this.energyConsumption = BASE_ENERGY;
 	}
@@ -91,6 +96,8 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 	public void setLevel(Level level) {
 		super.setLevel(level);
 		this.climate = IForestryApi.INSTANCE.getClimateManager().createClimateProvider(level, this.worldPosition);
+
+		refreshUpgrades();
 	}
 
 	@Override
@@ -100,18 +107,76 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 		boolean disabled = isRedstoneActivated();
 		errors.setCondition(disabled, ForestryError.DISABLED_BY_REDSTONE);
 
+		// Automation upgrade
+		if (this.recycleQueen) {
+			this.recycleQueen = false;
+
+			recycleQueen();
+		}
+
+		// Bee logic that costs power
 		if (!disabled) {
 			if (this.beeLogic.canWork()) {
+				// Check power state
 				boolean hasEnergy = EnergyHelper.consumeEnergyToDoWork(this.energyStorage, 1, this.energyConsumption);
+				errors.setCondition(!hasEnergy, ForestryError.NO_POWER);
 				if (hasEnergy) {
 					this.beeLogic.doWork();
 				}
 			}
 		}
 
+		// Update climate periodically
 		if ((level.getGameTime() & 63L) == 0L) {
-			this.climate = IForestryApi.INSTANCE.getClimateManager().createClimateProvider(level, pos);
+			refreshClimate();
 		}
+	}
+
+	private void recycleQueen() {
+		for (int i = 0; i < IndustrialApiaryInventory.OUTPUT_SLOT_COUNT; ++i) {
+			int slotIndex = IndustrialApiaryInventory.OUTPUT_SLOT_START + i;
+			ItemStack stack = this.inventory.getItem(slotIndex);
+
+			IIndividualHandlerItem.ifPresent(stack, (bee, stage) -> {
+				if (stage == BeeLifeStage.PRINCESS) {
+					// Move the princess back into place
+					this.inventory.setItem(slotIndex, ItemStack.EMPTY);
+					this.inventory.setQueen(stack);
+				} else if (stage == BeeLifeStage.DRONE) {
+					ItemStack drone = this.inventory.getDrone();
+
+					if (drone.isEmpty()) {
+						// Move entire stack to drone slot
+						this.inventory.setDrone(stack);
+						this.inventory.setItem(slotIndex, ItemStack.EMPTY);
+					} else {
+						// Replenish drones
+						int free = drone.getMaxStackSize() - drone.getCount();
+
+						if (free > 0 && ItemHandlerHelper.canItemStacksStack(drone, stack)) {
+							int taken = Math.min(stack.getCount(), free);
+							stack.shrink(taken);
+							ItemStack newDrone = drone.copyWithCount(drone.getCount() + taken);
+							this.inventory.setDrone(newDrone);
+						}
+					}
+				}
+			});
+		}
+	}
+
+	@Override
+	public void setChanged() {
+		super.setChanged();
+
+		refreshUpgrades();
+	}
+
+	private void refreshUpgrades() {
+		this.energyConsumption = BASE_ENERGY + this.modifier.recalculate(this.inventory);
+		this.beeLogic.setWorkThrottle(Math.max(5, 550 - this.modifier.throttle));
+
+		refreshClimate();
 	}
 
 	@Override
@@ -123,7 +188,77 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 
 	@Override
 	public boolean onPollenRetrieved(IPollen<?> pollen) {
-		return this.inventory.addProduct(pollen.createStack(), false);
+		return this.modifier.sieve && this.inventory.addProduct(pollen.createStack(), false);
+	}
+
+	// todo fix not recycling if output is full
+	@Override
+	public void onQueenDeath() {
+		this.recycleQueen = this.modifier.automated;
+
+		// Fertility
+		if (this.modifier.fertility > 0) {
+			spawnAdditionalOffspring();
+		}
+	}
+
+	private void spawnAdditionalOffspring() {
+		int fertility = this.modifier.fertility;
+		ArrayList<IBee> drones = new ArrayList<>();
+
+		IIndividualHandlerItem.ifPresent(this.inventory.getQueen(), individual -> {
+			if (individual instanceof IBee queen) {
+				while (drones.size() < fertility) {
+					List<IBee> offspring = queen.spawnDrones(this);
+					if (offspring.isEmpty()) {
+						// This should never happen, but if fertility is 0, avoid infinite loop
+						break;
+					}
+					drones.addAll(offspring);
+				}
+			}
+		});
+
+		for (int i = 0; i < fertility; ++i) {
+			ItemStack stack = drones.get(i).createStack(BeeLifeStage.DRONE);
+			this.inventory.addProduct(stack, true);
+		}
+	}
+
+	// Updates the climate to reflect upgrades
+	private void refreshClimate() {
+		IClimateProvider oldClimate = this.modifier.nether ? new ClimateState(TemperatureType.HELLISH, HumidityType.ARID) : IForestryApi.INSTANCE.getClimateManager().createClimateProvider(this.level, this.worldPosition);
+		this.climate = new ClimateState(oldClimate.temperature().up(this.modifier.temperature), oldClimate.humidity().up(this.modifier.humidity));
+	}
+
+	@Override
+	public void writeGuiData(FriendlyByteBuf data) {
+		this.energyStorage.writeData(data);
+		data.writeVarInt(this.beeLogic.getBeeProgressPercent());
+		NetworkUtil.writeClimateState(data, this.climate);
+	}
+
+	@Override
+	public void readGuiData(FriendlyByteBuf data) {
+		this.energyStorage.readData(data);
+		this.breedingProgressPercent = data.readVarInt();
+		this.climate = NetworkUtil.readClimateState(data);
+	}
+
+	@Override
+	public void load(CompoundTag data) {
+		super.load(data);
+		this.energyStorage.read(data);
+		this.beeLogic.read(data);
+		this.ownerHandler.read(data);
+	}
+
+	@Override
+	public void saveAdditional(CompoundTag data) {
+		super.saveAdditional(data);
+		this.energyStorage.write(data);
+		this.beeLogic.write(data);
+		this.ownerHandler.write(data);
 	}
 
 	@Override
@@ -138,7 +273,7 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 
 	@Override
 	public Iterable<IBeeListener> getBeeListeners() {
-		return List.of(this);
+		return Collections.singleton(this);
 	}
 
 	@Override
@@ -208,18 +343,6 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 	}
 
 	@Override
-	public void writeGuiData(FriendlyByteBuf data) {
-		data.writeVarInt(this.beeLogic.getBeeProgressPercent());
-		NetworkUtil.writeClimateState(data, this.climate);
-	}
-
-	@Override
-	public void readGuiData(FriendlyByteBuf data) {
-		this.breedingProgressPercent = this.beeLogic.getBeeProgressPercent();
-		this.climate = NetworkUtil.readClimateState(data);
-	}
-
-	@Override
 	public ForestryEnergyStorage getEnergyManager() {
 		return this.energyStorage;
 	}
@@ -227,68 +350,5 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 	@Override
 	public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
 		return !this.remove && capability == ForgeCapabilities.ENERGY ? this.energyCap.cast() : super.getCapability(capability, facing);
-	}
-
-	private static class BeeModifier implements IBeeModifier {
-		private float territory = 1f;
-		private float mutation = 1f;
-		private float currentAging = 1f;
-		private float productivity = 1f;
-		private float pollination = 1f;
-		private boolean stabilized;
-		private boolean weatherproof;
-		private boolean lighting;
-		private boolean sky;
-		private boolean nether;
-
-		@Override
-		public Vec3i modifyTerritory(IGenome genome, Vec3i currentModifier) {
-			return new Vec3i((int) (currentModifier.getX() * this.territory), (int) (currentModifier.getY() * this.territory), (int) (currentModifier.getZ() * this.territory));
-		}
-
-		@Override
-		public float modifyMutationChance(IGenome genome, IGenome mate, IMutation<IBeeSpecies> mutation, float currentChance) {
-			return currentChance * this.mutation;
-		}
-
-		@Override
-		public float modifyAging(IGenome genome, @Nullable IGenome mate, float currentAging) {
-			return currentAging * this.currentAging;
-		}
-
-		@Override
-		public float modifyProductionSpeed(IGenome genome, float currentSpeed) {
-			return currentSpeed * this.productivity;
-		}
-
-		@Override
-		public float modifyPollination(IGenome genome, float currentPollination) {
-			return currentPollination * this.pollination;
-		}
-
-		@Override
-		public float modifyGeneticDecay(IGenome genome, float currentDecay) {
-			return this.stabilized ? 0.0f : currentDecay;
-		}
-
-		@Override
-		public boolean isSealed() {
-			return this.weatherproof;
-		}
-
-		@Override
-		public boolean isAlwaysActive(IGenome genome) {
-			return this.lighting;
-		}
-
-		@Override
-		public boolean isSunlightSimulated() {
-			return this.sky;
-		}
-
-		@Override
-		public boolean isHellish() {
-			return this.nether;
-		}
 	}
 }

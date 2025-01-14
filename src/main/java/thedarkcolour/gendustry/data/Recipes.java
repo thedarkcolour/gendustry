@@ -65,6 +65,11 @@ class Recipes {
 		dna(writer, ForestrySpeciesTypes.BUTTERFLY, ButterflyLifeStage.COCOON, 1000);
 
 		// Crafting recipes
+		resourceCraftingRecipes(recipes);
+		upgradeCraftingRecipes(recipes);
+	}
+
+	private static void resourceCraftingRecipes(MKRecipeProvider recipes) {
 		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.LABWARE), 2, recipe -> {
 			recipe.define('G', Tags.Items.GLASS_PANES);
 			recipe.define('D', Tags.Items.GEMS_DIAMOND);
@@ -76,6 +81,14 @@ class Recipes {
 			recipe.define('I', ForestryTags.Items.INGOTS_TIN);
 			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
 			recipe.define('G', Tags.Items.NUGGETS_GOLD);
+			recipe.pattern("IGI");
+			recipe.pattern("R R");
+			recipe.pattern("IGI");
+		});
+		recipes.shapedCrafting(RecipeCategory.MISC, GItems.RESOURCE.item(GendustryResourceType.ELITE_UPGRADE_FRAME), 2, recipe -> {
+			recipe.define('I', Tags.Items.STORAGE_BLOCKS_GOLD);
+			recipe.define('R', GItems.RESOURCE.item(GendustryResourceType.POWER_MODULE));
+			recipe.define('G', Items.GHAST_TEAR);
 			recipe.pattern("IGI");
 			recipe.pattern("R R");
 			recipe.pattern("IGI");
@@ -128,15 +141,28 @@ class Recipes {
 			recipe.pattern("IDI");
 			recipe.pattern("RIR");
 		});
-		/*recipes.shapedCrafting(RecipeCategory.MISC, GItems.UPGRADE.item(GendustryUpgradeType.AUTOMATION), recipe -> {
-			recipe.define('G', ForestryTags.Items.GEARS_BRONZE);
-		});*/
 
 		// Furnace recipes
 		recipes.renameRecipes(oldId -> oldId.withSuffix("_wipe_dna"), finishedRecipe -> {
 			recipes.smelting(GItems.GENE_SAMPLE, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENE_SAMPLE), 0.1f);
 			recipes.smelting(GItems.GENETIC_TEMPLATE, GItems.RESOURCE.item(GendustryResourceType.BLANK_GENETIC_TEMPLATE), 0.1f);
 		});
+	}
+
+	private static void upgradeCraftingRecipes(MKRecipeProvider recipes) {
+		recipes.shapedCrafting(RecipeCategory.MISC, GItems.UPGRADE.item(GendustryUpgradeType.AUTOMATION), recipe -> {
+			recipe.define('G', ForestryTags.Items.GEARS_BRONZE);
+			recipe.define('F', GItems.RESOURCE.get(GendustryResourceType.UPGRADE_FRAME));
+			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
+			recipe.define('C', Items.COMPARATOR);
+			recipe.pattern(" G ");
+			recipe.pattern("RFR");
+			recipe.pattern(" C ");
+		});
+	}
+
+	private static void machineCraftingRecipes(MKRecipeProvider recipes) {
+
 	}
 
 	private static void mutagen(Consumer<FinishedRecipe> writer, Item input, int mutagen) {

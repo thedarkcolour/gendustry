@@ -9,5 +9,6 @@ import thedarkcolour.modkit.data.MKTagsProvider;
 class Tags {
 	static void addTags(MKTagsProvider<Item> tags) {
 		tags.tag(GendustryTags.Items.UPGRADES).add(GItems.UPGRADE.getItems().toArray(Item[]::new));
+		tags.tag(GendustryTags.Items.UPGRADES).add(GItems.ELITE_UPGRADE.getItems().toArray(Item[]::new));
 	}
 }

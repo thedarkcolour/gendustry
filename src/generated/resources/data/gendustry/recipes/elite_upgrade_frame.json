@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:ghast_tear"
+    },
+    "I": {
+      "tag": "forge:storage_blocks/gold"
+    },
+    "R": {
+      "item": "gendustry:power_module"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "R R",
+    "IGI"
+  ],
+  "result": {
+    "count": 2,
+    "item": "gendustry:elite_upgrade_frame"
+  },
+  "show_notification": true
+}

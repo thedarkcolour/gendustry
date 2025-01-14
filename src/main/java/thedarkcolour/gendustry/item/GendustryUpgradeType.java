@@ -39,11 +39,12 @@ public enum GendustryUpgradeType implements IItemSubtype, IGendustryUpgradeType 
 	TERRITORY(4, 50),
 	;
 
-	private final String name = name().toLowerCase(Locale.ENGLISH);
+	private final String name;
 	private final int maxStackSize;
 	private final int energyCost;
 
 	GendustryUpgradeType(int maxStackSize, int energyCost) {
+		this.name = name().toLowerCase(Locale.ENGLISH);
 		this.maxStackSize = maxStackSize;
 		this.energyCost = energyCost;
 	}
@@ -62,5 +63,4 @@ public enum GendustryUpgradeType implements IItemSubtype, IGendustryUpgradeType 
 	public int energyCost() {
 		return this.energyCost;
 	}
-
 }

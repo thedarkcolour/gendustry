@@ -2,6 +2,7 @@ package thedarkcolour.gendustry.registry;
 
 import net.minecraft.world.item.CreativeModeTab;
 
+import forestry.Forestry;
 import forestry.api.IForestryApi;
 import forestry.api.genetics.ISpeciesType;
 import forestry.api.genetics.alleles.IAllele;
@@ -42,6 +43,11 @@ public class GCreativeTabs {
 		items.accept(GFluids.PROTEIN.getBucket());
 		GItems.RESOURCE.getItems().forEach(items::accept);
 		GItems.UPGRADE.getItems().forEach(items::accept);
+		GItems.ELITE_UPGRADE.getItems().forEach(items::accept);
+
+		if (Forestry.DEBUG) {
+			items.accept(GItems.DEBUG_WAND);
+		}
 	}
 
 	private static void addGeneSamples(CreativeModeTab.ItemDisplayParameters params, CreativeModeTab.Output items) {
