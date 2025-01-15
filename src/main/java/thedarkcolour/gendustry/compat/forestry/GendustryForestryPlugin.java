@@ -5,12 +5,12 @@ import net.minecraft.resources.ResourceLocation;
 import forestry.api.plugin.IErrorRegistration;
 import forestry.api.plugin.IForestryPlugin;
 
-import thedarkcolour.gendustry.Gendustry;
+import thedarkcolour.gendustry.GendustryModule;
 
 public class GendustryForestryPlugin implements IForestryPlugin {
 	@Override
 	public ResourceLocation id() {
-		return Gendustry.MODULE_ID;
+		return GendustryModule.MODULE_ID;
 	}
 
 	@Override

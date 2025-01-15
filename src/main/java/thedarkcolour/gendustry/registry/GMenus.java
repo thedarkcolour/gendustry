@@ -5,9 +5,8 @@ import forestry.modules.features.FeatureProvider;
 import forestry.modules.features.IFeatureRegistry;
 import forestry.modules.features.ModFeatureRegistry;
 
-import thedarkcolour.gendustry.Gendustry;
+import thedarkcolour.gendustry.GendustryModule;
 import thedarkcolour.gendustry.blockentity.IHintTile;
-import thedarkcolour.gendustry.blockentity.IndustrialApiaryInventory;
 import thedarkcolour.gendustry.menu.AdvancedMutatronMenu;
 import thedarkcolour.gendustry.menu.IndustrialApiaryMenu;
 import thedarkcolour.gendustry.menu.MutatronMenu;
@@ -17,7 +16,7 @@ import thedarkcolour.gendustry.menu.ThreeInputMenu;
 
 @FeatureProvider
 public class GMenus {
-	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(Gendustry.MODULE_ID);
+	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(GendustryModule.MODULE_ID);
 
 	public static final FeatureMenuType<ProcessorMenu> PROCESSOR = REGISTRY.menuType(ProcessorMenu::fromNetwork, "processor");
 	public static final FeatureMenuType<ThreeInputMenu<? extends IHintTile>> SAMPLER = REGISTRY.menuType(ThreeInputMenu::samplerFromNetwork, "sampler");

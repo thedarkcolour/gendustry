@@ -17,6 +17,7 @@ import forestry.modules.features.IFeatureRegistry;
 import forestry.modules.features.ModFeatureRegistry;
 
 import thedarkcolour.gendustry.Gendustry;
+import thedarkcolour.gendustry.GendustryModule;
 
 @FeatureProvider
 public enum GFluids {
@@ -29,7 +30,7 @@ public enum GFluids {
 	private final FeatureItem<BucketItem> bucket;
 
 	GFluids() {
-		IFeatureRegistry registry = ModFeatureRegistry.get(Gendustry.MODULE_ID);
+		IFeatureRegistry registry = ModFeatureRegistry.get(GendustryModule.MODULE_ID);
 		this.feature = registry
 				.fluid(name().toLowerCase(Locale.ENGLISH))
 				.bucket(this::getBucket)

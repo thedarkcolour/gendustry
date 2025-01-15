@@ -10,8 +10,7 @@ import forestry.modules.features.FeatureProvider;
 import forestry.modules.features.IFeatureRegistry;
 import forestry.modules.features.ModFeatureRegistry;
 
-import thedarkcolour.gendustry.Gendustry;
-import thedarkcolour.gendustry.item.DebugWand;
+import thedarkcolour.gendustry.GendustryModule;
 import thedarkcolour.gendustry.item.EliteGendustryUpgradeType;
 import thedarkcolour.gendustry.item.GendustryResourceType;
 import thedarkcolour.gendustry.item.GendustryUpgradeItem;
@@ -22,7 +21,7 @@ import thedarkcolour.gendustry.item.PollenKitItem;
 
 @FeatureProvider
 public class GItems {
-	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(Gendustry.MODULE_ID);
+	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(GendustryModule.MODULE_ID);
 
 	public static final FeatureItemGroup<ItemForestry, GendustryResourceType> RESOURCE = REGISTRY.itemGroup(subtype -> new ItemForestry(), GendustryResourceType.values()).create();
 	public static final FeatureItemGroup<GendustryUpgradeItem, GendustryUpgradeType> UPGRADE = REGISTRY.itemGroup(GendustryUpgradeItem::new, GendustryUpgradeType.values()).identifier("upgrade", FeatureGroup.IdentifierType.SUFFIX).create();
