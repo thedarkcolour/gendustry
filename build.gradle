@@ -6,7 +6,7 @@ plugins {
 	id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.9"
 }
 
-version = "1.0.0"
+version = gendustryVersion
 group = "thedarkcolour.gendustry"
 base.archivesName = "gendustry-$minecraftVersion"
 
@@ -127,9 +127,6 @@ idea.project.settings {
 
 jar {
 	finalizedBy "reobfJar"
-
-	// Exclude old photoshop files
-	exclude "**/*.psd"
 }
 
 tasks.withType(JavaCompile).configureEach {
