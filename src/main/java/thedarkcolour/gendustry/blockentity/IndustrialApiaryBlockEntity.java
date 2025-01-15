@@ -74,7 +74,7 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 	private final IndustrialApiaryBeeModifier modifier;
 	private int breedingProgressPercent;
 	private int energyConsumption;
-	private boolean recycleQueen;
+	protected boolean recycleQueen;
 
 	public IndustrialApiaryBlockEntity(BlockPos pos, BlockState state) {
 		super(GBlockEntities.INDUSTRIAL_APIARY.tileType(), pos, state);
@@ -191,7 +191,6 @@ public class IndustrialApiaryBlockEntity extends TileBase implements IBeeHousing
 		return this.modifier.sieve && this.inventory.addProduct(pollen.createStack(), false);
 	}
 
-	// todo fix not recycling if output is full
 	@Override
 	public void onQueenDeath() {
 		this.recycleQueen = this.modifier.automated;

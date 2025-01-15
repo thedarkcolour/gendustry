@@ -3,7 +3,6 @@ package thedarkcolour.gendustry.blockentity;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 
 import forestry.api.apiculture.IBeeHousingInventory;
 import forestry.api.apiculture.genetics.BeeLifeStage;
@@ -52,6 +51,10 @@ public class IndustrialApiaryInventory extends InventoryAdapterTile<IndustrialAp
 
 	@Override
 	public boolean canTakeItemThroughFace(int slotIndex, ItemStack stack, Direction side) {
+		// Wait till drones are recycled before extracting
+		if (this.tile.recycleQueen && IIndividualHandlerItem.filter(stack, (i, stage) -> stage == BeeLifeStage.PRINCESS || stage == BeeLifeStage.DRONE)) {
+			return false;
+		}
 		return OUTPUT_SLOT_START <= slotIndex && slotIndex < OUTPUT_SLOT_COUNT;
 	}
 
@@ -77,6 +80,10 @@ public class IndustrialApiaryInventory extends InventoryAdapterTile<IndustrialAp
 
 	@Override
 	public boolean addProduct(ItemStack product, boolean all) {
+		if (getQueen().isEmpty() && IIndividualHandlerItem.filter(product, (i, stage) -> stage == BeeLifeStage.PRINCESS)) {
+			setQueen(product);
+			return true;
+		}
 		return InventoryUtil.tryAddStack(this, product, IndustrialApiaryInventory.OUTPUT_SLOT_START, IndustrialApiaryInventory.OUTPUT_SLOT_COUNT, all, true);
 	}
 }
