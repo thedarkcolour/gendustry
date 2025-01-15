@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "gendustry:automation_upgrade"
+        "recipe": "gendustry:scrubber_upgrade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "gendustry:automation_upgrade"
+      "gendustry:scrubber_upgrade"
     ]
   },
   "sends_telemetry_event": true

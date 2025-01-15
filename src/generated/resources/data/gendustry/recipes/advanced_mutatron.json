@@ -5,24 +5,26 @@
     "G": {
       "tag": "forge:gears/bronze"
     },
-    "I": {
-      "tag": "forge:storage_blocks/gold"
+    "H": {
+      "tag": "forge:gems/quartz"
     },
-    "R": {
+    "M": {
       "item": "gendustry:power_module"
     },
-    "T": {
-      "item": "minecraft:ghast_tear"
+    "P": {
+      "item": "gendustry:genetics_processor"
+    },
+    "S": {
+      "item": "gendustry:mutatron"
     }
   },
   "pattern": [
-    "ITI",
-    "RGR",
-    "ITI"
+    "GHG",
+    "PSP",
+    "GMG"
   ],
   "result": {
-    "count": 2,
-    "item": "gendustry:elite_upgrade_frame"
+    "item": "gendustry:advanced_mutatron"
   },
   "show_notification": true
 }

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:glowstone"
+    },
+    "F": {
+      "item": "gendustry:upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "I": {
+      "tag": "forge:ingots/bronze"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "DRD",
+    "RFR",
+    "IGI"
+  ],
+  "result": {
+    "item": "gendustry:lighting_upgrade"
+  },
+  "show_notification": true
+}

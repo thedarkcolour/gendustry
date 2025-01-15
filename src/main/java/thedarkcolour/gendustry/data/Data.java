@@ -20,6 +20,6 @@ public class Data {
 		helper.createRecipes(Recipes::addRecipes);
 		helper.createBlockModels(BlockModels::addBlockModels);
 		helper.createItemModels(true, true, false, null);
-		helper.createTags(Registries.ITEM, Tags::addTags);
+		helper.createTags(Registries.ITEM, ModTags::addTags);
 	}
 }

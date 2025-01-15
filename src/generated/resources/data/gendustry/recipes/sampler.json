@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "forge:gems/diamond"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "H": {
+      "item": "gendustry:genetics_processor"
+    },
+    "M": {
+      "item": "gendustry:power_module"
+    },
+    "P": {
+      "item": "gendustry:receptacle"
+    },
+    "S": {
+      "item": "forestry:sturdy_machine"
+    }
+  },
+  "pattern": [
+    "GHG",
+    "PSD",
+    "GMG"
+  ],
+  "result": {
+    "item": "gendustry:sampler"
+  },
+  "show_notification": true
+}

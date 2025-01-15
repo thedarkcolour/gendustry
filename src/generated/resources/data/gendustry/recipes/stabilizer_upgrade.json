@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "gendustry:upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "I": {
+      "tag": "forge:ingots/bronze"
+    },
+    "P": {
+      "item": "gendustry:genetics_processor"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "RPR",
+    "RFR",
+    "GIG"
+  ],
+  "result": {
+    "item": "gendustry:stabilizer_upgrade"
+  },
+  "show_notification": true
+}

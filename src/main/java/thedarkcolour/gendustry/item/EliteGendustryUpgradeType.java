@@ -4,7 +4,6 @@ import java.util.Locale;
 
 import forestry.api.core.IItemSubtype;
 
-// todo Elite upgrades
 public enum EliteGendustryUpgradeType implements IItemSubtype, IGendustryUpgradeType {
 	// Increases mutation chances
 	MUTATION(4, 400),

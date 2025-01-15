@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:crimson_nylium"
+    },
+    "F": {
+      "item": "gendustry:upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "I": {
+      "tag": "forge:ingots/bronze"
+    },
+    "S": {
+      "item": "minecraft:soul_sand"
+    },
+    "W": {
+      "item": "minecraft:warped_nylium"
+    }
+  },
+  "pattern": [
+    "CWS",
+    "IFI",
+    "IGI"
+  ],
+  "result": {
+    "item": "gendustry:nether_upgrade"
+  },
+  "show_notification": true
+}

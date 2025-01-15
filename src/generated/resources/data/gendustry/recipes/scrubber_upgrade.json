@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "gendustry:upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "S": {
+      "item": "forestry:silk_wisp"
+    }
+  },
+  "pattern": [
+    "SGS",
+    "GFG",
+    "SGS"
+  ],
+  "result": {
+    "item": "gendustry:scrubber_upgrade"
+  },
+  "show_notification": true
+}

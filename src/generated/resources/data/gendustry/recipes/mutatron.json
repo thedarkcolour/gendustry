@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:cauldron"
+    },
+    "H": {
+      "item": "gendustry:genetics_processor"
+    },
+    "I": {
+      "tag": "forge:ingots/bronze"
+    },
+    "M": {
+      "item": "gendustry:power_module"
+    },
+    "R": {
+      "item": "gendustry:receptacle"
+    },
+    "S": {
+      "item": "forestry:sturdy_machine"
+    }
+  },
+  "pattern": [
+    "RHI",
+    "MSR",
+    "RCI"
+  ],
+  "result": {
+    "item": "gendustry:mutatron"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "gendustry:climate_control_module"
+    },
+    "F": {
+      "item": "gendustry:upgrade_frame"
+    },
+    "I": {
+      "tag": "forge:ingots/bronze"
+    },
+    "P": {
+      "item": "minecraft:dead_bush"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "IFI",
+    "ICI"
+  ],
+  "result": {
+    "item": "gendustry:dryer_upgrade"
+  },
+  "show_notification": true
+}

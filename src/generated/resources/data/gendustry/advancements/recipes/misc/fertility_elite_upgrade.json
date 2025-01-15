@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "gendustry:upgrade_frame"
+              "gendustry:elite_upgrade_frame"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "gendustry:automation_upgrade"
+        "recipe": "gendustry:fertility_elite_upgrade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "gendustry:automation_upgrade"
+      "gendustry:fertility_elite_upgrade"
     ]
   },
   "sends_telemetry_event": true

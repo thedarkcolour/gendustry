@@ -5,24 +5,26 @@
     "G": {
       "tag": "forge:gears/bronze"
     },
-    "I": {
-      "tag": "forge:storage_blocks/gold"
+    "H": {
+      "item": "gendustry:genetics_processor"
     },
-    "R": {
+    "M": {
       "item": "gendustry:power_module"
     },
-    "T": {
-      "item": "minecraft:ghast_tear"
+    "R": {
+      "item": "gendustry:receptacle"
+    },
+    "S": {
+      "item": "forestry:sturdy_machine"
     }
   },
   "pattern": [
-    "ITI",
-    "RGR",
-    "ITI"
+    "GHG",
+    "RSR",
+    "GMG"
   ],
   "result": {
-    "count": 2,
-    "item": "gendustry:elite_upgrade_frame"
+    "item": "gendustry:imprinter"
   },
   "show_notification": true
 }

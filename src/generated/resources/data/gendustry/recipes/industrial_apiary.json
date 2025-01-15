@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "forge:glass"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "R": {
+      "item": "gendustry:receptacle"
+    },
+    "S": {
+      "item": "forestry:sturdy_machine"
+    }
+  },
+  "pattern": [
+    "CRC",
+    "CSC",
+    "GPG"
+  ],
+  "result": {
+    "item": "gendustry:industrial_apiary"
+  },
+  "show_notification": true
+}

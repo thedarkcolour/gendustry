@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "gendustry:upgrade_frame"
-            ]
+            "tag": "forge:gears/bronze"
           }
         ]
       },
@@ -15,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "gendustry:automation_upgrade"
+        "recipe": "gendustry:imprinter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "gendustry:automation_upgrade"
+      "gendustry:imprinter"
     ]
   },
   "sends_telemetry_event": true

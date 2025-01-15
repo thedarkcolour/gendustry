@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:grass_block"
+    },
+    "F": {
+      "item": "gendustry:elite_upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "RBR",
+    "BFB",
+    "RGR"
+  ],
+  "result": {
+    "item": "gendustry:territory_elite_upgrade"
+  },
+  "show_notification": true
+}

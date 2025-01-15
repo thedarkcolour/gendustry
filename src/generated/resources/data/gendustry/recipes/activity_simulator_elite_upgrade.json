@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "gendustry:elite_upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "I": {
+      "tag": "forge:ingots/bronze"
+    },
+    "L": {
+      "item": "gendustry:lighting_upgrade"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "S": {
+      "item": "gendustry:sky_upgrade"
+    },
+    "W": {
+      "item": "gendustry:weatherproof_upgrade"
+    }
+  },
+  "pattern": [
+    "RWR",
+    "LFS",
+    "IGI"
+  ],
+  "result": {
+    "item": "gendustry:activity_simulator_elite_upgrade"
+  },
+  "show_notification": true
+}

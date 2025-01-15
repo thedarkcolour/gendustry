@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "gendustry:bucket_liquid_dna"
+    },
+    "F": {
+      "item": "gendustry:elite_upgrade_frame"
+    },
+    "M": {
+      "item": "gendustry:bucket_mutagen"
+    },
+    "P": {
+      "item": "gendustry:genetics_processor"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "RMR",
+    "PFP",
+    "RDR"
+  ],
+  "result": {
+    "item": "gendustry:mutation_elite_upgrade"
+  },
+  "show_notification": true
+}

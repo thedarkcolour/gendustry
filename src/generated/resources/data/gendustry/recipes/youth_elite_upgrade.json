@@ -2,27 +2,29 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
+    "F": {
+      "item": "gendustry:elite_upgrade_frame"
+    },
     "G": {
       "tag": "forge:gears/bronze"
     },
     "I": {
-      "tag": "forge:storage_blocks/gold"
+      "tag": "forge:ingots/bronze"
     },
     "R": {
-      "item": "gendustry:power_module"
+      "tag": "forge:dusts/redstone"
     },
     "T": {
       "item": "minecraft:ghast_tear"
     }
   },
   "pattern": [
-    "ITI",
-    "RGR",
-    "ITI"
+    "TRT",
+    "RFR",
+    "IGI"
   ],
   "result": {
-    "count": 2,
-    "item": "gendustry:elite_upgrade_frame"
+    "item": "gendustry:youth_elite_upgrade"
   },
   "show_notification": true
 }

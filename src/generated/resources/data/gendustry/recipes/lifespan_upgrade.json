@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:wither_rose"
+    },
+    "F": {
+      "item": "gendustry:upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "I": {
+      "tag": "forge:ingots/bronze"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "ERE",
+    "RFR",
+    "IGI"
+  ],
+  "result": {
+    "item": "gendustry:lifespan_upgrade"
+  },
+  "show_notification": true
+}

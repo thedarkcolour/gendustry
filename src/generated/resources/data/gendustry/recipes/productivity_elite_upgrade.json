@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "forestry:pollen_cluster_normal"
+    },
+    "D": {
+      "tag": "forge:gems/emerald"
+    },
+    "F": {
+      "item": "gendustry:elite_upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "R": {
+      "item": "forestry:royal_jelly"
+    }
+  },
+  "pattern": [
+    "DRD",
+    "RFR",
+    "CGC"
+  ],
+  "result": {
+    "item": "gendustry:productivity_elite_upgrade"
+  },
+  "show_notification": true
+}
