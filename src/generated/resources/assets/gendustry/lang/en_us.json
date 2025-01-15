@@ -116,7 +116,7 @@
   "item.gendustry.pollination_upgrade.tooltip": "Increases bee pollination by 25%.",
   "item.gendustry.power_module": "Power Module",
   "item.gendustry.productivity_elite_upgrade": "Productivity Elite Upgrade",
-  "item.gendustry.productivity_elite_upgrade.tooltip": "Increases bee productivity by 25% and speeds up work cycle by 1.5%.",
+  "item.gendustry.productivity_elite_upgrade.tooltip": "Increases bee productivity by 25% and speeds up work cycle by 15 ticks.",
   "item.gendustry.productivity_upgrade": "Productivity Upgrade",
   "item.gendustry.productivity_upgrade.tooltip": "Increases bee productivity by 25%.",
   "item.gendustry.receptacle": "Receptacle",
