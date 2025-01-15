@@ -1,0 +1,11 @@
+// 1.20.1	2025-01-14T23:41:55.5157209	Loot Tables
+87d30d8d2f3079a6aa3931e528d17772d9c5ea88 data/gendustry/loot_tables/blocks/advanced_mutatron.json
+00d253231acd73314a9bfaecd7d056669b5e132b data/gendustry/loot_tables/blocks/dna_extractor.json
+ae1c6ebd961b64a518856905da14f846e4be9d23 data/gendustry/loot_tables/blocks/genetic_transposer.json
+249587b244486cd8680f156df315ff838ca341fc data/gendustry/loot_tables/blocks/imprinter.json
+7afbdfb7c70df40a233837ff75ccebe5401c48c0 data/gendustry/loot_tables/blocks/industrial_apiary.json
+44e0f67431594f4a255f2f84b9eb3930910a1991 data/gendustry/loot_tables/blocks/mutagen_producer.json
+6b056e9ec33df1b1f41660f14d63077743d3cbf4 data/gendustry/loot_tables/blocks/mutatron.json
+c2fcd6605ed42b4fffa9b5610caa39e8b8e68348 data/gendustry/loot_tables/blocks/protein_liquefier.json
+de4516e1b5353cb8936c5a6a276b13332e161a18 data/gendustry/loot_tables/blocks/replicator.json
+f1debc4957fc21bb6b6aa0ad0088c281416ae75e data/gendustry/loot_tables/blocks/sampler.json

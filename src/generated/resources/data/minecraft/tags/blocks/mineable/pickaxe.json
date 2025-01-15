@@ -1,0 +1,14 @@
+{
+  "values": [
+    "gendustry:industrial_apiary",
+    "gendustry:mutagen_producer",
+    "gendustry:dna_extractor",
+    "gendustry:protein_liquefier",
+    "gendustry:sampler",
+    "gendustry:mutatron",
+    "gendustry:advanced_mutatron",
+    "gendustry:imprinter",
+    "gendustry:genetic_transposer",
+    "gendustry:replicator"
+  ]
+}
