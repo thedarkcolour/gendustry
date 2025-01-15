@@ -30,7 +30,7 @@ public class GItems {
 	public static final FeatureItem<Item> POLLEN_KIT = REGISTRY.item(PollenKitItem::new, "pollen_kit");
 	public static final FeatureItem<Item> GENE_SAMPLE = REGISTRY.item(GeneSampleItem::new, "gene_sample");
 	public static final FeatureItem<Item> GENETIC_TEMPLATE = REGISTRY.item(GeneticTemplateItem::new, "genetic_template");
-	public static final FeatureItem<DebugWand> DEBUG_WAND = REGISTRY.item(DebugWand::new, "debug_wand");
+	//public static final FeatureItem<DebugWand> DEBUG_WAND = REGISTRY.item(DebugWand::new, "debug_wand");
 	//public static final FeatureItem<Item> INDUSTRIAL_SCOOP = REGISTRY.item(() -> new IndustrialScoopItem(), "industrial_scoop");
 	//public static final FeatureItem<Item> INDUSTRIAL_GRAFTER = REGISTRY.item(() -> new IndustrialGrafterItem(), "industrial_grafter");
 }

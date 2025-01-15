@@ -85,7 +85,6 @@
   "item.gendustry.climate_control_module": "Climate Control Module",
   "item.gendustry.cooler_upgrade": "Cooler Upgrade",
   "item.gendustry.cooler_upgrade.tooltip": "Lowers the temperature of the apiary by 1 step.",
-  "item.gendustry.debug_wand": "Debug Wand",
   "item.gendustry.dryer_upgrade": "Dryer Upgrade",
   "item.gendustry.dryer_upgrade.tooltip": "Lowers the humidity of the apiary by 1 step.",
   "item.gendustry.elite_upgrade_frame": "Elite Upgrade Frame",

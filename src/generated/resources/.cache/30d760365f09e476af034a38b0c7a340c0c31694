@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-14T00:17:54.8400859	ModKit Item Models for mod 'gendustry'
+// 1.20.1	2025-01-14T18:00:20.7186032	ModKit Item Models for mod 'gendustry'
 419930a4240936d7d46ff8a7ec6666a30186b950 assets/gendustry/models/item/activity_simulator_elite_upgrade.json
 53189ae85fbd2fb12a228c9a566f2b20b646773c assets/gendustry/models/item/advanced_mutatron.json
 7f529ca2d98fed6e1e53cb127ef919aeb00abe64 assets/gendustry/models/item/automation_upgrade.json
@@ -9,7 +9,6 @@
 1c6d7595c18db975688fccbc173716685c27d30e assets/gendustry/models/item/bucket_protein.json
 d51684e185463d02b89bedae439a0b26ddd8e9a9 assets/gendustry/models/item/climate_control_module.json
 775581785b41bcf946dc005267a7445ecd35fbfd assets/gendustry/models/item/cooler_upgrade.json
-e434aa6c34e8ed854e34c7707d5adc46f0e91745 assets/gendustry/models/item/debug_wand.json
 a003a13a38d68118a7c67c9bc60e96583f2c7f29 assets/gendustry/models/item/dna_extractor.json
 059f154b29ef9cbe20f36788f027c6fd3be4f0bd assets/gendustry/models/item/dryer_upgrade.json
 7e4af79545cf8c1834c36fddc815ef9f92ce3868 assets/gendustry/models/item/elite_upgrade_frame.json
