@@ -14,28 +14,28 @@ license="GNU GPLv3"
 	Machines for manipulation of Forestry genetics.
 	'''
 
-[[dependencies.forestry]]
+[[dependencies.gendustry]]
 	modId="forge"
 	mandatory=true
 	versionRange="${forgeVersionRange}"
 	ordering="NONE"
 	side="BOTH"
 
-[[dependencies.forestry]]
+[[dependencies.gendustry]]
 	modId="patchouli"
 	mandatory=true
 	versionRange="${patchouliVersionRange}"
 	ordering="NONE"
 	side="BOTH"
 
-[[dependencies.forestry]]
-	modId="jei"
+[[dependencies.gendustry]]
+	modId="forestry"
 	mandatory=true
 	versionRange="${forestryVersionRange}"
 	ordering="NONE"
 	side="CLIENT"
 
-[[dependencies.forestry]]
+[[dependencies.gendustry]]
 	modId="jei"
 	mandatory=false
 	versionRange="${jeiVersionRange}"

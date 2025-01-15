@@ -7,15 +7,18 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
+import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.gendustry.GendustryModule;
 import thedarkcolour.gendustry.client.screen.MutatronScreen;
 import thedarkcolour.gendustry.registry.GItems;
 
 @JeiPlugin
 public class GendustryJeiPlugin implements IModPlugin {
+	public static final ResourceLocation ID = Gendustry.loc("jei");
+
 	@Override
 	public ResourceLocation getPluginUid() {
-		return GendustryModule.MODULE_ID;
+		return ID;
 	}
 
 	@Override
