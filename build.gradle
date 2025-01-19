@@ -4,10 +4,12 @@ plugins {
 	id "maven-publish"
 	id "org.parchmentmc.librarian.forgegradle" version "1.+"
 	id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.9"
+	id('com.modrinth.minotaur') version '2.+'
+	id('com.matthewprenger.cursegradle') version '1.4.0'
 }
 
-version = gendustryVersion
 group = "thedarkcolour.gendustry"
+version = gendustryVersion
 base.archivesName = "gendustry-$minecraftVersion"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -142,4 +144,72 @@ idea {
 		downloadSources = true
 		downloadJavadoc = true
 	}
+}
+
+if (System.getenv("CURSEFORGE_TOKEN")) {
+	curseforge {
+		apiKey = System.getenv("CURSEFORGE_TOKEN")
+
+		project {
+			id = project.curseforgeId
+			changelogType = "markdown"
+			changelog = getChangelog(version)
+
+			releaseType = "release"
+
+			addGameVersion(project.minecraftVersion)
+			addGameVersion("Forge")
+			addGameVersion("Java 17")
+
+			mainArtifact(jar.archiveFile) {
+				displayName = "Gendustry: Community Edition ${project.version}"
+				relations {
+					requiredDependency 'forestry-community-edition'
+				}
+			}
+		}
+	}
+}
+
+modrinth {
+	token = System.getenv("MODRINTH_TOKEN")
+	projectId = project.modrinthId
+	versionName = "Gendustry: Community Edition $version"
+	versionNumber = version.toString()
+	versionType = "release"
+	gameVersions = [minecraftVersion]
+	loaders = ["forge"]
+	changelog = getChangelog(project.version)
+
+	uploadFile = jar
+
+	dependencies {
+		required.project("forestry-community-edition")
+	}
+}
+
+static def getChangelog(Object version) {
+	version = version.toString()
+
+	def file = new File('changelog.md')
+	if (!file.exists()) {
+		return "Changelog file not found"
+	}
+
+	// Relies on the changelog block being "##blahblahblah_VERSION" where _ is a space
+	def content = file.text.normalize().split("##.* ")
+
+	for (final def chunk in content) {
+		if (chunk.isEmpty()) continue
+
+		def lineTerminatorIndex = chunk.findIndexOf { c -> c == '\n' || c == '\r' }
+		def versionString = chunk.substring(0, lineTerminatorIndex)
+
+		if (versionString == version) {
+			return "## Gendustry $version\n" + chunk.substring(lineTerminatorIndex + 1)
+		}
+	}
+
+	// Fallback in case this fails
+	return "Gendustry Update ${version}"
 }
