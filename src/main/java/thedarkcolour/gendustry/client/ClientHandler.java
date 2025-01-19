@@ -11,10 +11,9 @@ import forestry.api.client.IClientModuleHandler;
 import thedarkcolour.gendustry.client.screen.AdvancedMutatronScreen;
 import thedarkcolour.gendustry.client.screen.IndustrialApiaryScreen;
 import thedarkcolour.gendustry.client.screen.MutatronScreen;
-import thedarkcolour.gendustry.client.screen.ProcessorScreen;
+import thedarkcolour.gendustry.client.screen.ProducerScreen;
 import thedarkcolour.gendustry.client.screen.ReplicatorScreen;
 import thedarkcolour.gendustry.client.screen.ThreeInputScreen;
-import thedarkcolour.gendustry.menu.IndustrialApiaryMenu;
 import thedarkcolour.gendustry.registry.GMenus;
 
 public class ClientHandler implements IClientModuleHandler {
@@ -25,7 +24,7 @@ public class ClientHandler implements IClientModuleHandler {
 
 	private static void clientSetup(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			MenuScreens.register(GMenus.PROCESSOR.menuType(), ProcessorScreen::new);
+			MenuScreens.register(GMenus.PROCESSOR.menuType(), ProducerScreen::new);
 			MenuScreens.register(GMenus.SAMPLER.menuType(), ThreeInputScreen::new);
 			MenuScreens.register(GMenus.IMPRINTER.menuType(), ThreeInputScreen::new);
 			MenuScreens.register(GMenus.GENETIC_TRANSPOSER.menuType(), ThreeInputScreen::new);

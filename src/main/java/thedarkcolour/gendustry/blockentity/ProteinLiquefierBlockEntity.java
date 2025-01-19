@@ -13,7 +13,7 @@ import thedarkcolour.gendustry.registry.GBlockEntities;
 import thedarkcolour.gendustry.registry.GFluids;
 import org.jetbrains.annotations.Nullable;
 
-public class ProteinLiquefierBlockEntity extends ProcessorBlockEntity<ProteinLiquefierBlockEntity, ProteinRecipe> {
+public class ProteinLiquefierBlockEntity extends ProducerBlockEntity<ProteinLiquefierBlockEntity, ProteinRecipe> {
 	private static final int ENERGY_PER_WORK_CYCLE = 20000;
 	private static final int TICKS_PER_WORK_CYCLE = 100;
 

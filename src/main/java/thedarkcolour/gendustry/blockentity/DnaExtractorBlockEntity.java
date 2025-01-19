@@ -14,7 +14,7 @@ import thedarkcolour.gendustry.registry.GBlockEntities;
 import thedarkcolour.gendustry.registry.GFluids;
 import org.jetbrains.annotations.Nullable;
 
-public class DnaExtractorBlockEntity extends ProcessorBlockEntity<DnaExtractorBlockEntity, DnaRecipe> {
+public class DnaExtractorBlockEntity extends ProducerBlockEntity<DnaExtractorBlockEntity, DnaRecipe> {
 	private static final int ENERGY_PER_WORK_CYCLE = 80000;
 	private static final int TICKS_PER_WORK_CYCLE = 50;
 

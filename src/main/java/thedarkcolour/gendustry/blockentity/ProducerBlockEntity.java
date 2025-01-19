@@ -16,23 +16,22 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import forestry.api.core.IError;
 import forestry.core.fluids.FilteredTank;
 import forestry.core.fluids.FluidHelper;
-import forestry.core.fluids.TankManager;
 import forestry.modules.features.FeatureTileType;
 
 import org.jetbrains.annotations.Nullable;
 import thedarkcolour.gendustry.compat.forestry.GendustryError;
 import thedarkcolour.gendustry.item.GendustryResourceType;
-import thedarkcolour.gendustry.menu.ProcessorMenu;
+import thedarkcolour.gendustry.menu.ProducerMenu;
 import thedarkcolour.gendustry.recipe.ProcessorRecipe;
 import thedarkcolour.gendustry.registry.GFluids;
 import thedarkcolour.gendustry.registry.GItems;
 
 // Common logic shared between Mutagen Producer, Protein Liquefier, DNA Extractor
-public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>, R extends ProcessorRecipe> extends PoweredTankBlockEntity {
+public abstract class ProducerBlockEntity<T extends ProducerBlockEntity<T, R>, R extends ProcessorRecipe> extends PoweredTankBlockEntity {
 	private static final float CONSUME_LABWARE_CHANCE = 0.1f;
 
 	protected final FilteredTank outputTank;
-	protected final ProcessorInventory<T> inventory;
+	protected final ProducerInventory<T> inventory;
 	public final boolean usesLabware;
 	private final GFluids resultFluid;
 
@@ -40,12 +39,12 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 	protected ProcessorRecipe currentRecipe;
 
 	@SuppressWarnings("unchecked")
-	public ProcessorBlockEntity(FeatureTileType<?> type, GFluids result, boolean usesLabware, BlockPos pos, BlockState state) {
+	public ProducerBlockEntity(FeatureTileType<?> type, GFluids result, boolean usesLabware, BlockPos pos, BlockState state) {
 		super(type.tileType(), pos, state, 10000, 1000000);
 
-		this.outputTank = new FilteredTank(10000).setFilters(Set.of(result.fluid()));
+		this.outputTank = new FilteredTank(10000, false, true).setFilters(Set.of(result.fluid()));
 		this.tankManager.add(this.outputTank);
-		this.inventory = new ProcessorInventory<>((T) this, usesLabware);
+		this.inventory = new ProducerInventory<>((T) this, usesLabware);
 		this.usesLabware = usesLabware;
 		this.resultFluid = result;
 
@@ -59,7 +58,7 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 		if (updateOnInterval(20)) {
 			FluidStack fluid = this.outputTank.getFluid();
 			if (!fluid.isEmpty()) {
-				FluidHelper.fillContainers(this.tankManager, this.inventory, ProcessorInventory.SLOT_CAN_INPUT, ProcessorInventory.SLOT_CAN_OUTPUT, fluid.getFluid(), true);
+				FluidHelper.fillContainers(this.tankManager, this.inventory, ProducerInventory.SLOT_CAN_INPUT, ProducerInventory.SLOT_CAN_OUTPUT, fluid.getFluid(), true);
 			}
 		}
 	}
@@ -67,7 +66,7 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 	@Override
 	public boolean hasWork() {
 		// Check input
-		R matchingRecipe = getRecipe(this.inventory.getItem(ProcessorInventory.SLOT_INPUT));
+		R matchingRecipe = getRecipe(this.inventory.getItem(ProducerInventory.SLOT_INPUT));
 		if (this.currentRecipe != matchingRecipe) {
 			this.currentRecipe = matchingRecipe;
 
@@ -81,7 +80,7 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 
 		// Check labware
 		if (this.usesLabware) {
-			ItemStack labware = this.inventory.getItem(ProcessorInventory.SLOT_LABWARE);
+			ItemStack labware = this.inventory.getItem(ProducerInventory.SLOT_LABWARE);
 			boolean hasLabware = !getErrorLogic().setCondition(labware.isEmpty(), GendustryError.NO_LABWARE);
 
 			return hasInput && hasLabware;
@@ -99,23 +98,23 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 		}
 
 		// Check input
-		ItemStack input = this.inventory.getItem(ProcessorInventory.SLOT_INPUT);
+		ItemStack input = this.inventory.getItem(ProducerInventory.SLOT_INPUT);
 		if (!this.currentRecipe.isIngredient(input)) {
 			return false;
 		}
 		if (this.usesLabware) {
 			// Check labware
-			ItemStack labware = this.inventory.getItem(ProcessorInventory.SLOT_LABWARE);
+			ItemStack labware = this.inventory.getItem(ProducerInventory.SLOT_LABWARE);
 			if (!labware.is(GItems.RESOURCE.item(GendustryResourceType.LABWARE))) {
 				return false;
 			}
 			// Consume labware
 			if (this.level.random.nextFloat() < CONSUME_LABWARE_CHANCE) {
-				this.inventory.removeItem(ProcessorInventory.SLOT_LABWARE, 1);
+				this.inventory.removeItem(ProducerInventory.SLOT_LABWARE, 1);
 			}
 		}
 		// Consume input
-		this.inventory.removeItem(ProcessorInventory.SLOT_INPUT, 1);
+		this.inventory.removeItem(ProducerInventory.SLOT_INPUT, 1);
 
 		// Create outputs
 		FluidStack result = this.resultFluid.fluidStack(resultAmount);
@@ -127,7 +126,7 @@ public abstract class ProcessorBlockEntity<T extends ProcessorBlockEntity<T, R>,
 
 	@Override
 	public AbstractContainerMenu createMenu(int windowId, Inventory playerInv, Player player) {
-		return new ProcessorMenu(windowId, playerInv, this);
+		return new ProducerMenu(windowId, playerInv, this);
 	}
 
 	public abstract boolean isValidInput(ItemStack input);

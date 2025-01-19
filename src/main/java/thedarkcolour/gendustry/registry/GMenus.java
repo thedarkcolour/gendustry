@@ -10,7 +10,7 @@ import thedarkcolour.gendustry.blockentity.IHintTile;
 import thedarkcolour.gendustry.menu.AdvancedMutatronMenu;
 import thedarkcolour.gendustry.menu.IndustrialApiaryMenu;
 import thedarkcolour.gendustry.menu.MutatronMenu;
-import thedarkcolour.gendustry.menu.ProcessorMenu;
+import thedarkcolour.gendustry.menu.ProducerMenu;
 import thedarkcolour.gendustry.menu.ReplicatorMenu;
 import thedarkcolour.gendustry.menu.ThreeInputMenu;
 
@@ -18,7 +18,8 @@ import thedarkcolour.gendustry.menu.ThreeInputMenu;
 public class GMenus {
 	private static final IFeatureRegistry REGISTRY = ModFeatureRegistry.get(GendustryModule.MODULE_ID);
 
-	public static final FeatureMenuType<ProcessorMenu> PROCESSOR = REGISTRY.menuType(ProcessorMenu::fromNetwork, "processor");
+	// todo rename to "producer" in 1.21
+	public static final FeatureMenuType<ProducerMenu> PROCESSOR = REGISTRY.menuType(ProducerMenu::fromNetwork, "processor");
 	public static final FeatureMenuType<ThreeInputMenu<? extends IHintTile>> SAMPLER = REGISTRY.menuType(ThreeInputMenu::samplerFromNetwork, "sampler");
 	public static final FeatureMenuType<ThreeInputMenu<? extends IHintTile>> IMPRINTER = REGISTRY.menuType(ThreeInputMenu::imprinterFromNetwork, "imprinter");
 	public static final FeatureMenuType<ThreeInputMenu<? extends IHintTile>> GENETIC_TRANSPOSER = REGISTRY.menuType(ThreeInputMenu::geneticTransposerFromNetwork, "genetic_transposer");

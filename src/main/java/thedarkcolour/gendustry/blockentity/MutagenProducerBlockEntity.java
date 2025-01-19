@@ -14,7 +14,7 @@ import thedarkcolour.gendustry.registry.GFluids;
 import org.jetbrains.annotations.Nullable;
 
 // Based somewhat on the squeezer
-public class MutagenProducerBlockEntity extends ProcessorBlockEntity<MutagenProducerBlockEntity, MutagenRecipe> {
+public class MutagenProducerBlockEntity extends ProducerBlockEntity<MutagenProducerBlockEntity, MutagenRecipe> {
 	// All recipes take 100000 RF to process. Choose your mutagens wisely!
 	private static final int ENERGY_PER_WORK_CYCLE = 100000;
 	private static final int TICKS_PER_WORK_CYCLE = 200;

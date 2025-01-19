@@ -13,15 +13,15 @@ import forestry.core.gui.widgets.TankWidget;
 import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.gendustry.blockentity.DnaExtractorBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
-import thedarkcolour.gendustry.blockentity.ProcessorBlockEntity;
+import thedarkcolour.gendustry.blockentity.ProducerBlockEntity;
 import thedarkcolour.gendustry.blockentity.ProteinLiquefierBlockEntity;
 import thedarkcolour.gendustry.data.TranslationKeys;
-import thedarkcolour.gendustry.menu.ProcessorMenu;
+import thedarkcolour.gendustry.menu.ProducerMenu;
 
-public class ProcessorScreen extends GuiForestryTitled<ProcessorMenu> {
-	private final ProcessorBlockEntity<?, ?> tile;
+public class ProducerScreen extends GuiForestryTitled<ProducerMenu> {
+	private final ProducerBlockEntity<?, ?> tile;
 
-	public ProcessorScreen(ProcessorMenu menu, Inventory playerInv, Component title) {
+	public ProducerScreen(ProducerMenu menu, Inventory playerInv, Component title) {
 		super(Gendustry.loc(Constants.TEXTURE_PATH_GUI + "/processor.png"), menu, playerInv, title);
 
 		this.tile = menu.getTile();

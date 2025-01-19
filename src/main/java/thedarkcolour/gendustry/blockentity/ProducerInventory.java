@@ -3,16 +3,13 @@ package thedarkcolour.gendustry.blockentity;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.fluids.FluidStack;
-
 import forestry.core.fluids.FluidHelper;
-import forestry.core.fluids.TankManager;
 import forestry.core.inventory.InventoryAdapterTile;
 
 import thedarkcolour.gendustry.item.GendustryResourceType;
 import thedarkcolour.gendustry.registry.GItems;
 
-public class ProcessorInventory<T extends ProcessorBlockEntity<T, ?>> extends InventoryAdapterTile<T> {
+public class ProducerInventory<T extends ProducerBlockEntity<T, ?>> extends InventoryAdapterTile<T> {
 	public static final int SLOT_INPUT = 0;
 	public static final int SLOT_CAN_INPUT = 1;
 	public static final int SLOT_CAN_OUTPUT = 2;
@@ -20,7 +17,7 @@ public class ProcessorInventory<T extends ProcessorBlockEntity<T, ?>> extends In
 
 	private final boolean usesLabware;
 
-	public ProcessorInventory(T tile, boolean usesLabware) {
+	public ProducerInventory(T tile, boolean usesLabware) {
 		super(tile, usesLabware ? 4 : 3, "items");
 
 		this.usesLabware = usesLabware;
