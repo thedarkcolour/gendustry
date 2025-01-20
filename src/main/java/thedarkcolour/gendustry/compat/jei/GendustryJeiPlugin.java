@@ -1,5 +1,9 @@
 package thedarkcolour.gendustry.compat.jei;
 
+import forestry.core.ClientsideCode;
+import forestry.core.utils.RecipeUtils;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.resources.ResourceLocation;
 
 import mezz.jei.api.IModPlugin;
@@ -7,10 +11,13 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import thedarkcolour.gendustry.Gendustry;
-import thedarkcolour.gendustry.GendustryModule;
-import thedarkcolour.gendustry.client.screen.MutatronScreen;
+import thedarkcolour.gendustry.client.screen.*;
+import thedarkcolour.gendustry.compat.jei.mutagen.MutagenRecipeCategory;
 import thedarkcolour.gendustry.registry.GItems;
+import thedarkcolour.gendustry.registry.GRecipeTypes;
 
 @JeiPlugin
 public class GendustryJeiPlugin implements IModPlugin {
@@ -27,6 +34,17 @@ public class GendustryJeiPlugin implements IModPlugin {
 	}
 
 	@Override
+	public void registerCategories(IRecipeCategoryRegistration registration) {
+		registration.addRecipeCategories(new MutagenRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+	}
+
+	@Override
+	public void registerRecipes(IRecipeRegistration registration) {
+		RecipeManager manager = ClientsideCode.getRecipeManager();
+		registration.addRecipes(GendustryRecipeType.MUTAGEN_PRODUCER, RecipeUtils.getRecipes(manager, GRecipeTypes.MUTAGEN).toList());
+	}
+
+	@Override
 	public void registerGuiHandlers(IGuiHandlerRegistration registration) {
 		// todo replace with MutationRecipe.class when Forestry makes it public
 		RecipeType<?>[] mutationTypes = registration.getJeiHelpers().getAllRecipeTypes()
@@ -34,5 +52,9 @@ public class GendustryJeiPlugin implements IModPlugin {
 				.toArray(RecipeType[]::new);
 
 		registration.addRecipeClickArea(MutatronScreen.class, 68, 38, 55, 18, mutationTypes);
+
+		registration.addRecipeClickArea(ProducerScreen.class, 35, 23, 55, 18, GendustryRecipeType.MUTAGEN_PRODUCER);
+		registration.addRecipeClickArea(ProducerScreen.class, 35, 23, 55, 18, GendustryRecipeType.DNA_EXTRACTOR);
+		registration.addRecipeClickArea(ProducerScreen.class, 35, 23, 55, 18, GendustryRecipeType.PROTEIN_LIQUEFIER);
 	}
 }
