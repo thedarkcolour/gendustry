@@ -4,15 +4,12 @@ import forestry.core.ClientsideCode;
 import forestry.core.utils.RecipeUtils;
 import mezz.jei.api.gui.handlers.IGuiClickableArea;
 import mezz.jei.api.gui.handlers.IGuiContainerHandler;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.*;
 import net.minecraft.resources.ResourceLocation;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.registration.IGuiHandlerRegistration;
-import mezz.jei.api.registration.ISubtypeRegistration;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import thedarkcolour.gendustry.Gendustry;
@@ -47,6 +44,13 @@ public class GendustryJeiPlugin implements IModPlugin {
 		registration.addRecipeCategories(new MutagenRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 		registration.addRecipeCategories(new ProteinProducerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 		registration.addRecipeCategories(new DNAExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+	}
+
+	@Override
+	public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+		registration.addRecipeCatalyst(MutagenRecipeCategory.ICON_STACK, GendustryRecipeType.MUTAGEN_PRODUCER);
+		registration.addRecipeCatalyst(DNAExtractorRecipeCategory.ICON_STACK, GendustryRecipeType.DNA_EXTRACTOR);
+		registration.addRecipeCatalyst(ProteinProducerRecipeCategory.ICON_STACK, GendustryRecipeType.PROTEIN_LIQUEFIER);
 	}
 
 	@Override
