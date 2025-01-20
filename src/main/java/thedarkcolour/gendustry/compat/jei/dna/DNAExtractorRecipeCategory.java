@@ -6,10 +6,10 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.ItemStack;
 import thedarkcolour.gendustry.compat.jei.GendustryRecipeType;
-import thedarkcolour.gendustry.compat.jei.ProcessorRecipeCategory;
+import thedarkcolour.gendustry.compat.jei.ProducerRecipeCategory;
 import thedarkcolour.gendustry.recipe.DnaRecipe;
 
-public class DNAExtractorRecipeCategory extends ProcessorRecipeCategory<DnaRecipe> {
+public class DNAExtractorRecipeCategory extends ProducerRecipeCategory<DnaRecipe> {
 
     public DNAExtractorRecipeCategory(IGuiHelper helper, String unlocalizedName, ItemStack stack) {
         super(helper, unlocalizedName, stack);

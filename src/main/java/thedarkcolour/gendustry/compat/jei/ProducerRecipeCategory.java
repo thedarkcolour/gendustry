@@ -19,14 +19,14 @@ import org.jetbrains.annotations.Nullable;
 import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.gendustry.recipe.ProcessorRecipe;
 
-public abstract class ProcessorRecipeCategory<T extends ProcessorRecipe> extends ForestryRecipeCategory<T> {
+public abstract class ProducerRecipeCategory<T extends ProcessorRecipe> extends ForestryRecipeCategory<T> {
 
     private static final ResourceLocation GUI = new ResourceLocation(Gendustry.ID, "textures/gui/processor.png");
     private final IDrawableAnimated arrow;
     private final IDrawable tankOverlay;
     private final IDrawable icon;
 
-    public ProcessorRecipeCategory(IGuiHelper helper, String unlocalizedName, ItemStack stack) {
+    public ProducerRecipeCategory(IGuiHelper helper, String unlocalizedName, ItemStack stack) {
         super(helper.createDrawable(GUI, 13, 18, 151, 60), unlocalizedName);
 
         IDrawableStatic arrowDrawable = helper.createDrawable(GUI, 176, 60, 55, 18);

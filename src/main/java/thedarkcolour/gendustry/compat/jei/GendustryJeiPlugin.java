@@ -2,6 +2,8 @@ package thedarkcolour.gendustry.compat.jei;
 
 import forestry.core.ClientsideCode;
 import forestry.core.utils.RecipeUtils;
+import mezz.jei.api.gui.handlers.IGuiClickableArea;
+import mezz.jei.api.gui.handlers.IGuiContainerHandler;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.resources.ResourceLocation;
@@ -14,10 +16,16 @@ import mezz.jei.api.registration.ISubtypeRegistration;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import thedarkcolour.gendustry.Gendustry;
+import thedarkcolour.gendustry.blockentity.DnaExtractorBlockEntity;
+import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
 import thedarkcolour.gendustry.client.screen.*;
 import thedarkcolour.gendustry.compat.jei.mutagen.MutagenRecipeCategory;
+import thedarkcolour.gendustry.compat.jei.protein.ProteinProducerRecipeCategory;
 import thedarkcolour.gendustry.registry.GItems;
 import thedarkcolour.gendustry.registry.GRecipeTypes;
+
+import java.util.Collection;
+import java.util.Collections;
 
 @JeiPlugin
 public class GendustryJeiPlugin implements IModPlugin {
@@ -36,12 +44,14 @@ public class GendustryJeiPlugin implements IModPlugin {
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registration) {
 		registration.addRecipeCategories(new MutagenRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+		registration.addRecipeCategories(new ProteinProducerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 	}
 
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
 		RecipeManager manager = ClientsideCode.getRecipeManager();
 		registration.addRecipes(GendustryRecipeType.MUTAGEN_PRODUCER, RecipeUtils.getRecipes(manager, GRecipeTypes.MUTAGEN).toList());
+		registration.addRecipes(GendustryRecipeType.PROTEIN_LIQUEFIER, RecipeUtils.getRecipes(manager, GRecipeTypes.PROTEIN).toList());
 	}
 
 	@Override
@@ -52,9 +62,18 @@ public class GendustryJeiPlugin implements IModPlugin {
 				.toArray(RecipeType[]::new);
 
 		registration.addRecipeClickArea(MutatronScreen.class, 68, 38, 55, 18, mutationTypes);
-
-		registration.addRecipeClickArea(ProducerScreen.class, 35, 23, 55, 18, GendustryRecipeType.MUTAGEN_PRODUCER);
-		registration.addRecipeClickArea(ProducerScreen.class, 35, 23, 55, 18, GendustryRecipeType.DNA_EXTRACTOR);
-		registration.addRecipeClickArea(ProducerScreen.class, 35, 23, 55, 18, GendustryRecipeType.PROTEIN_LIQUEFIER);
+		registration.addGuiContainerHandler(ProducerScreen.class, new IGuiContainerHandler<ProducerScreen>() {
+			@Override
+			public Collection<IGuiClickableArea> getGuiClickableAreas(ProducerScreen containerScreen, double guiMouseX, double guiMouseY) {
+				BlockEntity blockEntity = containerScreen.getMenu().getTile();
+				if (blockEntity instanceof MutagenProducerBlockEntity) {
+					return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.MUTAGEN_PRODUCER));
+				} else if (blockEntity instanceof DnaExtractorBlockEntity) {
+					return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.DNA_EXTRACTOR));
+				} else {
+					return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.PROTEIN_LIQUEFIER));
+				}
+			}
+		});
 	}
 }

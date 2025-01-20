@@ -8,12 +8,12 @@ import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.ItemStack;
 import thedarkcolour.gendustry.block.GendustryMachineType;
 import thedarkcolour.gendustry.compat.jei.GendustryRecipeType;
-import thedarkcolour.gendustry.compat.jei.ProcessorRecipeCategory;
+import thedarkcolour.gendustry.compat.jei.ProducerRecipeCategory;
 import thedarkcolour.gendustry.recipe.MutagenRecipe;
 import thedarkcolour.gendustry.registry.GBlocks;
 import thedarkcolour.gendustry.registry.GFluids;
 
-public class MutagenRecipeCategory extends ProcessorRecipeCategory<MutagenRecipe> {
+public class MutagenRecipeCategory extends ProducerRecipeCategory<MutagenRecipe> {
 
     public static final ItemStack ICON_STACK = new ItemStack(GBlocks.MACHINE.get(GendustryMachineType.MUTAGEN_PRODUCER).block());
 
