@@ -2,8 +2,7 @@ package thedarkcolour.gendustry.compat.jei;
 
 import forestry.core.ClientsideCode;
 import forestry.core.utils.RecipeUtils;
-import mezz.jei.api.gui.handlers.IGuiClickableArea;
-import mezz.jei.api.gui.handlers.IGuiContainerHandler;
+import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.registration.*;
 import net.minecraft.resources.ResourceLocation;
 
@@ -11,19 +10,14 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import thedarkcolour.gendustry.Gendustry;
-import thedarkcolour.gendustry.blockentity.DnaExtractorBlockEntity;
-import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
 import thedarkcolour.gendustry.client.screen.*;
-import thedarkcolour.gendustry.compat.jei.dna.DNAExtractorRecipeCategory;
-import thedarkcolour.gendustry.compat.jei.mutagen.MutagenRecipeCategory;
-import thedarkcolour.gendustry.compat.jei.protein.ProteinProducerRecipeCategory;
+import thedarkcolour.gendustry.compat.jei.producers.DNAExtractorRecipeCategory;
+import thedarkcolour.gendustry.compat.jei.producers.MutagenRecipeCategory;
+import thedarkcolour.gendustry.compat.jei.producers.ProducerGuiContainerHandler;
+import thedarkcolour.gendustry.compat.jei.producers.ProteinProducerRecipeCategory;
 import thedarkcolour.gendustry.registry.GItems;
 import thedarkcolour.gendustry.registry.GRecipeTypes;
-
-import java.util.Collection;
-import java.util.Collections;
 
 @JeiPlugin
 public class GendustryJeiPlugin implements IModPlugin {
@@ -41,9 +35,10 @@ public class GendustryJeiPlugin implements IModPlugin {
 
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registration) {
-		registration.addRecipeCategories(new MutagenRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
-		registration.addRecipeCategories(new ProteinProducerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
-		registration.addRecipeCategories(new DNAExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+		IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
+		registration.addRecipeCategories(new MutagenRecipeCategory(guiHelper));
+		registration.addRecipeCategories(new ProteinProducerRecipeCategory(guiHelper));
+		registration.addRecipeCategories(new DNAExtractorRecipeCategory(guiHelper));
 	}
 
 	@Override
@@ -69,19 +64,6 @@ public class GendustryJeiPlugin implements IModPlugin {
 				.toArray(RecipeType[]::new);
 
 		registration.addRecipeClickArea(MutatronScreen.class, 68, 38, 55, 18, mutationTypes);
-
-		registration.addGuiContainerHandler(ProducerScreen.class, new IGuiContainerHandler<>() {
-            @Override
-            public Collection<IGuiClickableArea> getGuiClickableAreas(ProducerScreen containerScreen, double guiMouseX, double guiMouseY) {
-                BlockEntity blockEntity = containerScreen.getMenu().getTile();
-                if (blockEntity instanceof MutagenProducerBlockEntity) {
-                    return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.MUTAGEN_PRODUCER));
-                } else if (blockEntity instanceof DnaExtractorBlockEntity) {
-                    return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.DNA_EXTRACTOR));
-                } else {
-                    return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.PROTEIN_LIQUEFIER));
-                }
-            }
-        });
+		registration.addGuiContainerHandler(ProducerScreen.class, new ProducerGuiContainerHandler());
 	}
 }

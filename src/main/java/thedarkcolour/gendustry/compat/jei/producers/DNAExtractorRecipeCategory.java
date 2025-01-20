@@ -1,4 +1,4 @@
-package thedarkcolour.gendustry.compat.jei.dna;
+package thedarkcolour.gendustry.compat.jei.producers;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
