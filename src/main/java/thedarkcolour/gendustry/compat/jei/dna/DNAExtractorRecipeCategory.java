@@ -40,7 +40,7 @@ public class DNAExtractorRecipeCategory extends ProducerRecipeCategory<DnaRecipe
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 23).addItemStack(recipe.getSpeciesType().getDefaultSpecies().createStack(recipe.getStage()));
         addFluidTank(builder, GFluids.LIQUID_DNA.fluid(), recipe.getAmount());
         builder.addSlot(RecipeIngredientRole.INPUT, 51, 1).addItemStack(GItems.RESOURCE.item(GendustryResourceType.LABWARE).getDefaultInstance()).addRichTooltipCallback((recipeSlotView, tooltip) -> {
-            tooltip.add(Component.literal("10% chance to be consumed!").withStyle(ChatFormatting.AQUA));
+            tooltip.add(Component.translatable("gen.for.chance", 10).withStyle(ChatFormatting.AQUA));
         });
     }
 
