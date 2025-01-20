@@ -8,7 +8,6 @@ import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.ItemStack;
 import thedarkcolour.gendustry.block.GendustryMachineType;
 import thedarkcolour.gendustry.compat.jei.GendustryRecipeType;
-import thedarkcolour.gendustry.compat.jei.ProducerRecipeCategory;
 import thedarkcolour.gendustry.recipe.ProteinRecipe;
 import thedarkcolour.gendustry.registry.GBlocks;
 import thedarkcolour.gendustry.registry.GFluids;

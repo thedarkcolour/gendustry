@@ -1,4 +1,4 @@
-package thedarkcolour.gendustry.compat.jei;
+package thedarkcolour.gendustry.compat.jei.producers;
 
 import forestry.core.recipes.jei.ForestryRecipeCategory;
 import mezz.jei.api.constants.VanillaTypes;

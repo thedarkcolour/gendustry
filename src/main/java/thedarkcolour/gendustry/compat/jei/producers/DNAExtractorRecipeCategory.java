@@ -13,7 +13,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import thedarkcolour.gendustry.block.GendustryMachineType;
 import thedarkcolour.gendustry.compat.jei.GendustryRecipeType;
-import thedarkcolour.gendustry.compat.jei.ProducerRecipeCategory;
 import thedarkcolour.gendustry.item.GendustryResourceType;
 import thedarkcolour.gendustry.recipe.DnaRecipe;
 import thedarkcolour.gendustry.registry.GBlocks;
