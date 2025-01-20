@@ -19,6 +19,7 @@ import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.gendustry.blockentity.DnaExtractorBlockEntity;
 import thedarkcolour.gendustry.blockentity.MutagenProducerBlockEntity;
 import thedarkcolour.gendustry.client.screen.*;
+import thedarkcolour.gendustry.compat.jei.dna.DNAExtractorRecipeCategory;
 import thedarkcolour.gendustry.compat.jei.mutagen.MutagenRecipeCategory;
 import thedarkcolour.gendustry.compat.jei.protein.ProteinProducerRecipeCategory;
 import thedarkcolour.gendustry.registry.GItems;
@@ -45,6 +46,7 @@ public class GendustryJeiPlugin implements IModPlugin {
 	public void registerCategories(IRecipeCategoryRegistration registration) {
 		registration.addRecipeCategories(new MutagenRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 		registration.addRecipeCategories(new ProteinProducerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+		registration.addRecipeCategories(new DNAExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 	}
 
 	@Override
@@ -52,6 +54,7 @@ public class GendustryJeiPlugin implements IModPlugin {
 		RecipeManager manager = ClientsideCode.getRecipeManager();
 		registration.addRecipes(GendustryRecipeType.MUTAGEN_PRODUCER, RecipeUtils.getRecipes(manager, GRecipeTypes.MUTAGEN).toList());
 		registration.addRecipes(GendustryRecipeType.PROTEIN_LIQUEFIER, RecipeUtils.getRecipes(manager, GRecipeTypes.PROTEIN).toList());
+		registration.addRecipes(GendustryRecipeType.DNA_EXTRACTOR, RecipeUtils.getRecipes(manager, GRecipeTypes.DNA).toList());
 	}
 
 	@Override
@@ -62,18 +65,19 @@ public class GendustryJeiPlugin implements IModPlugin {
 				.toArray(RecipeType[]::new);
 
 		registration.addRecipeClickArea(MutatronScreen.class, 68, 38, 55, 18, mutationTypes);
-		registration.addGuiContainerHandler(ProducerScreen.class, new IGuiContainerHandler<ProducerScreen>() {
-			@Override
-			public Collection<IGuiClickableArea> getGuiClickableAreas(ProducerScreen containerScreen, double guiMouseX, double guiMouseY) {
-				BlockEntity blockEntity = containerScreen.getMenu().getTile();
-				if (blockEntity instanceof MutagenProducerBlockEntity) {
-					return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.MUTAGEN_PRODUCER));
-				} else if (blockEntity instanceof DnaExtractorBlockEntity) {
-					return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.DNA_EXTRACTOR));
-				} else {
-					return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.PROTEIN_LIQUEFIER));
-				}
-			}
-		});
+
+		registration.addGuiContainerHandler(ProducerScreen.class, new IGuiContainerHandler<>() {
+            @Override
+            public Collection<IGuiClickableArea> getGuiClickableAreas(ProducerScreen containerScreen, double guiMouseX, double guiMouseY) {
+                BlockEntity blockEntity = containerScreen.getMenu().getTile();
+                if (blockEntity instanceof MutagenProducerBlockEntity) {
+                    return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.MUTAGEN_PRODUCER));
+                } else if (blockEntity instanceof DnaExtractorBlockEntity) {
+                    return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.DNA_EXTRACTOR));
+                } else {
+                    return Collections.singleton(IGuiClickableArea.createBasic(48, 40, 55, 18, GendustryRecipeType.PROTEIN_LIQUEFIER));
+                }
+            }
+        });
 	}
 }

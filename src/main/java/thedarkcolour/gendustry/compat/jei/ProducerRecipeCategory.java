@@ -21,7 +21,7 @@ import thedarkcolour.gendustry.recipe.ProcessorRecipe;
 
 public abstract class ProducerRecipeCategory<T extends ProcessorRecipe> extends ForestryRecipeCategory<T> {
 
-    private static final ResourceLocation GUI = new ResourceLocation(Gendustry.ID, "textures/gui/processor.png");
+    protected static final ResourceLocation GUI = new ResourceLocation(Gendustry.ID, "textures/gui/processor.png");
     private final IDrawableAnimated arrow;
     private final IDrawable tankOverlay;
     private final IDrawable icon;
