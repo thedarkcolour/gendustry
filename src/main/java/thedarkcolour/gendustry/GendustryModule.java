@@ -11,6 +11,7 @@ import forestry.api.modules.ForestryModule;
 import forestry.api.modules.IForestryModule;
 
 import thedarkcolour.gendustry.client.ClientHandler;
+import thedarkcolour.gendustry.data.Data;
 import thedarkcolour.gendustry.recipe.cache.DnaRecipeCache;
 import thedarkcolour.gendustry.recipe.cache.MutagenRecipeCache;
 import thedarkcolour.gendustry.recipe.cache.ProteinRecipeCache;
@@ -28,6 +29,11 @@ public class GendustryModule implements IForestryModule {
 			registrar.accept(DnaRecipeCache.INSTANCE);
 			registrar.accept(ProteinRecipeCache.INSTANCE);
 		});
+
+        try {
+            modBus.addListener(Data::gatherData);
+        } catch (ClassCastException ignored) {
+        }
 	}
 
 	@Override

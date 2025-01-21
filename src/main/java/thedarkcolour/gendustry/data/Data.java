@@ -12,9 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import thedarkcolour.gendustry.Gendustry;
 import thedarkcolour.modkit.data.DataHelper;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Data {
-	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		DataHelper helper = new DataHelper(Gendustry.ID, event);
 		DataGenerator generator = event.getGenerator();
