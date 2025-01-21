@@ -22,6 +22,7 @@ class English {
 		lang.add(TranslationKeys.TEMPLATE_ALLELE_COUNT, "Alleles (%1$s/%2$s)");
 		lang.add(TranslationKeys.UPGRADE_ENERGY_COST, "Energy Cost: %s RF");
 		lang.add(TranslationKeys.UPGRADE_STACK_LIMIT, "Max Count: %s");
+		lang.add("gen.for.chance", "%s%% chance to be consumed!");
 
 		// Machine hints
 		addHint(lang, TranslationKeys.HINT_MUTAGEN_USAGE, "What's Mutagen for?", "Produce Mutagen to use in other Gendustry machines.");

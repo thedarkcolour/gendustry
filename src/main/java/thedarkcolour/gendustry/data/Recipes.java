@@ -515,6 +515,6 @@ class Recipes {
 	}
 
 	private static void dna(Consumer<FinishedRecipe> writer, ResourceLocation speciesType, ILifeStage input, int dna) {
-		writer.accept(new DnaFinishedRecipe(Gendustry.loc("protein/" + input.getSerializedName()), IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(speciesType), input, dna));
+		writer.accept(new DnaFinishedRecipe(Gendustry.loc("dna/" + input.getSerializedName()), IForestryApi.INSTANCE.getGeneticManager().getSpeciesType(speciesType), input, dna));
 	}
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-14T23:05:00.7044002	Recipes
+// 1.20.1	2025-01-20T19:27:35.7743009	Recipes
 f6e776b964531a01c7ba87ab89c7705969105cc3 data/gendustry/advancements/recipes/misc/activity_simulator_elite_upgrade.json
 d10b8cb8f7e9927b0057ca12bb22cf6c25abfefa data/gendustry/advancements/recipes/misc/advanced_mutatron.json
 611d8e0b68aa9b0a58559a0dfb5ceb13fd9298eb data/gendustry/advancements/recipes/misc/automation_upgrade.json
@@ -52,6 +52,16 @@ d6ea5ac2ddf764d1b7218e1fc11da0ead2b274aa data/gendustry/recipes/blank_gene_sampl
 a4d95241e639906aab9c5c737863560401480a0b data/gendustry/recipes/climate_control_module.json
 f687cc074d768e789b2d43e62fc906be97c58347 data/gendustry/recipes/combine_genetic_template.json
 45a06cae1f7bab07a93086cc00a694a17a00d880 data/gendustry/recipes/cooler_upgrade.json
+229f6a1cd1e8c23694c5108459f5de194efd5906 data/gendustry/recipes/dna/butterfly.json
+4292d9a2976565315a4255be1f660435fa449d5a data/gendustry/recipes/dna/caterpillar.json
+59c53139f3f24805e5001dd08925e8b6ecb02e27 data/gendustry/recipes/dna/cocoon.json
+2c76f025619f28d4158560435440eed4e2097512 data/gendustry/recipes/dna/drone.json
+222536094cf0c80e647641c30315ad6dff23749a data/gendustry/recipes/dna/larvae.json
+4bc638cda6099f6b9e4ce46b024e4485f3e921bf data/gendustry/recipes/dna/pollen.json
+01228d2c8433f025a6e867f67aebce5e49294af7 data/gendustry/recipes/dna/princess.json
+054f9162f068c570e76337f041013d8ba9e4b4b1 data/gendustry/recipes/dna/queen.json
+aeeea2c652f238e7603f6d5c6fe094ba17569d0b data/gendustry/recipes/dna/sapling.json
+660c786e588fe8c87c21bdd2e1394fbea83a3559 data/gendustry/recipes/dna/serum.json
 5c12ca057c9bd513560789eb97bda2bf29ab49c9 data/gendustry/recipes/dna_extractor.json
 67d8b0786245d71d7b72a3cd71b55e5a07d44966 data/gendustry/recipes/dryer_upgrade.json
 297c2d8e805ec336444ebd9ec5c419f19eaf4f50 data/gendustry/recipes/elite_upgrade_frame.json
@@ -80,21 +90,11 @@ fe09292eda4663ede6a06a734a3058c72bc5a2d9 data/gendustry/recipes/mutatron.json
 f92c2071f551fb9b13c087a77707c01cc5025fad data/gendustry/recipes/productivity_elite_upgrade.json
 637315de889058b0d5fa24c9813ca63053f6cf6a data/gendustry/recipes/productivity_upgrade.json
 d085832ee27decbc77ba94611341566f7b9193c0 data/gendustry/recipes/protein/beef.json
-229f6a1cd1e8c23694c5108459f5de194efd5906 data/gendustry/recipes/protein/butterfly.json
-4292d9a2976565315a4255be1f660435fa449d5a data/gendustry/recipes/protein/caterpillar.json
-59c53139f3f24805e5001dd08925e8b6ecb02e27 data/gendustry/recipes/protein/cocoon.json
 252530d1cf7f4567122c422fa1b8f918db6cb0ec data/gendustry/recipes/protein/cod.json
-2c76f025619f28d4158560435440eed4e2097512 data/gendustry/recipes/protein/drone.json
-222536094cf0c80e647641c30315ad6dff23749a data/gendustry/recipes/protein/larvae.json
-4bc638cda6099f6b9e4ce46b024e4485f3e921bf data/gendustry/recipes/protein/pollen.json
 3252b0df877b4e0883ba4397aaaf5fb89fcb7fad data/gendustry/recipes/protein/porkchop.json
-01228d2c8433f025a6e867f67aebce5e49294af7 data/gendustry/recipes/protein/princess.json
 ca53c63c78b08871076323f9a0c7ff420bec8990 data/gendustry/recipes/protein/pufferfish.json
-054f9162f068c570e76337f041013d8ba9e4b4b1 data/gendustry/recipes/protein/queen.json
 553091dd7e400e6a1e40e6fa23aca2442041c2a0 data/gendustry/recipes/protein/rabbit.json
 e623827b959a2409af87b8c921f6de8cd73b1d9e data/gendustry/recipes/protein/salmon.json
-aeeea2c652f238e7603f6d5c6fe094ba17569d0b data/gendustry/recipes/protein/sapling.json
-660c786e588fe8c87c21bdd2e1394fbea83a3559 data/gendustry/recipes/protein/serum.json
 63000ab315360768fe18aa0a2bbd204cf7c81877 data/gendustry/recipes/protein/tropical_fish.json
 a2c7e6c66243a7287b9aa16e01b1802314f8ec80 data/gendustry/recipes/protein_liquefier.json
 82f1540f27dcebb8b282a0c78865a9414e276f78 data/gendustry/recipes/receptacle.json
