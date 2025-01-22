@@ -15,14 +15,19 @@ import thedarkcolour.gendustry.registry.GItems;
 import thedarkcolour.modkit.data.MKEnglishProvider;
 
 class English {
-	static void addTranslations(MKEnglishProvider lang) {
+    static void addTranslations(MKEnglishProvider lang) {
 		// Translation keys
 		lang.add(TranslationKeys.TEMPLATE_MISSING_ALLELE, "MISSING");
 		lang.add(TranslationKeys.TEMPLATE_ALLELE_ENTRY, "  %1$s - %2$s");
 		lang.add(TranslationKeys.TEMPLATE_ALLELE_COUNT, "Alleles (%1$s/%2$s)");
 		lang.add(TranslationKeys.UPGRADE_ENERGY_COST, "Energy Cost: %s RF");
 		lang.add(TranslationKeys.UPGRADE_STACK_LIMIT, "Max Count: %s");
-		lang.add("gen.for.chance", "%s%% chance to be consumed!");
+
+		// JEI
+		lang.add(TranslationKeys.JEI_LABWARE_CHANCE, "%s%% chance to be consumed!");
+		lang.add(TranslationKeys.JEI_INFO_MUTAGEN, "Mutagen is used in the Mutatron and Advanced Mutatron to trigger mutations between two organisms.");
+		lang.add(TranslationKeys.JEI_INFO_DNA, "Liquid DNA is used in the Replicator to produce new organisms from complete Genetic Templates.");
+		lang.add(TranslationKeys.JEI_INFO_PROTEIN, "Protein is used in the Replicator to produce new organisms from complete Genetic Templates.");
 
 		// Machine hints
 		addHint(lang, TranslationKeys.HINT_MUTAGEN_USAGE, "What's Mutagen for?", "Produce Mutagen to use in other Gendustry machines.");

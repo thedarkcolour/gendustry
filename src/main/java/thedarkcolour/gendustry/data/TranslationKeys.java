@@ -8,6 +8,10 @@ public class TranslationKeys {
 	public static final String UPGRADE_ENERGY_COST = "item.gendustry.upgrade.energy_cost";
 	public static final String UPGRADE_STACK_LIMIT = "item.gendustry.upgrade.max_count";
 
+	public static final String JEI_INFO_MUTAGEN = "info.gendustry.mutagen";
+	public static final String JEI_INFO_DNA = "info.gendustry.dna";
+	public static final String JEI_INFO_PROTEIN = "info.gendustry.protein";
+
 	// These are not the actual translation keys for the hints.
 	public static final String HINT_MUTAGEN_USAGE = "mutagen_usage";
 	public static final String HINT_MUTAGEN_INGREDIENTS = "mutagen_ingredients";
@@ -25,4 +29,5 @@ public class TranslationKeys {
 	public static final String HINT_ADVANCED_MUTATRON_USAGE = "advanced_mutatron";
 	public static final String HINT_INDUSTRIAL_APIARY_USAGE = "industrial_apiary";
 	public static final String HINT_INDUSTRIAL_APIARY_UPGRADES = "industrial_apiary_upgrades";
+	public static final String JEI_LABWARE_CHANCE = "gendustry.for.chance";
 }

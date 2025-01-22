@@ -1,21 +1,32 @@
 package thedarkcolour.gendustry.compat.jei;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeManager;
+
+import forestry.apiculture.compat.MutationRecipe;
 import forestry.core.ClientsideCode;
 import forestry.core.utils.RecipeUtils;
-import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.registration.*;
-import net.minecraft.resources.ResourceLocation;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.forge.ForgeTypes;
+import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
-import net.minecraft.world.item.crafting.RecipeManager;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.ISubtypeRegistration;
 import thedarkcolour.gendustry.Gendustry;
-import thedarkcolour.gendustry.client.screen.*;
+import thedarkcolour.gendustry.client.screen.MutatronScreen;
+import thedarkcolour.gendustry.client.screen.ProducerScreen;
 import thedarkcolour.gendustry.compat.jei.producers.DNAExtractorRecipeCategory;
 import thedarkcolour.gendustry.compat.jei.producers.MutagenRecipeCategory;
 import thedarkcolour.gendustry.compat.jei.producers.ProducerGuiContainerHandler;
 import thedarkcolour.gendustry.compat.jei.producers.ProteinProducerRecipeCategory;
+import thedarkcolour.gendustry.data.TranslationKeys;
+import thedarkcolour.gendustry.registry.GFluids;
 import thedarkcolour.gendustry.registry.GItems;
 import thedarkcolour.gendustry.registry.GRecipeTypes;
 
@@ -54,13 +65,16 @@ public class GendustryJeiPlugin implements IModPlugin {
 		registration.addRecipes(GendustryRecipeType.MUTAGEN_PRODUCER, RecipeUtils.getRecipes(manager, GRecipeTypes.MUTAGEN).toList());
 		registration.addRecipes(GendustryRecipeType.PROTEIN_LIQUEFIER, RecipeUtils.getRecipes(manager, GRecipeTypes.PROTEIN).toList());
 		registration.addRecipes(GendustryRecipeType.DNA_EXTRACTOR, RecipeUtils.getRecipes(manager, GRecipeTypes.DNA).toList());
+
+		registration.addIngredientInfo(GFluids.MUTAGEN.fluidStack(1000), ForgeTypes.FLUID_STACK, Component.translatable(TranslationKeys.JEI_INFO_MUTAGEN));
+		registration.addIngredientInfo(GFluids.LIQUID_DNA.fluidStack(1000), ForgeTypes.FLUID_STACK, Component.translatable(TranslationKeys.JEI_INFO_DNA));
+		registration.addIngredientInfo(GFluids.PROTEIN.fluidStack(1000), ForgeTypes.FLUID_STACK, Component.translatable(TranslationKeys.JEI_INFO_PROTEIN));
 	}
 
 	@Override
 	public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-		// todo replace with MutationRecipe.class when Forestry makes it public
 		RecipeType<?>[] mutationTypes = registration.getJeiHelpers().getAllRecipeTypes()
-				.filter(type -> type.getRecipeClass().getName().equals("forestry.apiculture.compat.MutationRecipe"))
+				.filter(type -> type.getRecipeClass() == MutationRecipe.class)
 				.toArray(RecipeType[]::new);
 
 		registration.addRecipeClickArea(MutatronScreen.class, 68, 38, 55, 18, mutationTypes);
