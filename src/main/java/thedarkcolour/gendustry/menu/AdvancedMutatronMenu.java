@@ -144,7 +144,7 @@ public class AdvancedMutatronMenu extends AbstractMutatronMenu<AdvancedMutatronB
 	public void setSelected(int selected) {
 		this.data.set(2, selected);
 
-		if (selected > 0 && !this.tile.getLevel().isClientSide) {
+		if (selected >= 0 && !this.tile.getLevel().isClientSide) {
 			List<IMutation<ISpecies<?>>> possibilities = this.tile.getPossibilities();
 			int choice = getSelected() + getOffset();
 

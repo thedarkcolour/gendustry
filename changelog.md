@@ -1,3 +1,6 @@
+## Gendustry 1.0.3
+- Fixed Advanced Mutatron not allowing the first mutation to be selected (#6)
+
 ## Gendustry 1.0.2
 - Improved JEI compatibility thanks to CrossVas (#1, #2)
 
