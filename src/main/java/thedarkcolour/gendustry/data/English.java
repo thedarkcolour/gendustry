@@ -43,7 +43,7 @@ class English {
 		addHint(lang, TranslationKeys.HINT_TRANSPOSER_USAGE, "How to use the Genetic Transposer?", "The Genetic Transposer creates copies of Gene Samples and Genetic Templates.");
 		addHint(lang, TranslationKeys.HINT_REPLICATOR_USAGE, "How to use the Replicator?", "The Replicator produces a new organism from a Genetic Template using Liquid DNA and Protein.");
 		addHint(lang, TranslationKeys.HINT_MUTATRON_USAGE, "What is the Mutatron?", "The Mutatron triggers a mutation between two parent organisms, yielding offspring of a new species.");
-		addHint(lang, TranslationKeys.HINT_ADVANCED_MUTATRON_USAGE, "How to use the Replicator?", "To choose the desired mutation between the two parents, use the Advanced Mutatron.");
+		addHint(lang, TranslationKeys.HINT_ADVANCED_MUTATRON_USAGE, "How to use the Advanced Mutatron?", "To choose the desired mutation between the two parents, use the Advanced Mutatron.");
 		addHint(lang, TranslationKeys.HINT_INDUSTRIAL_APIARY_USAGE, "How to use the Industrial Apiary?", "The left slots are for a Princess and Drone. The four middle slots are for upgrades. The nine right slots are outputs.");
 		addHint(lang, TranslationKeys.HINT_INDUSTRIAL_APIARY_UPGRADES, "Why no frames?", "The Industrial Apiary does not need frames. Instead, it uses upgrades that affect climate, productivity, lifespan, and more!");
 

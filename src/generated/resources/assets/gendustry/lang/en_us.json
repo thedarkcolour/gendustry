@@ -40,7 +40,7 @@
   "fluid_type.gendustry.mutagen": "Mutagen",
   "fluid_type.gendustry.protein": "Protein",
   "for.hints.advanced_mutatron.desc": "To choose the desired mutation between the two parents, use the Advanced Mutatron.",
-  "for.hints.advanced_mutatron.tag": "How to use the Replicator?",
+  "for.hints.advanced_mutatron.tag": "How to use the Advanced Mutatron?",
   "for.hints.dna_ingredients.desc": "Liquid DNA can be made from any organisms with a Forestry genome, like bees, saplings and pollen, and butterflies.",
   "for.hints.dna_ingredients.tag": "What makes Liquid DNA?",
   "for.hints.dna_usage.desc": "Use Liquid DNA in the Replicator to construct new organisms!",
