@@ -24,7 +24,7 @@ public class ImprinterInventory extends InventoryAdapterTile<ImprinterBlockEntit
 	public boolean canSlotAccept(int slotIndex, ItemStack stack) {
 		return switch (slotIndex) {
 			case SLOT_INPUT -> IIndividualHandlerItem.isIndividual(stack);
-			case SLOT_TEMPLATE -> stack.is(GItems.GENETIC_TEMPLATE.item()) && GeneticTemplateItem.isComplete(stack);
+			case SLOT_TEMPLATE -> stack.is(GItems.GENETIC_TEMPLATE.item()) && !GeneticTemplateItem.getAlleles(stack).isEmpty();
 			case SLOT_LABWARE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.LABWARE));
 			default -> false;
 		};
