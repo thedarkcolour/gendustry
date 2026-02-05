@@ -87,7 +87,7 @@ class English {
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.LIGHTING), "Allows bees to work without needing to sleep.");
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.PRODUCTIVITY), "Increases bee productivity by 25%.");
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.WEATHERPROOF), "Allows bees to work during the rain.");
-		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.SIEVE), "Automatically recycles princesses and drones from deceased queens.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.SIEVE), "Allows collecting pollen from nearby trees, like the Alveary Sieve.");
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.SKY), "Simulates a view of the sky for bees that aren't cave dwelling.");
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.STABILIZER), "Prevents Ignoble Stock bees from dying.");
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.TERRITORY), "Increases territory by 25%.");

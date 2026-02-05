@@ -1,3 +1,6 @@
+## Gendustry 1.0.5
+- Fixed incorrect tooltip for Sieve Upgrade (#3)
+
 ## Gendustry 1.0.4
 - Fixed incorrect tooltip for Advanced Mutatron hint
 - Added Spanish translations
