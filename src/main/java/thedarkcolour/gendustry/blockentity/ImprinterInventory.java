@@ -1,5 +1,6 @@
 package thedarkcolour.gendustry.blockentity;
 
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 
 import forestry.api.genetics.capability.IIndividualHandlerItem;
@@ -28,5 +29,10 @@ public class ImprinterInventory extends InventoryAdapterTile<ImprinterBlockEntit
 			case SLOT_LABWARE -> stack.is(GItems.RESOURCE.item(GendustryResourceType.LABWARE));
 			default -> false;
 		};
+	}
+
+	@Override
+	public boolean canTakeItemThroughFace(int slotIndex, ItemStack stack, Direction side) {
+		return slotIndex == SLOT_OUTPUT;
 	}
 }
