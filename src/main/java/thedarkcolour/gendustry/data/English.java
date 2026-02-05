@@ -91,6 +91,7 @@ class English {
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.SKY), "Simulates a view of the sky for bees that aren't cave dwelling.");
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.STABILIZER), "Prevents Ignoble Stock bees from dying.");
 		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.TERRITORY), "Increases territory by 25%.");
+		addTooltip(lang, GItems.UPGRADE.get(GendustryUpgradeType.IMMUTABLE), "Prevents bee mutations from occurring.");
 
 		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.MUTATION), "Increases bee mutation chances by 25%.");
 		addTooltip(lang, GItems.ELITE_UPGRADE.get(EliteGendustryUpgradeType.ACTIVITY_SIMULATOR), "A combination of the Sky, Weatherproof, and Lighting upgrades.");

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "gendustry:upgrade_frame"
+    },
+    "G": {
+      "tag": "forge:gears/bronze"
+    },
+    "P": {
+      "item": "gendustry:genetics_processor"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "X": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    "RPR",
+    "RFR",
+    "GXG"
+  ],
+  "result": {
+    "item": "gendustry:immutable_upgrade"
+  },
+  "show_notification": true
+}

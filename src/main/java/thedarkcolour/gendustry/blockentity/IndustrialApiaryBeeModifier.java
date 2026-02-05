@@ -28,6 +28,7 @@ class IndustrialApiaryBeeModifier implements IBeeModifier {
 	int humidity;
 	boolean automated;
 	boolean stabilized;
+	boolean noMutations;
 	boolean weatherproof;
 	boolean lighting;
 	boolean sky;
@@ -51,6 +52,7 @@ class IndustrialApiaryBeeModifier implements IBeeModifier {
 		this.humidity = 0;
 		this.automated = false;
 		this.stabilized = false;
+		this.noMutations = false;
 		this.weatherproof = false;
 		this.lighting = false;
 		this.sky = false;
@@ -94,6 +96,7 @@ class IndustrialApiaryBeeModifier implements IBeeModifier {
 						case SKY -> this.sky = true;
 						case STABILIZER -> this.stabilized = true;
 						case TERRITORY -> this.territory += 0.25f * count;
+						case IMMUTABLE -> this.noMutations = true;
 					}
 				} else if (upgradeType instanceof EliteGendustryUpgradeType type) {
 					// Elite upgrades
@@ -126,7 +129,7 @@ class IndustrialApiaryBeeModifier implements IBeeModifier {
 
 	@Override
 	public float modifyMutationChance(IGenome genome, IGenome mate, IMutation<IBeeSpecies> mutation, float currentChance) {
-		return currentChance * this.mutation;
+		return this.noMutations ? 0 : currentChance * this.mutation;
 	}
 
 	@Override

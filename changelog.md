@@ -1,5 +1,6 @@
 ## Gendustry 1.0.5
 - Fixed incorrect tooltip for Sieve Upgrade (#3)
+- Added Immutable Upgrade to prevent mutations in the Industrial Apiary (#9)
 
 ## Gendustry 1.0.4
 - Fixed incorrect tooltip for Advanced Mutatron hint

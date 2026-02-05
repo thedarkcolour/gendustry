@@ -1,9 +1,9 @@
-// 1.20.1	2025-01-14T18:00:20.7186032	ModKit Item Models for mod 'gendustry'
+// 1.20.1	2026-02-04T15:31:27.532047922	ModKit Item Models for mod 'gendustry'
 419930a4240936d7d46ff8a7ec6666a30186b950 assets/gendustry/models/item/activity_simulator_elite_upgrade.json
 53189ae85fbd2fb12a228c9a566f2b20b646773c assets/gendustry/models/item/advanced_mutatron.json
 7f529ca2d98fed6e1e53cb127ef919aeb00abe64 assets/gendustry/models/item/automation_upgrade.json
-85c5c132193d7c96c76dc9398966eaaf1a17ecb7 assets/gendustry/models/item/blank_genetic_template.json
 81fadb1b3458c8256823a3c6a015d47d702b0a48 assets/gendustry/models/item/blank_gene_sample.json
+85c5c132193d7c96c76dc9398966eaaf1a17ecb7 assets/gendustry/models/item/blank_genetic_template.json
 45d4d54ee94a13976eb128782de8611d958bf791 assets/gendustry/models/item/bucket_liquid_dna.json
 01ae261d5edf90db1f21eed3cf5fbfd6d9362899 assets/gendustry/models/item/bucket_mutagen.json
 1c6d7595c18db975688fccbc173716685c27d30e assets/gendustry/models/item/bucket_protein.json
@@ -14,12 +14,13 @@ a003a13a38d68118a7c67c9bc60e96583f2c7f29 assets/gendustry/models/item/dna_extrac
 7e4af79545cf8c1834c36fddc815ef9f92ce3868 assets/gendustry/models/item/elite_upgrade_frame.json
 53f28033ac2f62f9473b1e6f4ded5eba212a0e57 assets/gendustry/models/item/environmental_processor.json
 36342c3a8bdaaf9af1e061a0eeac89fe65809c11 assets/gendustry/models/item/fertility_elite_upgrade.json
-e315bb3bf4734999d6d641afdd2a145ec10d7bc8 assets/gendustry/models/item/genetics_processor.json
+695e8fcff245fd61ff95e159a2847d8aadb41dca assets/gendustry/models/item/gene_sample.json
 4e9a58d0ce5113743cc45836c08f5532801a79e0 assets/gendustry/models/item/genetic_template.json
 ba47231339daab7c6a5530b2f83cfc697a544bbc assets/gendustry/models/item/genetic_transposer.json
-695e8fcff245fd61ff95e159a2847d8aadb41dca assets/gendustry/models/item/gene_sample.json
+e315bb3bf4734999d6d641afdd2a145ec10d7bc8 assets/gendustry/models/item/genetics_processor.json
 2e8ce44762af7175ba39d83a635c9d4288b4f44f assets/gendustry/models/item/heater_upgrade.json
 6bb6a98898e9b80a61e01591bf131280aab1de1d assets/gendustry/models/item/humidifier_upgrade.json
+2ea8ee500c212c62609ce43dba353b04b72c544c assets/gendustry/models/item/immutable_upgrade.json
 7f80e3ab3ffda0b5d5e6c99fb12f3f14af717673 assets/gendustry/models/item/imprinter.json
 a970bce06e5467d37050f6181e64487b46c445cd assets/gendustry/models/item/industrial_apiary.json
 28d2f565884fe409294a4fa05cb9ad76d7535865 assets/gendustry/models/item/labware.json

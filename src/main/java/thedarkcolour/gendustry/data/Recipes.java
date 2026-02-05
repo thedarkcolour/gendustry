@@ -332,6 +332,16 @@ class Recipes {
 			recipe.pattern("BFB");
 			recipe.pattern("RGR");
 		});
+		recipes.shapedCrafting(RecipeCategory.MISC, GItems.UPGRADE.item(GendustryUpgradeType.IMMUTABLE), recipe -> {
+			recipe.define('F', upgradeFrame);
+			recipe.define('X', Items.REDSTONE_TORCH);
+			recipe.define('G', ForestryTags.Items.GEARS_BRONZE);
+			recipe.define('R', Tags.Items.DUSTS_REDSTONE);
+			recipe.define('P', GItems.RESOURCE.item(GendustryResourceType.GENETICS_PROCESSOR));
+			recipe.pattern("RPR");
+			recipe.pattern("RFR");
+			recipe.pattern("GXG");
+		});
 	}
 
 	private static void eliteUpgradeCraftingRecipes(MKRecipeProvider recipes) {

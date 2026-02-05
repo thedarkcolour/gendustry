@@ -37,6 +37,8 @@ public enum GendustryUpgradeType implements IItemSubtype, IGendustryUpgradeType 
 	STABILIZER(1, 400),
 	// Increases bee territory
 	TERRITORY(4, 50),
+	// Prevents bee mutations
+	IMMUTABLE(1, 50),
 	;
 
 	private final String name;

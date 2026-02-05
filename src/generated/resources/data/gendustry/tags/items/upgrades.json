@@ -16,6 +16,7 @@
     "gendustry:sky_upgrade",
     "gendustry:stabilizer_upgrade",
     "gendustry:territory_upgrade",
+    "gendustry:immutable_upgrade",
     "gendustry:mutation_elite_upgrade",
     "gendustry:activity_simulator_elite_upgrade",
     "gendustry:productivity_elite_upgrade",

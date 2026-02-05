@@ -77,6 +77,11 @@ repositories {
 		url 'https://jitpack.io'
 		content { includeGroup 'com.github.thedarkcolour' }
 	}
+	maven {
+		name = 'Curios'
+		url = 'https://maven.theillusivec4.top/'
+		content { includeGroup 'top.theillusivec4.curios' }
+	}
 	exclusiveContent {
 		forRepository {
 			maven {
@@ -102,6 +107,8 @@ dependencies {
 	modImplementation 'com.github.thedarkcolour:ModKit:cc8f1c11ec'
 	// FORESTRY REQUIRED
 	modImplementation "maven.modrinth:forestry-community-edition:$forestryVersion"
+	// Curios Optional
+	modImplementation "top.theillusivec4.curios:curios-forge:${curiosVersion}+${minecraftVersion}"
 
 	modImplementation 'maven.modrinth:cofh-core:11.0.2'
 	modImplementation 'maven.modrinth:thermal-foundation:11.0.6'
