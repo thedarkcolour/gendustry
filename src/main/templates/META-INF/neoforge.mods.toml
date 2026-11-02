@@ -1,0 +1,43 @@
+modLoader = "javafml"
+loaderVersion = "${fmlVersionRange}"
+issueTrackerURL = "https://github.com/thedarkcolour/Gendustry/issues"
+
+license = "GNU GPLv3"
+
+[[mods]]
+modId = "gendustry"
+version = "${version}"
+displayName = "Gendustry"
+credits = "blackdew, CrossVas, Spearkiller"
+authors = "thedarkcolour"
+description = '''
+Machines for manipulation of Forestry genetics.
+'''
+
+[[dependencies.gendustry]]
+modId = "neoforge"
+type = "REQUIRED"
+versionRange = "${forgeVersionRange}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.gendustry]]
+modId = "patchouli"
+type = "REQUIRED"
+versionRange = "${patchouliVersionRange}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.gendustry]]
+modId = "forestry"
+type = "REQUIRED"
+versionRange = "${forestryVersionRange}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.gendustry]]
+modId = "jei"
+type = "OPTIONAL"
+versionRange = "${jeiVersionRange}"
+ordering = "NONE"
+side = "CLIENT"
